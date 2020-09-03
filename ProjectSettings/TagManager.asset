@@ -13,10 +13,10 @@ TagManager:
   - UI
   - 
   - 
-  - Background
-  - Midleground
-  - Houses
-  - smth
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1797913445
+    locked: 0
+  - name: Midleground
+    uniqueID: 2753284545
+    locked: 0
+  - name: Houses
+    uniqueID: 1749155699
+    locked: 0
+  - name: smth
+    uniqueID: 1092058559
     locked: 0
