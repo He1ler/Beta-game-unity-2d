@@ -53,3 +53,6 @@ TagManager:
   - name: smth
     uniqueID: 1092058559
     locked: 0
+  - name: Characters
+    uniqueID: 2429833263
+    locked: 0
