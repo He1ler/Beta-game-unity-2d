@@ -14,9 +14,8 @@ public class Player : MonoBehaviour {
     private Sensor   m_wallSensorL1;
     private Sensor   m_wallSensorL2;
     private bool                m_grounded = false;
-    private bool                m_rolling = false;
+    private bool                m_death = false;
     private int                 m_facingDirection = 1;
-    private int                 m_currentAttack = 0;
     private float               m_timeSinceAttack = 0.0f;
     private float               m_delayToIdle = 0.0f;
 
@@ -72,25 +71,28 @@ public class Player : MonoBehaviour {
         // Move
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
 
-        /*//Set AirSpeed in animator
-        m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
-
-        // -- Handle Animations --
-        //Wall Slide
-        m_animator.SetBool("WallSlide", (m_wallSensorR1.State() && m_wallSensorR2.State()) || (m_wallSensorL1.State() && m_wallSensorL2.State()));
-        */
         //Death
         if (Input.GetKeyDown("e"))
         {
             m_animator.SetTrigger("Death");
+            m_death = true;
+            m_animator.SetInteger("death", 1);
         }
-            
+
+        //Recovery
+        else if (Input.GetKeyDown("space") && (m_death == true))
+        {
+            m_animator.SetTrigger("Recovery");
+            m_death = false;
+            m_animator.SetInteger("death", 0);
+        }
+
         //Hurt
         else if (Input.GetKeyDown("q"))
             m_animator.SetTrigger("Hurt");
 
         //Attack
-        else if(Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
+        else if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
         {
             m_animator.SetTrigger("Attack");
             // Reset timer
@@ -110,8 +112,8 @@ public class Player : MonoBehaviour {
         {
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
-                if(m_delayToIdle < 0)
-                    m_animator.SetInteger("AnimState", 0);
+            if (m_delayToIdle < 0)
+                m_animator.SetInteger("AnimState", 0);
         }
     }
 

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 850396950016087678}
   - component: {fileID: 850396950016087677}
+  - component: {fileID: 4246481881200473339}
   - component: {fileID: 850396950016087676}
   - component: {fileID: 850396950016087675}
   - component: {fileID: 850396950016087679}
-  - component: {fileID: 2470215423511619273}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Player
@@ -91,6 +91,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4246481881200473339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850396950016087674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172a1816c5375134aab6deb6cf75686e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 4
+  m_slideDust: {fileID: 1038168246061390451, guid: 8b8c8cc6774fb074cb9139cc631b108e,
+    type: 3}
 --- !u!50 &850396950016087676
 Rigidbody2D:
   serializedVersion: 4
@@ -157,20 +172,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2470215423511619273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850396950016087674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba8b435a8dc3f604e9a13c4acd7081c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_speed: 4
-  m_jumpForce: 7.5
 --- !u!1 &3597354218684965559
 GameObject:
   m_ObjectHideFlags: 0

@@ -70,6 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2439554234375328096}
   - component: {fileID: 2439554234375328127}
+  - component: {fileID: 7030722628599120997}
   - component: {fileID: 2439554234375328126}
   - component: {fileID: 2439554234375328125}
   - component: {fileID: 2439554234375328097}
@@ -150,6 +151,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7030722628599120997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2439554234375328124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172a1816c5375134aab6deb6cf75686e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 4
+  m_slideDust: {fileID: 1038168246061390451, guid: 8b8c8cc6774fb074cb9139cc631b108e,
+    type: 3}
 --- !u!50 &2439554234375328126
 Rigidbody2D:
   serializedVersion: 4
@@ -242,7 +258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6430101445015608294}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.045, y: -0.949, z: 0}
+  m_LocalPosition: {x: -0.038, y: -0.996, z: 0}
   m_LocalScale: {x: 0.90037996, y: 0.77226, z: 1}
   m_Children: []
   m_Father: {fileID: 2439554234375328096}
