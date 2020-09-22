@@ -61,6 +61,8 @@
      <Compile Include="Assets\characters\Hero Knight - Pixel Art\Demo\DestroyEvent_HeroKnight.cs" />
      <Compile Include="Assets\characters\Hero Knight - Pixel Art\Demo\HeroKnight.cs" />
      <Compile Include="Assets\characters\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
+     <Compile Include="Assets\characters\Player.cs" />
+     <Compile Include="Assets\characters\Sensor.cs" />
      <None Include="Assets\etc\Pixel Art Icon Pack - RPG\Shader\SH UI Icon Outline Color.shader" />
      <None Include="Assets\level design\Gothicvania Graveyard\about.txt" />
      <None Include="Assets\etc\Pixel Art Icon Pack - RPG\Shader\SH Sprite Icon Outline Color.shader" />
