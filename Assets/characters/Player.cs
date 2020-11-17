@@ -56,23 +56,30 @@ public class Player : MonoBehaviour {
         float inputX = Input.GetAxis("Horizontal");
 
         // Swap direction of sprite depending on walk direction
-        if (inputX > 0)
+        if (inputX > 0 && (m_death == false))
         {
             GetComponent<SpriteRenderer>().flipX = false;
             m_facingDirection = 1;
         }
             
-        else if (inputX < 0)
+        else if (inputX < 0 && (m_death == false))
         {
             GetComponent<SpriteRenderer>().flipX = true;
             m_facingDirection = -1;
         }
 
         // Move
+        if (m_death == false)
+        {
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
+        }
+        else if (m_death == true)
+        {
+            m_body2d.velocity = new Vector2(0, m_body2d.velocity.y);
+        }
 
         //Death
-        if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("e") && (m_death == false))
         {
             m_animator.SetTrigger("Death");
             m_death = true;
@@ -88,11 +95,11 @@ public class Player : MonoBehaviour {
         }
 
         //Hurt
-        else if (Input.GetKeyDown("q"))
+        else if (Input.GetKeyDown("q")&&(m_death == false))
             m_animator.SetTrigger("Hurt");
 
         //Attack
-        else if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
+        else if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && (m_death == false))
         {
             m_animator.SetTrigger("Attack");
             // Reset timer
@@ -100,7 +107,7 @@ public class Player : MonoBehaviour {
         }
 
         //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon)
+        else if (Mathf.Abs(inputX) > Mathf.Epsilon && (m_death == false))
         {
             // Reset timer
             m_delayToIdle = 0.05f;
