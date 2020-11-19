@@ -4,19 +4,16 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     [SerializeField] float      m_speed = 4.0f;
-    [SerializeField] GameObject m_slideDust;
+    //[SerializeField] GameObject m_slideDust;
 
     private Animator            m_animator;
     private Rigidbody2D         m_body2d;
     private Sensor   m_groundSensor;
-    private Sensor   m_wallSensorR1;
-    private Sensor   m_wallSensorR2;
-    private Sensor   m_wallSensorL1;
-    private Sensor   m_wallSensorL2;
+   // private Sensor   m_wallSensorR1;
+    //private Sensor   m_wallSensorL1;
     private bool                m_grounded = false;
     private bool                m_death = false;
-    private int                 m_facingDirection = 1;
-    private float               m_timeSinceAttack = 0.0f;
+  //  private int                 m_facingDirection = 1;
     private float               m_delayToIdle = 0.0f;
 
 
@@ -26,18 +23,13 @@ public class Player : MonoBehaviour {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
-        m_wallSensorR1 = transform.Find("WallSensor_R1").GetComponent<Sensor>();
-        m_wallSensorR2 = transform.Find("WallSensor_R2").GetComponent<Sensor>();
-        m_wallSensorL1 = transform.Find("WallSensor_L1").GetComponent<Sensor>();
-        m_wallSensorL2 = transform.Find("WallSensor_L2").GetComponent<Sensor>();
+       // m_wallSensorR1 = transform.Find("WallSensor_R1").GetComponent<Sensor>();
+        //m_wallSensorL1 = transform.Find("WallSensor_L1").GetComponent<Sensor>();
     }
 
     // Update is called once per frame
     void Update ()
     {
-        // Increase timer that controls attack combo
-        m_timeSinceAttack += Time.deltaTime;
-
         //Check if character just landed on the ground
         if (!m_grounded && m_groundSensor.State())
         {
@@ -59,17 +51,17 @@ public class Player : MonoBehaviour {
         if (inputX > 0 && (m_death == false))
         {
             GetComponent<SpriteRenderer>().flipX = false;
-            m_facingDirection = 1;
+          //  m_facingDirection = 1;
         }
             
         else if (inputX < 0 && (m_death == false))
         {
             GetComponent<SpriteRenderer>().flipX = true;
-            m_facingDirection = -1;
+          //  m_facingDirection = -1;
         }
 
         // Move
-        if (m_death == false)
+        if (m_death == false && m_grounded)
         {
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
         }
@@ -79,7 +71,7 @@ public class Player : MonoBehaviour {
         }
 
         //Death
-        if (Input.GetKeyDown("e") && (m_death == false))
+        if (Input.GetKeyDown("e") && (m_death == false) && !Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Death");
             m_death = true;
@@ -87,7 +79,7 @@ public class Player : MonoBehaviour {
         }
 
         //Recovery
-        else if (Input.GetKeyDown("space") && (m_death == true))
+        else if (Input.GetKeyDown("space") && (m_death == true) && !Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Recovery");
             m_death = false;
@@ -95,22 +87,36 @@ public class Player : MonoBehaviour {
         }
 
         //Hurt
-        else if (Input.GetKeyDown("q")&&(m_death == false))
+        else if (Input.GetKeyDown("q")&&(m_death == false) && m_grounded && !Pausemenu.GameisPaused)
             m_animator.SetTrigger("Hurt");
 
         //Attack
-        else if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && (m_death == false))
+        else if (Input.GetMouseButtonDown(0) && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Attack");
-            // Reset timer
-            m_timeSinceAttack = 0.0f;
         }
 
         //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon && (m_death == false))
+        else if (Mathf.Abs(inputX) > Mathf.Epsilon && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
         {
             // Reset timer
             m_delayToIdle = 0.05f;
+           /* Vector3 spawnPosition;
+            if (m_facingDirection == 1)
+            {
+                spawnPosition = m_wallSensorR1.transform.position;
+            }
+            else
+            {
+                spawnPosition = m_wallSensorL1.transform.position;
+            }
+            if (m_slideDust != null)
+            {
+                // Set correct arrow spawn position
+                GameObject dust = Instantiate(m_slideDust, spawnPosition, gameObject.transform.localRotation) as GameObject;
+                // Turn arrow in correct direction
+                dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
+            }*/
             m_animator.SetInteger("AnimState", 1);
         }
 
@@ -123,25 +129,4 @@ public class Player : MonoBehaviour {
                 m_animator.SetInteger("AnimState", 0);
         }
     }
-
-    // Animation Events
-/*
-    // Called in slide animation.
-    void AE_SlideDust()
-    {
-        Vector3 spawnPosition;
-
-        if (m_facingDirection == 1)
-            spawnPosition = m_wallSensorR2.transform.position;
-        else
-            spawnPosition = m_wallSensorL2.transform.position;
-
-        if (m_slideDust != null)
-        {
-            // Set correct arrow spawn position
-            GameObject dust = Instantiate(m_slideDust, spawnPosition, gameObject.transform.localRotation) as GameObject;
-            // Turn arrow in correct direction
-            dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
-        }
-    }*/
 }
