@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\Mainmenu.cs" />
      <Compile Include="Assets\Pausemenu.cs" />
+     <Compile Include="Assets\SettingsMenu.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
