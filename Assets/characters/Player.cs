@@ -4,18 +4,12 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     [SerializeField] float      m_speed = 4.0f;
-    //[SerializeField] GameObject m_slideDust;
-
     private Animator            m_animator;
     private Rigidbody2D         m_body2d;
     private Sensor   m_groundSensor;
-   // private Sensor   m_wallSensorR1;
-    //private Sensor   m_wallSensorL1;
     private bool                m_grounded = false;
     private bool                m_death = false;
-  //  private int                 m_facingDirection = 1;
-    private float               m_delayToIdle = 0.0f;
-
+    private float                     m_delayToIdle = 0.0f;
 
     // Use this for initialization
     void Start ()
@@ -23,8 +17,6 @@ public class Player : MonoBehaviour {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
-       // m_wallSensorR1 = transform.Find("WallSensor_R1").GetComponent<Sensor>();
-        //m_wallSensorL1 = transform.Find("WallSensor_L1").GetComponent<Sensor>();
     }
 
     // Update is called once per frame
@@ -51,13 +43,11 @@ public class Player : MonoBehaviour {
         if (inputX > 0 && (m_death == false))
         {
             GetComponent<SpriteRenderer>().flipX = false;
-          //  m_facingDirection = 1;
         }
             
         else if (inputX < 0 && (m_death == false))
         {
             GetComponent<SpriteRenderer>().flipX = true;
-          //  m_facingDirection = -1;
         }
 
         // Move
@@ -101,25 +91,24 @@ public class Player : MonoBehaviour {
         {
             // Reset timer
             m_delayToIdle = 0.05f;
-           /* Vector3 spawnPosition;
-            if (m_facingDirection == 1)
-            {
-                spawnPosition = m_wallSensorR1.transform.position;
-            }
-            else
-            {
-                spawnPosition = m_wallSensorL1.transform.position;
-            }
-            if (m_slideDust != null)
-            {
-                // Set correct arrow spawn position
-                GameObject dust = Instantiate(m_slideDust, spawnPosition, gameObject.transform.localRotation) as GameObject;
-                // Turn arrow in correct direction
-                dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
-            }*/
             m_animator.SetInteger("AnimState", 1);
         }
-
+        else if (Input.GetKeyDown("1") && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
+        {         
+            m_animator.SetTrigger("Skill1");
+        }
+        else if (Input.GetKeyDown("2") && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
+        {         
+            m_animator.SetTrigger("Skill2");
+        }
+        else if (Input.GetKeyDown("3") && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
+        {
+            m_animator.SetTrigger("Skill3");
+        }
+        else if (Input.GetKeyDown("4") && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
+        {
+            m_animator.SetTrigger("Skill4");
+        }
         //Idle
         else
         {
@@ -129,4 +118,79 @@ public class Player : MonoBehaviour {
                 m_animator.SetInteger("AnimState", 0);
         }
     }
+    /*
+        private Animator m_animator;
+    [SerializeField] GameObject Explosion;
+    [SerializeField] GameObject FireExplosion;
+    [SerializeField] GameObject Fireball;
+    [SerializeField] GameObject Fireblast;
+    public bool Explosioni = false;
+    public bool Fireballi = false;
+    [SerializeField] Sensor SpellsensorEXP;
+    [SerializeField] Sensor Spellsensor;
+    void Start()
+    {
+        m_animator = GetComponent<Animator>();
+        SpellsensorEXP = transform.Find("SpellsensorEXP").GetComponent<Sensor>();
+        Spellsensor = transform.Find("Spellsensor").GetComponent<Sensor>();
+    }
+    void Update ()
+    {
+        Vector3 spawnPosition3;
+        Vector2 spawnPosition2;
+        if (Input.GetKeyDown("1"))
+        {
+            Fireballi = true;
+            spawnPosition3 = Spellsensor.transform.position;
+            if (Fireball != null)
+            {
+                // Set correct arrow spawn position
+                GameObject dust = Instantiate(Fireball, spawnPosition3, gameObject.transform.localRotation) as GameObject;
+                // Turn arrow in correct direction
+                dust.transform.localScale = new Vector3(1, 1, 1);
+            }
+            m_animator.SetBool("Fireballi", Fireballi);
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            Fireballi = true;
+            spawnPosition3 = Spellsensor.transform.position;
+            if (Fireblast != null)
+            {
+                // Set correct arrow spawn position
+                GameObject dust = Instantiate(Fireblast, spawnPosition3, gameObject.transform.localRotation) as GameObject;
+                // Turn arrow in correct direction
+                dust.transform.localScale = new Vector3(1, 1, 1);
+            }
+            m_animator.SetBool("Fireballi", Fireballi);
+        }
+        else if (Input.GetKeyDown("3"))
+        {
+            Explosioni = true;
+            spawnPosition2 = SpellsensorEXP.transform.position;
+            if (Explosion != null)
+            {
+                // Set correct arrow spawn position
+                GameObject dust = Instantiate(Explosion, spawnPosition2, gameObject.transform.localRotation) as GameObject;
+                // Turn arrow in correct direction
+                dust.transform.localScale = new Vector2(1, 1);
+                m_animator.SetBool("Explosioni", Explosioni);
+            }
+        }
+        else if (Input.GetKeyDown("4"))
+        {
+            Explosioni = true;
+            spawnPosition2 = SpellsensorEXP.transform.position;
+            if (FireExplosion != null)
+            {
+                // Set correct arrow spawn position
+                GameObject dust = Instantiate(FireExplosion, spawnPosition2, gameObject.transform.localRotation) as GameObject;
+                // Turn arrow in correct direction
+                dust.transform.localScale = new Vector2(1, 1);
+            }
+            m_animator.SetBool("Explosioni", Explosioni);
+            m_animator.SetBool("Explosioni", Explosioni);
+        }
+    }
+     */
 }
