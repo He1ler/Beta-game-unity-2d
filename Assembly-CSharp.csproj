@@ -57,7 +57,6 @@
   <ItemGroup>
      <Compile Include="Assets\Mainmenu.cs" />
      <Compile Include="Assets\Pausemenu.cs" />
-     <Compile Include="Assets\SCRIPT.cs" />
      <Compile Include="Assets\SettingsMenu.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -92,24 +91,22 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-     <Compile Include="Assets\characters\Bandits - Pixel Art\Demo\Bandit.cs" />
-     <Compile Include="Assets\characters\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
-     <Compile Include="Assets\characters\Hero Knight - Pixel Art\ColorSwap\ColorSwap_HeroKnight.cs" />
-     <Compile Include="Assets\characters\Hero Knight - Pixel Art\Demo\DestroyEvent_HeroKnight.cs" />
-     <Compile Include="Assets\characters\Hero Knight - Pixel Art\Demo\HeroKnight.cs" />
-     <Compile Include="Assets\characters\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
+     <Compile Include="Assets\beardedscript.cs" />
+     <Compile Include="Assets\characters\DestroyEvent_HeroKnight.cs" />
+     <Compile Include="Assets\characters\Knight\ColorSwap\ColorSwap_HeroKnight.cs" />
+     <Compile Include="Assets\characters\Knight\Demo\HeroKnight.cs" />
+     <Compile Include="Assets\characters\Knight\Demo\Sensor_HeroKnight.cs" />
      <Compile Include="Assets\characters\Player.cs" />
      <Compile Include="Assets\characters\Sensor.cs" />
+     <Compile Include="Assets\oldman_script.cs" />
      <None Include="Assets\etc\Pixel Art Icon Pack - RPG\Shader\SH UI Icon Outline Color.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
-     <None Include="Assets\level design\Gothicvania Graveyard\about.txt" />
+     <None Include="Assets\level design\Graveyard\about.txt" />
      <None Include="Assets\etc\Pixel Art Icon Pack - RPG\Shader\SH Sprite Icon Outline Color.shader" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
-     <None Include="Assets\level design\hub location\GothicVania-town-files\public-license.txt" />
-     <None Include="Assets\characters\Hero and Opponents\license.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\level design\Dark_Forest\about.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
@@ -117,25 +114,19 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\characters\EVil Wizard\License.txt" />
-     <None Include="Assets\level design\Medieval_pixel_art_asset_FREE\pixel_snapping_README.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\level design\hub location\GothicVania-town-files\Music\readme.txt" />
-     <None Include="Assets\etc\Melee Weapons Icons\Read Me.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <None Include="Assets\etc\Fantasy RPG Icon Set- Free\Notes.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <None Include="Assets\level design\hub location\GothicVania-town-files\readme.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\etc\SpellBookPreface\ReadMe.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\level design\hub location\GothicVania-town-files\code\phaser-code\assets\sounds\readme.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
-     <None Include="Assets\characters\Hero Knight - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />
+     <None Include="Assets\characters\Knight\ColorSwap\Sprites-ColorSwap.shader" />
  <Reference Include="UnityEngine">
  <HintPath>D:/programs/unity/2019.4.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
