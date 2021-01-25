@@ -11,7 +11,6 @@ ScriptsOnlyBuild:
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
-    - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
     - UnityEditor.Tilemaps.GridPalettes
@@ -94,39 +93,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11544}
     - Class: 114
-      Script: {instanceID: 12038}
+      Script: {instanceID: 12036}
     - Class: 114
-      Script: {instanceID: 12214}
+      Script: {instanceID: 12212}
     - Class: 114
-      Script: {instanceID: 12468}
+      Script: {instanceID: 12466}
     - Class: 114
-      Script: {instanceID: 12572}
+      Script: {instanceID: 12570}
     - Class: 114
-      Script: {instanceID: 12928}
+      Script: {instanceID: 12926}
     - Class: 114
-      Script: {instanceID: 12962}
+      Script: {instanceID: 12960}
     - Class: 114
-      Script: {instanceID: 13062}
+      Script: {instanceID: 13060}
     - Class: 114
-      Script: {instanceID: 13108}
+      Script: {instanceID: 13106}
     - Class: 114
-      Script: {instanceID: 13282}
+      Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 13346}
+      Script: {instanceID: 13342}
     - Class: 114
-      Script: {instanceID: 13366}
+      Script: {instanceID: 13362}
     - Class: 114
-      Script: {instanceID: 13620}
+      Script: {instanceID: 13616}
     - Class: 114
-      Script: {instanceID: 13724}
+      Script: {instanceID: 13720}
     - Class: 114
-      Script: {instanceID: 14194}
+      Script: {instanceID: 14190}
     - Class: 114
-      Script: {instanceID: 14332}
+      Script: {instanceID: 14328}
     - Class: 114
-      Script: {instanceID: 14366}
+      Script: {instanceID: 14362}
     - Class: 114
-      Script: {instanceID: 14386}
+      Script: {instanceID: 14382}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -187,35 +186,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11858}
     - Class: 114
-      Script: {instanceID: 12038}
+      Script: {instanceID: 12036}
     - Class: 114
-      Script: {instanceID: 12214}
+      Script: {instanceID: 12212}
     - Class: 114
-      Script: {instanceID: 12268}
+      Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12572}
+      Script: {instanceID: 12570}
     - Class: 114
-      Script: {instanceID: 12928}
+      Script: {instanceID: 12926}
     - Class: 114
-      Script: {instanceID: 13062}
+      Script: {instanceID: 13060}
     - Class: 114
-      Script: {instanceID: 13282}
+      Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 13300}
+      Script: {instanceID: 13298}
     - Class: 114
-      Script: {instanceID: 13620}
+      Script: {instanceID: 13616}
     - Class: 114
-      Script: {instanceID: 13724}
+      Script: {instanceID: 13720}
     - Class: 114
-      Script: {instanceID: 14018}
+      Script: {instanceID: 14014}
     - Class: 114
-      Script: {instanceID: 14194}
+      Script: {instanceID: 14190}
     - Class: 114
-      Script: {instanceID: 14332}
+      Script: {instanceID: 14328}
     - Class: 114
-      Script: {instanceID: 14366}
+      Script: {instanceID: 14362}
     - Class: 114
-      Script: {instanceID: 14386}
+      Script: {instanceID: 14382}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -443,12 +442,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationPlayableAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Sensor_Bandit
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -695,12 +688,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationPlayableAsset
-  - hash:
-      serializedVersion: 2
-      Hash: e41a547b14d42eeba4854fb180617c13
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Bandit
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
