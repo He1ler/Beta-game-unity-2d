@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 623736177747904773}
   - component: {fileID: 2703403104063211533}
   - component: {fileID: 6555337098220628601}
+  - component: {fileID: -5079692380642410811}
   m_Layer: 0
   m_Name: Flying eye
   m_TagString: Untagged
@@ -156,7 +157,7 @@ Animator:
   m_GameObject: {fileID: 2423197114075985243}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 87fd3fed836f9aa4886263afb78bf1ca, type: 2}
+  m_Controller: {fileID: 22100000, guid: a37ce299320270f44a7ffc93ece99fc0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -212,3 +213,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.248512, y: 7.734878}
   m_EdgeRadius: 0
+--- !u!114 &-5079692380642410811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2423197114075985243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 200

@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Mainmenu.cs" />
-     <Compile Include="Assets\Scripts\Monster script.cs" />
+     <Compile Include="Assets\Scripts\Monsterscript.cs" />
      <Compile Include="Assets\Scripts\Pausemenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Sensor.cs" />

@@ -69,9 +69,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9196232834713474270}
+  - component: {fileID: -4448224155668994168}
   - component: {fileID: 9196232834713474241}
   - component: {fileID: 9196232834713474240}
   - component: {fileID: 7993444175512603607}
+  - component: {fileID: 3352531936519278539}
   - component: {fileID: 1540285432489843247}
   m_Layer: 0
   m_Name: Bandit sniper
@@ -95,6 +97,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4448224155668994168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196232834713474243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 200
 --- !u!212 &9196232834713474241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -155,7 +170,7 @@ Animator:
   m_GameObject: {fileID: 9196232834713474243}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 5ef3e4e990836c940a9b7cd7c07bae61, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -190,6 +205,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5042677, y: 2.5443242}
   m_EdgeRadius: 0
+--- !u!114 &3352531936519278539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196232834713474243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 4
 --- !u!50 &1540285432489843247
 Rigidbody2D:
   serializedVersion: 4

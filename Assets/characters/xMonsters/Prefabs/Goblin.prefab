@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 8410111697281094465}
   - component: {fileID: 9129818122094859553}
   - component: {fileID: 3085142565973762053}
+  - component: {fileID: -1022206203563928710}
   - component: {fileID: 7412270734376652833}
   m_Layer: 0
   m_Name: Goblin
@@ -156,7 +157,7 @@ Animator:
   m_GameObject: {fileID: 4798511893860951622}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4242eab9e4d18f44191909d5c36dcd09, type: 2}
+  m_Controller: {fileID: 22100000, guid: bfe1e7040e951dd4eb86fa7097999163, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -191,6 +192,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.502104, y: 1.6393948}
   m_EdgeRadius: 0
+--- !u!114 &-1022206203563928710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798511893860951622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 200
 --- !u!50 &7412270734376652833
 Rigidbody2D:
   serializedVersion: 4

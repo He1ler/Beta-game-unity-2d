@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 8448957366223950369}
   - component: {fileID: 6899878398809405643}
   - component: {fileID: 5337734649436045787}
+  - component: {fileID: -2209150671849817486}
   m_Layer: 0
   m_Name: Cave monster
   m_TagString: Untagged
@@ -155,7 +156,7 @@ Animator:
   m_GameObject: {fileID: 6226849946352286925}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 821090623b0066c42bec4d106a5d74e2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -211,3 +212,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.20140928, y: 0.39977458}
   m_EdgeRadius: 0
+--- !u!114 &-2209150671849817486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6226849946352286925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 200
