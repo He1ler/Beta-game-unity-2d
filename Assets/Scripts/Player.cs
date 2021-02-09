@@ -1,26 +1,33 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
-    [SerializeField] float      m_speed = 4.0f;
-    private Animator            m_animator;
-    private Rigidbody2D         m_body2d;
-    private Sensor   m_groundSensor;
-    private bool                m_grounded = false;
-    private bool                m_death = false;
-    private float                     m_delayToIdle = 0.0f;
+    [SerializeField] float m_speed = 4.0f;
+    private Animator m_animator;
+    private Rigidbody2D m_body2d;
+    private Sensor m_groundSensor;
+    private bool m_grounded = false;
+    private float m_delayToIdle = 0.0f;
+
+    public bool IsDeadHero = false;
+    public float startHealth = 100;
+    private float health;
+    [Header("Unity Stuff")]
+    public Image healthBar;
+   // public Transform spawnPoint;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
+        health = startHealth;
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
         //Check if character just landed on the ground
         if (!m_grounded && m_groundSensor.State())
@@ -40,72 +47,72 @@ public class Player : MonoBehaviour {
         float inputX = Input.GetAxis("Horizontal");
 
         // Swap direction of sprite depending on walk direction
-        if (inputX > 0 && (m_death == false))
+        if (inputX > 0 && (IsDeadHero == false))
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
-            
-        else if (inputX < 0 && (m_death == false))
+
+        else if (inputX < 0 && (IsDeadHero == false))
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
 
         // Move
-        if (m_death == false && m_grounded)
+        if (IsDeadHero == false && m_grounded)
         {
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
         }
-        else if (m_death == true)
+        else if (IsDeadHero == true)
         {
             m_body2d.velocity = new Vector2(0, m_body2d.velocity.y);
         }
 
         //Death
-        if (Input.GetKeyDown("e") && (m_death == false) && !Pausemenu.GameisPaused)
+        if (Input.GetKeyDown("e") && (IsDeadHero == false) && !Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Death");
-            m_death = true;
+            IsDeadHero = true;
             m_animator.SetInteger("death", 1);
         }
 
         //Recovery
-        else if (Input.GetKeyDown("space") && (m_death == true) && !Pausemenu.GameisPaused)
+        else if (Input.GetKeyDown("space") && (IsDeadHero == true) && !Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Recovery");
-            m_death = false;
+            IsDeadHero = false;
             m_animator.SetInteger("death", 0);
         }
 
         //Hurt
-        else if (Input.GetKeyDown("q")&&(m_death == false) && m_grounded && !Pausemenu.GameisPaused)
+        else if (Input.GetKeyDown("q") && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
             m_animator.SetTrigger("Hurt");
 
         //Attack
-        else if (Input.GetMouseButtonDown(0) && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
+        else if (Input.GetMouseButtonDown(0) && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Attack");
         }
 
         //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
+        else if (Mathf.Abs(inputX) > Mathf.Epsilon && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
         {
             // Reset timer
             m_delayToIdle = 0.05f;
             m_animator.SetInteger("AnimState", 1);
         }
-        else if (Input.GetKeyDown("1") && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
-        {         
+        else if (Input.GetKeyDown("1") && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+        {
             m_animator.SetTrigger("Skill1");
         }
-        else if (Input.GetKeyDown("2") && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
-        {         
+        else if (Input.GetKeyDown("2") && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+        {
             m_animator.SetTrigger("Skill2");
         }
-        else if (Input.GetKeyDown("3") && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
+        else if (Input.GetKeyDown("3") && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Skill3");
         }
-        else if (Input.GetKeyDown("4") && (m_death == false) && m_grounded && !Pausemenu.GameisPaused)
+        else if (Input.GetKeyDown("4") && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Skill4");
         }
@@ -118,6 +125,34 @@ public class Player : MonoBehaviour {
                 m_animator.SetInteger("AnimState", 0);
         }
     }
+
+    /*public void TakeDamage(float amount)
+    {
+        health -= amount;
+
+        healthBar.fillAmount = health / startHealth;
+
+        if (health <= 0 && !isDead)
+        {
+            Die();
+        }
+    }*/
+    /*void Die()
+    {
+        isDead = true;
+
+        PlayerStats.Money += worth;
+
+        GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
+
+        WaveSpawner.EnemiesAlive--;
+
+        Destroy(gameObject);
+    }*/
+
+
+
     /*
         private Animator m_animator;
     [SerializeField] GameObject Explosion;

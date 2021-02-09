@@ -55,12 +55,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Enemies.cs" />
+     <Compile Include="Assets\Scripts\GameManagerScript.cs" />
+     <Compile Include="Assets\Scripts\Heroes.cs" />
      <Compile Include="Assets\Scripts\Mainmenu.cs" />
      <Compile Include="Assets\Scripts\Monsterscript.cs" />
      <Compile Include="Assets\Scripts\Pausemenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Sensor.cs" />
      <Compile Include="Assets\Scripts\SettingsMenu.cs" />
+     <Compile Include="Assets\Scripts\UI.cs" />
+     <Compile Include="Assets\Scripts\WaveSpawnerScript.cs" />
      <Compile Include="Assets\Scripts\beardedscript.cs" />
      <Compile Include="Assets\Scripts\oldman_script.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
