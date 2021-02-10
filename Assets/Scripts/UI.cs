@@ -6,17 +6,21 @@ public class UI : MonoBehaviour
 {
     private bool dead1 = false;
     private bool dead2 = false;
-    void Start()
-    {
-        
-    }
-
+    public int[] Hero;
     // Update is called once per frame
     void Update()
     {
         if (dead1 && dead2)
         {
-
+            LoseLevel();
         }
+    }
+    public void LoseLevel()
+    {
+
+    }
+    public void WinLevel()
+    {
+
     }
 }

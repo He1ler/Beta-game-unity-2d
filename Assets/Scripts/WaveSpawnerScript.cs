@@ -4,57 +4,85 @@ using UnityEngine.UI;
 
 public class WaveSpawnerScript : MonoBehaviour
 {
-
-	public Transform spawnPoint;
-
+	public Vector3 EnemyPosition1 = new Vector3(38, 193, 0);
+	public Vector3 EnemyPosition2 = new Vector3(178, 193, 0);
+	public Vector3 EnemyPosition3 = new Vector3(38, 193, 0);
+	public Vector3 EnemyPosition4 = new Vector3(178, 193, 0);
+	public Vector3 HeroPosition1 = new Vector3(38, 193, 0);
+	public Vector3 HeroPosition2 = new Vector3(178, 193, 0);
+	private int waveIndex = 0;
 	public static int EnemiesAlive = 0;
-	//public GameManager gameManager;
-
-	/*void Update()
+	public bool IsBoss = false;
+	private int EnemyNumber;
+	private int HeroNumber;
+	Enemies enemies;
+	Heroes heroes;
+	public UI ui;
+	void Start()
+    {
+		for(int i=0; i < 2;i++)
+        {
+			HeroNumber = ui.Hero[i];
+			SpawnHero(heroes.HeroClass[HeroNumber].HeroObject, i);
+		}
+    }
+	void Update()
 	{
 		if (EnemiesAlive > 0)
 		{
 			return;
 		}
 
-		if (waveIndex == waves.Length)
+		if (waveIndex == 3)
 		{
-			gameManager.WinLevel();
+			ui.WinLevel();
 			this.enabled = false;
 		}
 
-		if (countdown <= 0f)
+		if (EnemiesAlive <=0)
 		{
-			StartCoroutine(SpawnWave());
-			countdown = timeBetweenWaves;
+			SpawnWave();
 			return;
 		}
-
-		countdown -= Time.deltaTime;
-
-		countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
-
-		waveCountdownText.text = string.Format("{0:00.00}", countdown);
 	}
-	IEnumerator SpawnWave()
+	void SpawnWave()
 	{
-		PlayerStats.Rounds++;
-
-		Wave wave = waves[waveIndex];
-
-		EnemiesAlive = wave.count;
-
-		for (int i = 0; i < wave.count; i++)
+		EnemiesAlive = Random.Range(2,4);
+		for (int i = 0; i < EnemiesAlive; i++)
 		{
-			SpawnEnemy(wave.enemy);
-			yield return new WaitForSeconds(1f / wave.rate);
+			EnemyNumber = Random.Range(0, enemies.EnemyClass.Length);
+			SpawnEnemy(enemies.EnemyClass[EnemyNumber].EnemyObject,i);
 		}
-
 		waveIndex++;
-	}*/
-
-	void SpawnEnemy(GameObject enemy)
+	}
+	void SpawnEnemy(GameObject enemy,int n)
 	{
-		Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+		if(n==1)
+        {
+			Instantiate(enemy, EnemyPosition1, Quaternion.identity);
+		}
+		else if (n == 2)
+		{
+			Instantiate(enemy, EnemyPosition2, Quaternion.identity);
+		}
+		else if(n == 3)
+		{
+			Instantiate(enemy, EnemyPosition3, Quaternion.identity);
+		}
+		else if(n == 4)
+		{
+			Instantiate(enemy, EnemyPosition4, Quaternion.identity);
+		}
+	}
+	void SpawnHero(GameObject enemy, int n)
+    {
+		if (n == 1)
+		{
+			Instantiate(enemy, HeroPosition1, Quaternion.identity);
+		}
+		else if (n == 2)
+		{
+			Instantiate(enemy, HeroPosition2, Quaternion.identity);
+		}
 	}
 }

@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
-public class Enemies
+public class Enemies : MonoBehaviour
 {
-	public GameObject enemy;
-	public int size;
+    public Enemy[] EnemyClass;
 }
