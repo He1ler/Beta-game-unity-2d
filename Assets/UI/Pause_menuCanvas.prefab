@@ -711,7 +711,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 1.4372864}
+  m_margin: {x: 0, y: 0, z: -10.988892, w: 1.4372864}
   m_textInfo:
     textComponent: {fileID: 8279870509950366793}
     characterCount: 8
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.4053955, y: 0.4051361, z: 0, w: -0.037521362}
+  m_margin: {x: 0.4053955, y: 0.4051361, z: -13.710876, w: -0.037521362}
   m_textInfo:
     textComponent: {fileID: 3184513307054333540}
     characterCount: 5
@@ -4498,7 +4498,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.6547241, y: 0.60827637, z: 0.42166138, w: 0.18640137}
+  m_margin: {x: 0.6547241, y: 0.60827637, z: -12.1466675, w: 0.18640137}
   m_textInfo:
     textComponent: {fileID: 2941047990160304706}
     characterCount: 8
@@ -5266,7 +5266,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.40545654, y: 0.3448639, z: 0.028442383, w: 0.018875122}
+  m_margin: {x: 0.40545654, y: 0.3448639, z: -13.682312, w: 0.018875122}
   m_textInfo:
     textComponent: {fileID: 5234193921013525675}
     characterCount: 10
@@ -5640,7 +5640,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.5677185, y: -1.410614, z: 0, w: 0.49572754}
+  m_margin: {x: -0.5677185, y: -1.410614, z: -12.568237, w: 0.49572754}
   m_textInfo:
     textComponent: {fileID: 37440795521421202}
     characterCount: 5
