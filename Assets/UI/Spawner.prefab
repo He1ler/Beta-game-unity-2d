@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 442687980753424197}
   - component: {fileID: 9141667729146354202}
   - component: {fileID: 464301286345916349}
+  - component: {fileID: -983576732560552006}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -103,3 +104,48 @@ MonoBehaviour:
   HeroPosition2: {x: 178, y: 193, z: 0}
   IsBoss: 0
   ui: {fileID: 0}
+--- !u!114 &-983576732560552006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442687980753424198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a97ff84eb963ad4db9766c5c3c674f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeroClass:
+  - HeroObject: {fileID: 8776561655351575541, guid: f8be9717f55290043876af31c52a1bbe,
+      type: 3}
+    HeroName: Blacksmith
+    HeroImage: {fileID: 21300000, guid: 14e20b82f5820864fbc4e9bce20480f2, type: 3}
+  - HeroObject: {fileID: 7535283850282367633, guid: 6ad88ed3bb44a91498d78fc3be301a43,
+      type: 3}
+    HeroName: Brother
+    HeroImage: {fileID: 21300000, guid: bd630f2ffe543aa46af42c00c6bbb054, type: 3}
+  - HeroObject: {fileID: 4296361006943601561, guid: 2dcc0b5ea10e48c488de0fd60f68fed2,
+      type: 3}
+    HeroName: Condotier
+    HeroImage: {fileID: 21300000, guid: f41be60091a2e2042944c6a3591d142f, type: 3}
+  - HeroObject: {fileID: 8355508651715472864, guid: ad52b6678d3874b43b46fa8acb286926,
+      type: 3}
+    HeroName: GirlKnight
+    HeroImage: {fileID: 21300000, guid: 63b1d0eff85ff7c4299ab3220ac62006, type: 3}
+  - HeroObject: {fileID: 8481325847892598963, guid: 5d1f0695da9820e4cbdb1f5b2f342e7e,
+      type: 3}
+    HeroName: King
+    HeroImage: {fileID: 21300000, guid: 38def6b68e702304980960741a38ac5c, type: 3}
+  - HeroObject: {fileID: 7122412878878452651, guid: 47255da24e5ad8f4084fa47c5c63b993,
+      type: 3}
+    HeroName: Knight
+    HeroImage: {fileID: 21300000, guid: 9ffde1592863e5e43b82ce85dd96165a, type: 3}
+  - HeroObject: {fileID: 7152154017721613807, guid: 22255a5446ced584ca21eaf966f517af,
+      type: 3}
+    HeroName: Monk
+    HeroImage: {fileID: 21300000, guid: 3dadccf12d651d841966479acdd9d7cd, type: 3}
+  - HeroObject: {fileID: 3221440567231578696, guid: c9817532254cca0498a0ffc232f871c8,
+      type: 3}
+    HeroName: Wizard
+    HeroImage: {fileID: 21300000, guid: a67c7d002152b0847873e741a42ae3f0, type: 3}

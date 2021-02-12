@@ -22,7 +22,7 @@ public class WaveSpawnerScript : MonoBehaviour
     {
 		for(int i=0; i < 2;i++)
         {
-			HeroNumber = ui.Hero[i];
+			HeroNumber = (ui.Hero[i]-1);
 			SpawnHero(heroes.HeroClass[HeroNumber].HeroObject, i);
 		}
     }

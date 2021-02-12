@@ -57,9 +57,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Enemies.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Scripts\GameManagerScript.cs" />
      <Compile Include="Assets\Scripts\Hero.cs" />
      <Compile Include="Assets\Scripts\Heroes.cs" />
+     <Compile Include="Assets\Scripts\Loading.cs" />
      <Compile Include="Assets\Scripts\Mainmenu.cs" />
      <Compile Include="Assets\Scripts\Monsterscript.cs" />
      <Compile Include="Assets\Scripts\Pausemenu.cs" />
