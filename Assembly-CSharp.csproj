@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Enemies.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Hero.cs" />
+     <Compile Include="Assets\Scripts\HeroSelector.cs" />
      <Compile Include="Assets\Scripts\Heroes.cs" />
      <Compile Include="Assets\Scripts\Loading.cs" />
      <Compile Include="Assets\Scripts\Mainmenu.cs" />

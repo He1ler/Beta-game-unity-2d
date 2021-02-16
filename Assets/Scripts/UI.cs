@@ -8,16 +8,17 @@ public class UI : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject completeLevelUI;
 
-    public Button buttonAccept;
-    public Button buttonGo;
-    private int index = 0;
+    //public Button buttonAccept;
+   // private int index = 0;
 
     private bool dead1 = false;
     private bool dead2 = false;
+
     public int[] Hero;
     private Player hero1;
     private Player hero2;
 
+    private string MapName;
     void Start()
     {
         GameIsOver = false;
@@ -44,7 +45,11 @@ public class UI : MonoBehaviour
         GameIsOver = true;
         completeLevelUI.SetActive(true);
     }
-    public void Indexplus()
+    public void SetMapname(Button btn)
+    {
+        MapName = btn.name;
+    }
+   /* public void Indexplus()
     {
         Hero[index] = Convert.ToInt32(buttonAccept.image.name);
         index++;
@@ -53,5 +58,5 @@ public class UI : MonoBehaviour
     {
         Hero[index] = 8;
         index--;
-    }
+    }*/
 }

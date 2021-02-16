@@ -5,10 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Main menu.unity
     guid: eaae65619b68bf54d9ecdd6457bce2a6
   - enabled: 1
     path: Assets/Scenes/Hub location.unity
     guid: a24de5f1d65b8fb4da714abe9594e010
+  - enabled: 1
+    path: Assets/Scenes/Castle1.unity
+    guid: 24bf83553d0b2de4d9b33a97b29b0d7b
+  - enabled: 1
+    path: Assets/Scenes/cave1.unity
+    guid: 1e411e2d9717302449010e9691551ff8
+  - enabled: 1
+    path: Assets/Scenes/Church1.unity
+    guid: 85823b10f3542114ba74c105b725d733
+  - enabled: 1
+    path: Assets/Scenes/dungeon1.unity
+    guid: 9dbc4dc5b5863a1419bd3af573d1bf88
+  - enabled: 1
+    path: Assets/Scenes/Forest1.unity
+    guid: ba19e4c01b2047c4d8c739a0a89aa585
+  - enabled: 1
+    path: Assets/Scenes/Graveyard1.unity
+    guid: 27d314160793d19488b6868d2fe24a51
   m_configObjects: {}

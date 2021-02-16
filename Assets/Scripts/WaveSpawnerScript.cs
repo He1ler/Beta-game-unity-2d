@@ -32,13 +32,11 @@ public class WaveSpawnerScript : MonoBehaviour
 		{
 			return;
 		}
-
 		if (waveIndex == 3)
 		{
 			ui.WinLevel();
 			this.enabled = false;
 		}
-
 		if (EnemiesAlive <=0)
 		{
 			SpawnWave();
