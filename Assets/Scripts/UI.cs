@@ -1,22 +1,19 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class UI : MonoBehaviour
 {
-    public static bool GameIsOver;
+    Loading nextscene;
 
+    public static bool GameIsOver;
     public GameObject gameOverUI;
     public GameObject completeLevelUI;
-
-    //public Button buttonAccept;
-   // private int index = 0;
 
     private bool dead1 = false;
     private bool dead2 = false;
 
-    public int[] Hero;
-    private Player hero1;
-    private Player hero2;
+  //  private Player hero1;
+  //  private Player hero2;
 
     private string MapName;
     void Start()
@@ -26,8 +23,8 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dead1 = hero1.IsDeadHero;
-        dead2 = hero2.IsDeadHero;
+      //  dead1 = hero1.IsDeadHero;
+      // dead2 = hero2.IsDeadHero;
         if (dead1 && dead2)
         {
             LoseLevel();
@@ -49,14 +46,9 @@ public class UI : MonoBehaviour
     {
         MapName = btn.name;
     }
-   /* public void Indexplus()
+    public void StartLevel()
     {
-        Hero[index] = Convert.ToInt32(buttonAccept.image.name);
-        index++;
+        SceneManager.LoadScene("Loading");
+        nextscene.LoadLevel(MapName);
     }
-    public void indexminus()
-    {
-        Hero[index] = 8;
-        index--;
-    }*/
 }

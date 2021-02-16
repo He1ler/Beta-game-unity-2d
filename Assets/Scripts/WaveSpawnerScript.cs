@@ -17,12 +17,14 @@ public class WaveSpawnerScript : MonoBehaviour
 	private int HeroNumber;
 	Enemies enemies;
 	Heroes heroes;
+
+	public HeroSelector HS;
 	public UI ui;
 	void Start()
     {
 		for(int i=0; i < 2;i++)
         {
-			HeroNumber = (ui.Hero[i]-1);
+			HeroNumber = (HS.Hero[i]-1);
 			SpawnHero(heroes.HeroClass[HeroNumber].HeroObject, i);
 		}
     }

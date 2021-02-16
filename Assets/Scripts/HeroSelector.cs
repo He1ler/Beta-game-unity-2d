@@ -1,18 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System;
 
 public class HeroSelector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int[] Hero;
+    public Button buttonAccept;
+    private int index = 0;
+     public void Indexplus()
+ {
+     Hero[index] = Convert.ToInt32(buttonAccept.image.name);
+     index++;
+ }
+ public void indexminus()
+ {
+     Hero[index] = 8;
+     index--;
+ }
 }

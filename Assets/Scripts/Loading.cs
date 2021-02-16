@@ -7,14 +7,13 @@ public class Loading : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider slider;
-
-    public void LoadLevel (int sceneIndex)
+    public void LoadLevel (string scene)
     {
-        StartCoroutine(LoadingAsync(sceneIndex));
+        StartCoroutine(LoadingAsync(scene));
     }
-    IEnumerator LoadingAsync (int sceneIndex)
+    IEnumerator LoadingAsync (string scene)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
         while(!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / .9f);
