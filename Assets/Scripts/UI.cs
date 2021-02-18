@@ -3,8 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class UI : MonoBehaviour
 {
-    Loading nextscene;
-
     public static bool GameIsOver;
     public GameObject gameOverUI;
     public GameObject completeLevelUI;
@@ -14,8 +12,6 @@ public class UI : MonoBehaviour
 
   //  private Player hero1;
   //  private Player hero2;
-
-    private string MapName;
     void Start()
     {
         GameIsOver = false;
@@ -42,13 +38,8 @@ public class UI : MonoBehaviour
         GameIsOver = true;
         completeLevelUI.SetActive(true);
     }
-    public void SetMapname(Button btn)
-    {
-        MapName = btn.name;
-    }
     public void StartLevel()
     {
         SceneManager.LoadScene("Loading");
-        nextscene.LoadLevel(MapName);
     }
 }

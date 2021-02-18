@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
-
+using System;
 public class WaveSpawnerScript : MonoBehaviour
 {
 	public Vector3 EnemyPosition1 = new Vector3(38, 193, 0);
@@ -14,20 +12,17 @@ public class WaveSpawnerScript : MonoBehaviour
 	public static int EnemiesAlive = 0;
 	public bool IsBoss = false;
 	private int EnemyNumber;
-	private int HeroNumber;
+
 	Enemies enemies;
 	Heroes heroes;
 
-	public HeroSelector HS;
 	public UI ui;
 	void Start()
     {
-		for(int i=0; i < 2;i++)
-        {
-			HeroNumber = (HS.Hero[i]-1);
-			SpawnHero(heroes.HeroClass[HeroNumber].HeroObject, i);
-		}
-    }
+		SpawnHero(heroes.HeroClass[DataTransition.MapNameFromFile().heroIndex1-1].HeroObject, 1);
+		SpawnHero(heroes.HeroClass[DataTransition.MapNameFromFile().heroIndex2-1].HeroObject, 2);
+
+	}
 	void Update()
 	{
 		if (EnemiesAlive > 0)
@@ -47,10 +42,10 @@ public class WaveSpawnerScript : MonoBehaviour
 	}
 	void SpawnWave()
 	{
-		EnemiesAlive = Random.Range(2,4);
+		EnemiesAlive = UnityEngine.Random.Range(2,4);
 		for (int i = 0; i < EnemiesAlive; i++)
 		{
-			EnemyNumber = Random.Range(0, enemies.EnemyClass.Length);
+			EnemyNumber = UnityEngine.Random.Range(0, enemies.EnemyClass.Length);
 			SpawnEnemy(enemies.EnemyClass[EnemyNumber].EnemyObject,i);
 		}
 		waveIndex++;
@@ -74,15 +69,15 @@ public class WaveSpawnerScript : MonoBehaviour
 			Instantiate(enemy, EnemyPosition4, Quaternion.identity);
 		}
 	}
-	void SpawnHero(GameObject enemy, int n)
+	void SpawnHero(GameObject hero, int n)
     {
 		if (n == 1)
 		{
-			Instantiate(enemy, HeroPosition1, Quaternion.identity);
+			Instantiate(hero, HeroPosition1, Quaternion.identity);
 		}
 		else if (n == 2)
 		{
-			Instantiate(enemy, HeroPosition2, Quaternion.identity);
+			Instantiate(hero, HeroPosition2, Quaternion.identity);
 		}
 	}
 }

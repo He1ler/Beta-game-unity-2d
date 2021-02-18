@@ -7,9 +7,15 @@ public class Loading : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider slider;
-    public void LoadLevel (string scene)
+
+    public IEnumerator Start()
     {
-        StartCoroutine(LoadingAsync(scene));
+        yield return new WaitForSecondsRealtime(3.0f);
+        LoadLevel();
+    }
+    public void LoadLevel ()
+    {
+        StartCoroutine(LoadingAsync(DataTransition.MapNameFromFile().mapName));
     }
     IEnumerator LoadingAsync (string scene)
     {

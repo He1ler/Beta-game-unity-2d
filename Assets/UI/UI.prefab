@@ -947,9 +947,6 @@ MonoBehaviour:
   gameOverUI: {fileID: 5473712334493690229, guid: c638b8306cef27142bab7cc74da20341,
     type: 3}
   completeLevelUI: {fileID: 0}
-  buttonAccept: {fileID: 0}
-  buttonGo: {fileID: 0}
-  Hero: 0000000000000000
 --- !u!1 &3944999076902572561
 GameObject:
   m_ObjectHideFlags: 0
