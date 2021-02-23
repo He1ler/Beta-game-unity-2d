@@ -11,8 +11,8 @@ public class Monsterscript : MonoBehaviour
     public float startHealth = 100;
     public bool IsDeadEnemie = false;
     private float health;
-    [Header("Unity Stuff")]
-    public Image healthBar;
+   // [Header("Unity Stuff")]
+   // public Image healthBar;
     // Use this for initialization
     void Start()
     {
@@ -47,14 +47,14 @@ public class Monsterscript : MonoBehaviour
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
             if (m_delayToIdle < 0)
-            { m_animator.SetInteger("AnimState", 0); }
+            { }
         }
     }
     public void TakeDamage(float amount)
     {
         health -= amount;
 
-        healthBar.fillAmount = health / startHealth;
+       // healthBar.fillAmount = health / startHealth;
 
         if (health <= 0 && !IsDeadEnemie)
         {

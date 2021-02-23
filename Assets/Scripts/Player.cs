@@ -13,8 +13,8 @@ public class Player : MonoBehaviour {
     public bool IsDeadHero = false;
     public float startHealth = 100;
     private float health;
-    [Header("Unity Stuff")]
-    public Image healthBar;
+   // [Header("Unity Stuff")]
+   // public Image healthBar;
    // public Transform spawnPoint;
 
     // Use this for initialization

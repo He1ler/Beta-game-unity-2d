@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 public class WaveSpawnerScript : MonoBehaviour
 {
 	public Vector3 EnemyPosition1 = new Vector3(38, 193, 0);
@@ -12,15 +11,15 @@ public class WaveSpawnerScript : MonoBehaviour
 	public static int EnemiesAlive = 0;
 	public bool IsBoss = false;
 	private int EnemyNumber;
+	public Enemy []enemies;
+	public Hero[]heroes;
 
-	Enemies enemies;
-	Heroes heroes;
 
 	public UI ui;
 	void Start()
     {
-		SpawnHero(heroes.HeroClass[DataTransition.MapNameFromFile().heroIndex1-1].HeroObject, 1);
-		SpawnHero(heroes.HeroClass[DataTransition.MapNameFromFile().heroIndex2-1].HeroObject, 2);
+		SpawnHero(heroes[DataTransition.MapNameFromFile().heroIndex1-1].HeroObject, 1);
+		SpawnHero(heroes[DataTransition.MapNameFromFile().heroIndex2-1].HeroObject, 2);
 
 	}
 	void Update()
@@ -42,11 +41,11 @@ public class WaveSpawnerScript : MonoBehaviour
 	}
 	void SpawnWave()
 	{
-		EnemiesAlive = UnityEngine.Random.Range(2,4);
-		for (int i = 0; i < EnemiesAlive; i++)
+		EnemiesAlive = Random.Range(2,5);
+		for (int i = 1; i <= EnemiesAlive; i++)
 		{
-			EnemyNumber = UnityEngine.Random.Range(0, enemies.EnemyClass.Length);
-			SpawnEnemy(enemies.EnemyClass[EnemyNumber].EnemyObject,i);
+			EnemyNumber = Random.Range(0, enemies.Length);
+			SpawnEnemy(enemies[EnemyNumber].EnemyObject,i);
 		}
 		waveIndex++;
 	}

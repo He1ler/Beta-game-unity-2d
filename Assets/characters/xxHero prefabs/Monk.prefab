@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523604599374604911}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.009, y: -0.311, z: 0}
+  m_LocalPosition: {x: 0.006, y: -0.32, z: 0}
   m_LocalScale: {x: 0.18579884, y: 0.20267922, z: 1}
   m_Children: []
   m_Father: {fileID: 4795063418905082747}
@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7152154017721613807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 153.52, y: -3.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 192.48994, y: 180.25305, z: 1}
   m_Children:
   - {fileID: 1476444026370096085}
@@ -132,8 +132,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1865134033
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fdb550509659347d4b4c37d05c566ad2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -185,6 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 200
+  IsDeadHero: 0
+  startHealth: 100
 --- !u!50 &7669772311189322125
 Rigidbody2D:
   serializedVersion: 4

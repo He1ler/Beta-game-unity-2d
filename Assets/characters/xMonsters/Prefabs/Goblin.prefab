@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4057743549255300391}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.042, y: -1.276, z: 0}
+  m_LocalPosition: {x: 0.397, y: 0.09, z: 0}
   m_LocalScale: {x: 0.5918075, y: 0.9320075, z: 1}
   m_Children: []
   m_Father: {fileID: 7419323347805620936}
@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4798511893860951622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 140.2, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 42.143993, y: 33.7524, z: 1}
   m_Children:
   - {fileID: 5203676647014384059}
@@ -132,8 +132,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1865134033
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: c1cdd26cc09ad224884556bc4d8296ae,
     type: 3}
@@ -179,10 +179,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026313782, y: -0.36423552}
+  m_Offset: {x: 0.026313782, y: 1.001947}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.3}
     oldSize: {x: 6.818182, y: 6.818182}
     newSize: {x: 6.818182, y: 6.818182}
     adaptiveTilingThreshold: 0.5
@@ -190,7 +190,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.502104, y: 1.6393948}
+  m_Size: {x: 1.502104, y: 1.633044}
   m_EdgeRadius: 0
 --- !u!114 &-1022206203563928710
 MonoBehaviour:
@@ -204,7 +204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 200
+  startHealth: 100
+  IsDeadEnemie: 0
 --- !u!50 &7412270734376652833
 Rigidbody2D:
   serializedVersion: 4
@@ -216,8 +217,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 3489.2993
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1

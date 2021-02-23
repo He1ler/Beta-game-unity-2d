@@ -148,9 +148,9 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 25, y: 50, z: 25, w: 35}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -169,9 +169,9 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 25, y: 50, z: 25, w: 35}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -190,9 +190,9 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 25, y: 50, z: 25, w: 35}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -211,9 +211,9 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 25, y: 50, z: 25, w: 35}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -232,9 +232,9 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 25, y: 50, z: 25, w: 35}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -253,9 +253,9 @@ TextureImporter:
         y: 0
         width: 150
         height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 25, y: 50, z: 25, w: 35}
       outline: []
       physicsShape: []
       tessellationDetail: 0

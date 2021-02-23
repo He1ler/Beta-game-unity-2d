@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3368238306434891225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.382, y: -2.231, z: 0}
+  m_LocalPosition: {x: 0.482, y: -0.062, z: 0}
   m_LocalScale: {x: 0.43144745, y: 0.6029521, z: 1}
   m_Children: []
   m_Father: {fileID: 9196232834713474270}
@@ -90,7 +90,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9196232834713474243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 273, y: 41, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 57.80803, y: 52.172447, z: 1}
   m_Children:
   - {fileID: 1524046252374023019}
@@ -109,7 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 200
+  startHealth: 100
+  IsDeadEnemie: 0
 --- !u!212 &9196232834713474241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -146,8 +147,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1865134033
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eb3711790d9a7304992355d8f5f9eeae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -192,10 +193,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.24912906, y: -0.9096564}
+  m_Offset: {x: 0.24912906, y: 1.2718434}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 5.818182, y: 4.3636365}
     newSize: {x: 5.818182, y: 4.3636365}
     adaptiveTilingThreshold: 0.5
@@ -203,7 +204,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5042677, y: 2.5443242}
+  m_Size: {x: 1.5042677, y: 2.5477915}
   m_EdgeRadius: 0
 --- !u!114 &3352531936519278539
 MonoBehaviour:
@@ -217,7 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 4
+  startHealth: 100
+  IsDeadEnemie: 0
 --- !u!50 &1540285432489843247
 Rigidbody2D:
   serializedVersion: 4
@@ -229,8 +231,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 11558.949
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
