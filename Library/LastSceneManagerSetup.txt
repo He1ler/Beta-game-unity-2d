@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Graveyard1.unity
+- path: Assets/Scenes/wcharacters.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2266645083484464226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 254.09642, y: 331.98776, z: 1}
+  m_LocalScale: {x: 220, y: 260, z: 1}
   m_Children:
   - {fileID: 8586825764514363344}
   m_Father: {fileID: 0}
@@ -157,7 +157,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 11102.831
+  m_Mass: 7528.512
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
