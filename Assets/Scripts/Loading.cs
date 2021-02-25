@@ -7,7 +7,6 @@ public class Loading : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider slider;
-
     public IEnumerator Start()
     {
         yield return new WaitForSecondsRealtime(3.0f);

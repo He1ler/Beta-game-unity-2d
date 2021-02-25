@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 4199874106138935778}
   - component: {fileID: 4199874106138935777}
   - component: {fileID: 4199874106138935776}
+  - component: {fileID: 2917180566095883561}
   m_Layer: 5
   m_Name: DarkscreenTransition
   m_TagString: Untagged
@@ -136,7 +137,7 @@ Canvas:
   m_GameObject: {fileID: 4199874106138935807}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -144,7 +145,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -206,3 +207,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2917180566095883561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199874106138935807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68846b58abfc44948bc941a1d283c5ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4199874106138935776}
+  IsVisibleLoadScene: 1
+  LoadCan: {fileID: 0}

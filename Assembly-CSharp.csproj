@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\WaveSpawnerScript.cs" />
      <Compile Include="Assets\Scripts\beardedscript.cs" />
      <Compile Include="Assets\Scripts\oldman_script.cs" />
+     <Compile Include="Assets\Scripts\screen_transition.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
