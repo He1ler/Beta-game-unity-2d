@@ -11,16 +11,9 @@ public class Player : MonoBehaviour {
     private float m_delayToIdle = 0.0f;
 
     public bool IsDeadHero = false;
-    public float startHealth = 100;
-    private float health;
-   // [Header("Unity Stuff")]
-   // public Image healthBar;
-   // public Transform spawnPoint;
 
-    // Use this for initialization
-    void Start()
+      void Start()
     {
-        health = startHealth;
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
@@ -88,10 +81,10 @@ public class Player : MonoBehaviour {
             m_animator.SetTrigger("Hurt");
 
         //Attack
-        else if (Input.GetMouseButtonDown(0) && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
-        {
-            m_animator.SetTrigger("Attack");
-        }
+      //  else if (Input.GetMouseButtonDown(0) && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+      //  {
+      //      m_animator.SetTrigger("Attack");
+      //  }
 
         //Run
         else if (Mathf.Abs(inputX) > Mathf.Epsilon && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
@@ -125,33 +118,6 @@ public class Player : MonoBehaviour {
                 m_animator.SetInteger("AnimState", 0);
         }
     }
-
-    /*public void TakeDamage(float amount)
-    {
-        health -= amount;
-
-        healthBar.fillAmount = health / startHealth;
-
-        if (health <= 0 && !isDead)
-        {
-            Die();
-        }
-    }*/
-    /*void Die()
-    {
-        isDead = true;
-
-        PlayerStats.Money += worth;
-
-        GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
-
-        WaveSpawner.EnemiesAlive--;
-
-        Destroy(gameObject);
-    }*/
-
-
 
     /*
         private Animator m_animator;

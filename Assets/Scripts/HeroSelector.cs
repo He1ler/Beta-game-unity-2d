@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 public class HeroSelector : MonoBehaviour
 {
     public int heroSelect1 = 0;
@@ -52,5 +53,9 @@ public class HeroSelector : MonoBehaviour
     public void SetMapname(Button btn)
     {
         MapName = btn.name;
+    }
+    public void StartLevel()
+    {
+        SceneManager.LoadScene("Loading");
     }
 }

@@ -161,7 +161,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 200
   IsDeadHero: 0
-  startHealth: 100
 --- !u!50 &8776561655351575543
 Rigidbody2D:
   serializedVersion: 4
@@ -219,7 +218,7 @@ Animator:
   m_GameObject: {fileID: 8776561655351575541}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 9f394cce72dbdf848ba05573b817158c, type: 2}
+  m_Controller: {fileID: 22100000, guid: 5ebaf91991de3304aa87336abd4fb170, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

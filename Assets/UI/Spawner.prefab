@@ -49,77 +49,357 @@ MonoBehaviour:
   EnemyPosition4: {x: 178, y: 193, z: 0}
   HeroPosition1: {x: 38, y: 193, z: 0}
   HeroPosition2: {x: 178, y: 193, z: 0}
-  IsBoss: 0
   enemies:
   - EnemyObject: {fileID: 9196232834713474243, guid: 949d48fb9f131f64d910d18d81710a94,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 2657256689749842804, guid: c2df6871e15cfda4a8720fa140ab45e7,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 2266645083484464226, guid: 1371c0ec11b2107459fd466b964ddb10,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 6226849946352286925, guid: 45a5e61cc672123479ef9caefa74d362,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 2864191101156823346, guid: f38b1ca40f92d8844a4859ee25c890ff,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 4318639180523963332, guid: bc81839bfa947ff4587eb0b690bbf0e7,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 2423197114075985243, guid: 30b487d98057a174d9bb77cff8d9c41e,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 4798511893860951622, guid: 391af6af77848144e8d276fcef311e67,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 4510561477667024636, guid: 8f5bd7ed5780e9e4294bd9934ce5f4df,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 6298202166443123783, guid: a218306883b8c384eb27337bec86a3fe,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 1546437751752358348, guid: af60e2bd3a6ae5a46a2a2b837154b502,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 6344214216210160991, guid: 0172c1ebb06ddc046907343d9f4d8e4e,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 5234165237246476856, guid: 43eee1e127f105240a3a9a9eb45e80ba,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 6143187667349952278, guid: d612a3292b58b21488dd53123375f06b,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 6206937524759054684, guid: 1cbdc2b5c243fdf42a5fb2911a9bb34b,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 5663049995826928250, guid: 00ebbe469269be9469e5ea868f46937e,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 1197492408265921121, guid: ca2bb65092f50cf4d85089a7bf847420,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 1139793519818416030, guid: 9016076d632e1b54ebcc781dca730f76,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   - EnemyObject: {fileID: 7412486073415291261, guid: 8b43b7c97d841984d8b0053c20c01a50,
       type: 3}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
   heroes:
   - HeroObject: {fileID: 8776561655351575541, guid: f8be9717f55290043876af31c52a1bbe,
       type: 3}
     HeroName: Blacksmith
     HeroImage: {fileID: 21300000, guid: 14e20b82f5820864fbc4e9bce20480f2, type: 3}
+    Skill1Image: {fileID: 0}
+    Skill2Image: {fileID: 0}
+    Skill3Image: {fileID: 0}
+    Skill4Image: {fileID: 0}
+    Skill1Name: 
+    Skill2Name: 
+    Skill3Name: 
+    Skill4Name: 
+    MaxHealth: 100
+    health: 0
+    Skill1Damage: 10
+    Skill2Damage: 15
+    Skill3Damage: 20
+    Skill4Damage: 30
+    isDead: 0
   - HeroObject: {fileID: 7535283850282367633, guid: 6ad88ed3bb44a91498d78fc3be301a43,
       type: 3}
     HeroName: Condotier
     HeroImage: {fileID: 21300000, guid: bd630f2ffe543aa46af42c00c6bbb054, type: 3}
+    Skill1Image: {fileID: 0}
+    Skill2Image: {fileID: 0}
+    Skill3Image: {fileID: 0}
+    Skill4Image: {fileID: 0}
+    Skill1Name: 
+    Skill2Name: 
+    Skill3Name: 
+    Skill4Name: 
+    MaxHealth: 100
+    health: 0
+    Skill1Damage: 10
+    Skill2Damage: 15
+    Skill3Damage: 20
+    Skill4Damage: 30
+    isDead: 0
   - HeroObject: {fileID: 8355508651715472864, guid: ad52b6678d3874b43b46fa8acb286926,
       type: 3}
     HeroName: GirlKnight
     HeroImage: {fileID: 21300000, guid: f41be60091a2e2042944c6a3591d142f, type: 3}
+    Skill1Image: {fileID: 0}
+    Skill2Image: {fileID: 0}
+    Skill3Image: {fileID: 0}
+    Skill4Image: {fileID: 0}
+    Skill1Name: 
+    Skill2Name: 
+    Skill3Name: 
+    Skill4Name: 
+    MaxHealth: 100
+    health: 0
+    Skill1Damage: 10
+    Skill2Damage: 15
+    Skill3Damage: 20
+    Skill4Damage: 30
+    isDead: 0
   - HeroObject: {fileID: 4296361006943601561, guid: 2dcc0b5ea10e48c488de0fd60f68fed2,
       type: 3}
     HeroName: Brother
     HeroImage: {fileID: 21300000, guid: 63b1d0eff85ff7c4299ab3220ac62006, type: 3}
+    Skill1Image: {fileID: 0}
+    Skill2Image: {fileID: 0}
+    Skill3Image: {fileID: 0}
+    Skill4Image: {fileID: 0}
+    Skill1Name: 
+    Skill2Name: 
+    Skill3Name: 
+    Skill4Name: 
+    MaxHealth: 100
+    health: 0
+    Skill1Damage: 10
+    Skill2Damage: 15
+    Skill3Damage: 20
+    Skill4Damage: 30
+    isDead: 0
   - HeroObject: {fileID: 7122412878878452651, guid: 47255da24e5ad8f4084fa47c5c63b993,
       type: 3}
     HeroName: Knight
     HeroImage: {fileID: 21300000, guid: 38def6b68e702304980960741a38ac5c, type: 3}
+    Skill1Image: {fileID: 0}
+    Skill2Image: {fileID: 0}
+    Skill3Image: {fileID: 0}
+    Skill4Image: {fileID: 0}
+    Skill1Name: 
+    Skill2Name: 
+    Skill3Name: 
+    Skill4Name: 
+    MaxHealth: 100
+    health: 0
+    Skill1Damage: 10
+    Skill2Damage: 15
+    Skill3Damage: 20
+    Skill4Damage: 30
+    isDead: 0
   - HeroObject: {fileID: 8481325847892598963, guid: 5d1f0695da9820e4cbdb1f5b2f342e7e,
       type: 3}
     HeroName: King
-    HeroImage: {fileID: 21300000, guid: 9ffde1592863e5e43b82ce85dd96165a, type: 3}
+    HeroImage: {fileID: 21300000, guid: 38def6b68e702304980960741a38ac5c, type: 3}
+    Skill1Image: {fileID: 0}
+    Skill2Image: {fileID: 0}
+    Skill3Image: {fileID: 0}
+    Skill4Image: {fileID: 0}
+    Skill1Name: 
+    Skill2Name: 
+    Skill3Name: 
+    Skill4Name: 
+    MaxHealth: 100
+    health: 0
+    Skill1Damage: 10
+    Skill2Damage: 15
+    Skill3Damage: 20
+    Skill4Damage: 30
+    isDead: 0
   - HeroObject: {fileID: 7152154017721613807, guid: 22255a5446ced584ca21eaf966f517af,
       type: 3}
     HeroName: Monk
     HeroImage: {fileID: 21300000, guid: 3dadccf12d651d841966479acdd9d7cd, type: 3}
+    Skill1Image: {fileID: 0}
+    Skill2Image: {fileID: 0}
+    Skill3Image: {fileID: 0}
+    Skill4Image: {fileID: 0}
+    Skill1Name: 
+    Skill2Name: 
+    Skill3Name: 
+    Skill4Name: 
+    MaxHealth: 100
+    health: 0
+    Skill1Damage: 10
+    Skill2Damage: 15
+    Skill3Damage: 20
+    Skill4Damage: 30
+    isDead: 0
   - HeroObject: {fileID: 3221440567231578696, guid: c9817532254cca0498a0ffc232f871c8,
       type: 3}
     HeroName: Wizard
     HeroImage: {fileID: 21300000, guid: a67c7d002152b0847873e741a42ae3f0, type: 3}
-  ui: {fileID: 0}
+    Skill1Image: {fileID: 0}
+    Skill2Image: {fileID: 0}
+    Skill3Image: {fileID: 0}
+    Skill4Image: {fileID: 0}
+    Skill1Name: 
+    Skill2Name: 
+    Skill3Name: 
+    Skill4Name: 
+    MaxHealth: 100
+    health: 0
+    Skill1Damage: 10
+    Skill2Damage: 15
+    Skill3Damage: 20
+    Skill4Damage: 30
+    isDead: 0
+  hero1:
+    HeroObject: {fileID: 0}
+    HeroName: 
+    HeroImage: {fileID: 0}
+    Skill1Image: {fileID: 0}
+    Skill2Image: {fileID: 0}
+    Skill3Image: {fileID: 0}
+    Skill4Image: {fileID: 0}
+    Skill1Name: 
+    Skill2Name: 
+    Skill3Name: 
+    Skill4Name: 
+    MaxHealth: 100
+    health: 0
+    Skill1Damage: 10
+    Skill2Damage: 15
+    Skill3Damage: 20
+    Skill4Damage: 30
+    isDead: 0
+  hero2:
+    HeroObject: {fileID: 0}
+    HeroName: 
+    HeroImage: {fileID: 0}
+    Skill1Image: {fileID: 0}
+    Skill2Image: {fileID: 0}
+    Skill3Image: {fileID: 0}
+    Skill4Image: {fileID: 0}
+    Skill1Name: 
+    Skill2Name: 
+    Skill3Name: 
+    Skill4Name: 
+    MaxHealth: 100
+    health: 0
+    Skill1Damage: 10
+    Skill2Damage: 15
+    Skill3Damage: 20
+    Skill4Damage: 30
+    isDead: 0
+  enemy1:
+    EnemyObject: {fileID: 0}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
+  enemy2:
+    EnemyObject: {fileID: 0}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
+  enemy3:
+    EnemyObject: {fileID: 0}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
+  enemy4:
+    EnemyObject: {fileID: 0}
+    EnemyName: 
+    StartHealth: 100
+    health: 0
+    AttackDamage: 10
+    isDead: 0
+  IsBoss: 0

@@ -7,31 +7,36 @@ public class WaveSpawnerScript : MonoBehaviour
 	public Vector3 EnemyPosition4 = new Vector3(178, 193, 0);
 	public Vector3 HeroPosition1 = new Vector3(38, 193, 0);
 	public Vector3 HeroPosition2 = new Vector3(178, 193, 0);
+
 	private int waveIndex = 0;
 	public static int EnemiesAlive = 0;
-	public bool IsBoss = false;
 	private int EnemyNumber;
+
 	public Enemy []enemies;
 	public Hero[]heroes;
 
+	public Hero hero1;
+	public Hero hero2;
 
-	public UI ui;
+	public Enemy enemy1;
+	public Enemy enemy2;
+	public Enemy enemy3;
+	public Enemy enemy4;
+
+	public bool IsBoss = false;
+
 	void Start()
     {
-		SpawnHero(heroes[DataTransition.MapNameFromFile().heroIndex1-1].HeroObject, 1);
-		SpawnHero(heroes[DataTransition.MapNameFromFile().heroIndex2-1].HeroObject, 2);
-
+		hero1 = heroes[DataTransition.MapNameFromFile().heroIndex1 - 1];
+		hero2 = heroes[DataTransition.MapNameFromFile().heroIndex2 - 1];
+		SpawnHero(hero1.HeroObject, 1);
+		SpawnHero(hero2.HeroObject, 2);
 	}
 	void Update()
 	{
 		if (EnemiesAlive > 0)
 		{
 			return;
-		}
-		if (waveIndex == 3)
-		{
-			ui.WinLevel();
-			this.enabled = false;
 		}
 		if (EnemiesAlive <=0)
 		{
@@ -45,7 +50,26 @@ public class WaveSpawnerScript : MonoBehaviour
 		for (int i = 1; i <= EnemiesAlive; i++)
 		{
 			EnemyNumber = Random.Range(0, enemies.Length);
-			SpawnEnemy(enemies[EnemyNumber].EnemyObject,i);
+			if(i==1)
+            {
+				enemy1 = enemies[EnemyNumber];
+				SpawnEnemy(enemy1.EnemyObject, i);
+			}
+			else if (i == 2)
+			{
+				enemy2 = enemies[EnemyNumber];
+				SpawnEnemy(enemy2.EnemyObject, i);
+			}
+			else if (i == 3)
+			{
+				enemy3 = enemies[EnemyNumber];
+				SpawnEnemy(enemy3.EnemyObject, i);
+			}
+			else if (i == 4)
+			{
+				enemy4 = enemies[EnemyNumber];
+				SpawnEnemy(enemy4.EnemyObject, i);
+			}
 		}
 		waveIndex++;
 	}
