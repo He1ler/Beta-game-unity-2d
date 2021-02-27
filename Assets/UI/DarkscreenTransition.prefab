@@ -147,7 +147,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_TargetDisplay: 0
 --- !u!114 &4199874106138935778
 MonoBehaviour:
@@ -220,5 +220,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4199874106138935776}
-  IsVisibleLoadScene: 1
   LoadCan: {fileID: 0}

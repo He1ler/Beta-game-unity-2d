@@ -3,21 +3,13 @@ using System.Collections;
 public class screen_transition : MonoBehaviour
 {
     public Animator animator;
-    public bool IsVisibleLoadScene = true;
     public GameObject LoadCan;
+   // public bool IsRealLoading = true;
     void Start ()
-    {
-        StartCoroutine(WaitLoadScene());
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if(!IsVisibleLoadScene)
-        {
-            EndDarkSreen();
-            LoadCan.SetActive(false);
-            IsVisibleLoadScene = true;
-        }
+    { //if(!IsRealLoading)
+        //{
+            StartCoroutine(WaitLoadScene());
+        //}
     }
     public void StartDarkSreen ()
     {
@@ -30,7 +22,8 @@ public class screen_transition : MonoBehaviour
     }
     private IEnumerator WaitLoadScene ()
     {
-        yield return new WaitForSeconds(10.0f);
-        IsVisibleLoadScene = false;
+        yield return new WaitForSeconds(2f);
+        StartDarkSreen();
+        LoadCan.SetActive(false);
     }
 }
