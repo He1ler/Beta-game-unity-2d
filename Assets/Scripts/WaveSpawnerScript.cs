@@ -8,8 +8,8 @@ public class WaveSpawnerScript : MonoBehaviour
 	public Vector3 HeroPosition1 = new Vector3(38, 193, 0);
 	public Vector3 HeroPosition2 = new Vector3(178, 193, 0);
 
-	private int waveIndex = 0;
-	public static int EnemiesAlive = 0;
+	public int waveIndex = 0;
+	public int EnemiesAlive = 0;
 	private int EnemyNumber;
 
 	public Enemy []enemies;
@@ -32,19 +32,7 @@ public class WaveSpawnerScript : MonoBehaviour
 		SpawnHero(hero1.HeroObject, 1);
 		SpawnHero(hero2.HeroObject, 2);
 	}
-	void Update()
-	{
-		if (EnemiesAlive > 0)
-		{
-			return;
-		}
-		if (EnemiesAlive <=0)
-		{
-			SpawnWave();
-			return;
-		}
-	}
-	void SpawnWave()
+	public void SpawnWave()
 	{
 		EnemiesAlive = Random.Range(2,5);
 		for (int i = 1; i <= EnemiesAlive; i++)

@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 
     public bool IsDeadHero = false;
 
-      void Start()
+    void Start()
     {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
@@ -118,7 +118,10 @@ public class Player : MonoBehaviour {
                 m_animator.SetInteger("AnimState", 0);
         }
     }
+    void Attack()
+    {
 
+    }
     /*
         private Animator m_animator;
     [SerializeField] GameObject Explosion;

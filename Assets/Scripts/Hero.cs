@@ -8,14 +8,14 @@ public class Hero
 	public string HeroName;
 	public Sprite HeroImage;
 
-   /* public Image Skill1Image;
+    public Image Skill1Image;
     public Image Skill2Image;
     public Image Skill3Image;
     public Image Skill4Image;
     public string Skill1Name;
     public string Skill2Name;
     public string Skill3Name;
-    public string Skill4Name;*/
+    public string Skill4Name;
 
     public int MaxHealth = 100;
     public int health = 100;

@@ -3,7 +3,7 @@
 [System.Serializable]
 public class Enemy {
 	public GameObject EnemyObject;
-   // public string EnemyName;
+    public string EnemyName;
 	const int size = 1;
 
 	public int MaxHealth = 100;
