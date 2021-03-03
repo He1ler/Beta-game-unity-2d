@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1857291976730346869, guid: a6801d916de69514e98e3f03eb990f6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.2999878
+      objectReference: {fileID: 0}
     - target: {fileID: 3447633778663233298, guid: a6801d916de69514e98e3f03eb990f6b,
         type: 3}
       propertyPath: DarkScreen
@@ -50,12 +55,12 @@ PrefabInstance:
     - target: {fileID: 4501894738502872361, guid: a6801d916de69514e98e3f03eb990f6b,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4501894738502872361, guid: a6801d916de69514e98e3f03eb990f6b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4501894738502872361, guid: a6801d916de69514e98e3f03eb990f6b,
         type: 3}
@@ -70,12 +75,12 @@ PrefabInstance:
     - target: {fileID: 4501894738502872361, guid: a6801d916de69514e98e3f03eb990f6b,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -894
       objectReference: {fileID: 0}
     - target: {fileID: 4501894738502872361, guid: a6801d916de69514e98e3f03eb990f6b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -502
       objectReference: {fileID: 0}
     - target: {fileID: 4501894738502872361, guid: a6801d916de69514e98e3f03eb990f6b,
         type: 3}
@@ -152,10 +157,15 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6578068541911413508, guid: a6801d916de69514e98e3f03eb990f6b,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7095404945594229132, guid: a6801d916de69514e98e3f03eb990f6b,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7095404945594229132, guid: a6801d916de69514e98e3f03eb990f6b,
         type: 3}
@@ -171,6 +181,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.characterCount
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095404945594229132, guid: a6801d916de69514e98e3f03eb990f6b,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3447633778663233298, guid: a6801d916de69514e98e3f03eb990f6b, type: 3}

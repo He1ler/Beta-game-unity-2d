@@ -1,28 +1,29 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
 public class Player : MonoBehaviour {
 
-    [SerializeField] float m_speed = 4.0f;
+   // [SerializeField] float m_speed = 4.0f;
     private Animator m_animator;
-    private Rigidbody2D m_body2d;
-    private Sensor m_groundSensor;
-    private bool m_grounded = false;
+    //private Rigidbody2D m_body2d;
+    //private Sensor m_groundSensor;
+    //private bool m_grounded = false;
     private float m_delayToIdle = 0.0f;
 
-    public bool IsDeadHero = false;
-
+    UI ui;
     void Start()
     {
+        ui = GameObject.Find("UI").GetComponent<UI>();
         m_animator = GetComponent<Animator>();
-        m_body2d = GetComponent<Rigidbody2D>();
-        m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
+       // m_body2d = GetComponent<Rigidbody2D>();
+       // m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Check if character just landed on the ground
+        /*
+         //Check if character just landed on the ground
         if (!m_grounded && m_groundSensor.State())
         {
             m_grounded = true;
@@ -58,58 +59,56 @@ public class Player : MonoBehaviour {
         else if (IsDeadHero == true)
         {
             m_body2d.velocity = new Vector2(0, m_body2d.velocity.y);
-        }
+        }*/
 
         //Death
-        if (Input.GetKeyDown("e") && (IsDeadHero == false) && !Pausemenu.GameisPaused)
+        if (!Pausemenu.GameisPaused && ui.hero.HeroState == HeroStates.Dead && ui.hero.health <=0)
         {
             m_animator.SetTrigger("Death");
-            IsDeadHero = true;
             m_animator.SetInteger("death", 1);
         }
 
         //Recovery
-        else if (Input.GetKeyDown("space") && (IsDeadHero == true) && !Pausemenu.GameisPaused)
+        else if (!Pausemenu.GameisPaused && ui.hero.HeroState == HeroStates.Recovery)
         {
             m_animator.SetTrigger("Recovery");
-            IsDeadHero = false;
             m_animator.SetInteger("death", 0);
         }
 
         //Hurt
-        else if (Input.GetKeyDown("q") && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+        else if (!Pausemenu.GameisPaused && ui.enemy.EnemyState == EnemyStates.Attack)
             m_animator.SetTrigger("Hurt");
 
         //Attack
-      //  else if (Input.GetMouseButtonDown(0) && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
-      //  {
-      //      m_animator.SetTrigger("Attack");
-      //  }
+        //  else if (Input.GetMouseButtonDown(0) && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+        //  {
+        //      m_animator.SetTrigger("Attack");
+        //  }
 
-        //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
-        {
-            // Reset timer
-            m_delayToIdle = 0.05f;
-            m_animator.SetInteger("AnimState", 1);
-        }
-        else if (Input.GetKeyDown("1") && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+        /* //Run
+         else if (Mathf.Abs(inputX) > Mathf.Epsilon && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+         {
+             // Reset timer
+             m_delayToIdle = 0.05f;
+             m_animator.SetInteger("AnimState", 1);
+         }*/
+        //Idle
+        else if (ui.hero.HeroState == HeroStates.Skill1)
         {
             m_animator.SetTrigger("Skill1");
         }
-        else if (Input.GetKeyDown("2") && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+        else if (ui.hero.HeroState == HeroStates.Skill2)
         {
             m_animator.SetTrigger("Skill2");
         }
-        else if (Input.GetKeyDown("3") && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+        else if (ui.hero.HeroState == HeroStates.Skill3)
         {
             m_animator.SetTrigger("Skill3");
         }
-        else if (Input.GetKeyDown("4") && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+        else if (ui.hero.HeroState == HeroStates.Skill4)
         {
             m_animator.SetTrigger("Skill4");
         }
-        //Idle
         else
         {
             // Prevents flickering transitions to idle
@@ -118,10 +117,7 @@ public class Player : MonoBehaviour {
                 m_animator.SetInteger("AnimState", 0);
         }
     }
-    void Attack()
-    {
 
-    }
     /*
         private Animator m_animator;
     [SerializeField] GameObject Explosion;

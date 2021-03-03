@@ -15,8 +15,6 @@ public class UI : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject completeLevelUI;
 
-    public Player hero;
-
     public Slider hero1Slider;
     public Slider hero2Slider;
     public Slider enemy1Slider;
@@ -40,6 +38,10 @@ public class UI : MonoBehaviour
     public Button skill2;
     public Button skill3;
     public Button skill4;
+
+    public Hero hero;
+    public Enemy enemy;
+
     void Start ()
     {
         StartCoroutine(StartingHUD());
@@ -62,10 +64,10 @@ public class UI : MonoBehaviour
         hero2Btn.enabled = false;
         Hero2Name.enabled = false;
 
-        /*skill1.image = wavespawner.hero1.Skill1Image;
-        skill2.image = wavespawner.hero1.Skill2Image;
-        skill3.image = wavespawner.hero1.Skill3Image;
-        skill4.image = wavespawner.hero1.Skill4Image;*/
+       // skill1.image = wavespawner.hero1.Skill1Image;
+       // skill2.image = wavespawner.hero1.Skill2Image;
+       // skill3.image = wavespawner.hero1.Skill3Image;
+       // skill4.image = wavespawner.hero1.Skill4Image;
 
         HPCheck();
         EnemiesAlive = wavespawner.EnemiesAlive;
@@ -80,13 +82,6 @@ public class UI : MonoBehaviour
     void WinLevel()
     {
         completeLevelUI.SetActive(true);
-    }
-    IEnumerator BattleStart()
-    {
-        yield return new WaitForSeconds(1f);
-
-        turns = BattleState.Hero1;
-        StartCoroutine(Hero1());
     }
     void HPCheck()
     {
@@ -104,27 +99,32 @@ public class UI : MonoBehaviour
         enemy3HPText.text = Convert.ToString(wavespawner.enemy3.health) + " / " + Convert.ToString(wavespawner.enemy3.MaxHealth);
         enemy4HPText.text = Convert.ToString(wavespawner.enemy4.health) + " / " + Convert.ToString(wavespawner.enemy4.MaxHealth);
     }
+    IEnumerator BattleStart()
+    {
+        yield return new WaitForSeconds(1f);
+
+        turns = BattleState.Hero1;
+        StartCoroutine(Hero1());
+    }
 
     IEnumerator Hero1()
     {
-        hero1Btn.enabled=true;
+        hero1Btn.enabled = true;
         Hero1Name.enabled = true;
         
-        skill1.image = wavespawner.hero1.Skill1Image;
-        skill2.image = wavespawner.hero1.Skill2Image;
-        skill3.image = wavespawner.hero1.Skill3Image;
-        skill4.image = wavespawner.hero1.Skill4Image;
+       // skill1.image = wavespawner.hero1.Skill1Image;
+       // skill2.image = wavespawner.hero1.Skill2Image;
+       // skill3.image = wavespawner.hero1.Skill3Image;
+       //skill4.image = wavespawner.hero1.Skill4Image;
 
-        hero = wavespawner.hero1.HeroObject.GetComponent<Player>();
-        hero.IsDeadHero=false;
         yield return new WaitForSeconds(1f);
-        CheckIfEnemiesDead();
     }
     public void FromHero1()
     {
         if (turns == BattleState.Hero1)
         {
             turns = BattleState.Hero2;
+            CheckIfEnemiesDead();
             StartCoroutine(Hero2());
         }
     }
@@ -135,22 +135,19 @@ public class UI : MonoBehaviour
         hero2Btn.enabled = true;
         Hero2Name.enabled = true;
 
-        skill1.image = wavespawner.hero2.Skill1Image;
-        skill2.image = wavespawner.hero2.Skill2Image;
-        skill3.image = wavespawner.hero2.Skill3Image;
-        skill4.image = wavespawner.hero2.Skill4Image;
-
-        hero = wavespawner.hero2.HeroObject.GetComponent<Player>();
+       // skill1.image = wavespawner.hero2.Skill1Image;
+       // skill2.image = wavespawner.hero2.Skill2Image;
+       // skill3.image = wavespawner.hero2.Skill3Image;
+       // skill4.image = wavespawner.hero2.Skill4Image;
 
         yield return new WaitForSeconds(1f);
-        CheckIfEnemiesDead();
-        StartCoroutine(Enemy1());
     }
     public void FromHero2()
     {
         if (turns == BattleState.Hero2)
         {
             turns = BattleState.Enemy1;
+            CheckIfEnemiesDead();
             StartCoroutine(Enemy1());
         }
     }
@@ -191,22 +188,22 @@ public class UI : MonoBehaviour
     }
     void CheckIfEnemiesDead()
     {
-        if(wavespawner.enemy1.isDead&& !CheckIsEnemiesDead[0])
+        if(wavespawner.enemy1.EnemyState == EnemyStates.Dead && !CheckIsEnemiesDead[0])
         {
             CheckIsEnemiesDead[0] = true;
             wavespawner.EnemiesAlive--;
         }
-        if (wavespawner.enemy2.isDead && !CheckIsEnemiesDead[1] && EnemiesAlive == 2)
+        if (wavespawner.enemy2.EnemyState == EnemyStates.Dead && !CheckIsEnemiesDead[1] && EnemiesAlive == 2)
         {
             CheckIsEnemiesDead[1] = true;
             wavespawner.EnemiesAlive--;
         }
-        if (wavespawner.enemy3.isDead && !CheckIsEnemiesDead[2] && EnemiesAlive==3)
+        if (wavespawner.enemy3.EnemyState == EnemyStates.Dead && !CheckIsEnemiesDead[2] && EnemiesAlive==3)
         {
             CheckIsEnemiesDead[2] = true;
             wavespawner.EnemiesAlive--;
         }
-        if (wavespawner.enemy4.isDead && !CheckIsEnemiesDead[3] && EnemiesAlive==4)
+        if (wavespawner.enemy4.EnemyState == EnemyStates.Dead && !CheckIsEnemiesDead[3] && EnemiesAlive==4)
         {
             CheckIsEnemiesDead[3] = true;
             wavespawner.EnemiesAlive--;
@@ -232,7 +229,7 @@ public class UI : MonoBehaviour
     }
     void CheckIfEHeroesDead()
     {
-        if(wavespawner.hero1.isDead&& wavespawner.hero2.isDead)
+        if(wavespawner.hero1.HeroState == HeroStates.Dead && wavespawner.hero2.HeroState == HeroStates.Dead)
         {
             LoseLevel();
         }
