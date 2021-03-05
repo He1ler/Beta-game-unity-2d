@@ -31,6 +31,7 @@ public class WaveSpawnerScript : MonoBehaviour
 		hero2 = heroes[DataTransition.MapNameFromFile().heroIndex2 - 1];
 		SpawnHero(hero1.HeroObject, 1);
 		SpawnHero(hero2.HeroObject, 2);
+		SpawnWave();
 	}
 	public void SpawnWave()
 	{

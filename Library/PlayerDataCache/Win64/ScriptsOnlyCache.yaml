@@ -18,6 +18,8 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -47,7 +49,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.Dropdown
     - UnityEngine.UI.GraphicRaycaster
-    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.Mask
     - UnityEngine.UI.RawImage
@@ -93,13 +94,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11304}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11650}
+      Script: {instanceID: 11648}
     - Class: 114
       Script: {instanceID: 12008}
     - Class: 114
@@ -210,13 +211,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11304}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11650}
+      Script: {instanceID: 11648}
     - Class: 114
       Script: {instanceID: 12008}
     - Class: 114
@@ -327,13 +328,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11304}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11650}
+      Script: {instanceID: 11648}
     - Class: 114
       Script: {instanceID: 12008}
     - Class: 114
@@ -444,13 +445,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11304}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11650}
+      Script: {instanceID: 11648}
     - Class: 114
       Script: {instanceID: 12008}
     - Class: 114
@@ -561,13 +562,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11304}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11650}
+      Script: {instanceID: 11648}
     - Class: 114
       Script: {instanceID: 12008}
     - Class: 114
@@ -678,13 +679,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11304}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11650}
+      Script: {instanceID: 11648}
     - Class: 114
       Script: {instanceID: 12008}
     - Class: 114
@@ -795,19 +796,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11280}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11304}
+      Script: {instanceID: 11402}
     - Class: 114
-      Script: {instanceID: 11404}
+      Script: {instanceID: 11492}
     - Class: 114
-      Script: {instanceID: 11494}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11598}
-    - Class: 114
-      Script: {instanceID: 11650}
+      Script: {instanceID: 11648}
     - Class: 114
       Script: {instanceID: 12144}
     - Class: 114
@@ -892,9 +891,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11304}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11650}
+      Script: {instanceID: 11648}
     - Class: 114
       Script: {instanceID: 13240}
     - Class: 114
@@ -947,13 +946,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11304}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11650}
+      Script: {instanceID: 11648}
     - Class: 114
       Script: {instanceID: 11964}
     - Class: 114
@@ -1019,12 +1018,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Slider
-  - hash:
-      serializedVersion: 2
-      Hash: 7ab0e790220bdca831fdd886b339039d
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: GridLayoutGroup
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -1139,6 +1132,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 7ab0e790220bdca831fdd886b339039d
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: GridLayoutGroup
   - hash:
       serializedVersion: 2
       Hash: 523ce309f50d9eee6a8fc0e2f86c9c97
