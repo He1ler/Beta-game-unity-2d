@@ -1809,4 +1809,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Forest1.unity
   - Assets/Scenes/Graveyard1.unity
   - Assets/Scenes/Loading.unity
-  playerPath: D:/programs/unity/game1/Beta game project.exe
+  playerPath: D:/programs/unity/exe/Beta game project.exe

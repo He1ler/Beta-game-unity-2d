@@ -17,13 +17,17 @@ public class Monsterscript : MonoBehaviour
         {
             m_animator.SetTrigger("Death");
         }
-
         //Hurt
-        else if (!Pausemenu.GameisPaused && ui.hero.HeroState == HeroStates.Skill1)
-        { m_animator.SetTrigger("Hurt"); }
+        else if (!Pausemenu.GameisPaused && (ui.hero.HeroState == HeroStates.Skill1 || ui.hero.HeroState == HeroStates.Skill2 || ui.hero.HeroState == HeroStates.Skill3 || ui.hero.HeroState == HeroStates.Skill4))
+        {
+            m_animator.SetTrigger("Hurt"); 
+        }
 
         else if (!Pausemenu.GameisPaused && ui.enemy.EnemyState == EnemyStates.Attack)
-        { m_animator.SetTrigger("Attack"); }
+        {
+            ui.hero.TakeDamage(ui.enemy.AttackDamage);
+            m_animator.SetTrigger("Attack"); 
+        }
 
         else
         {

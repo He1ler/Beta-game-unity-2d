@@ -62,7 +62,7 @@ public class Player : MonoBehaviour {
         }*/
 
         //Death
-        if (!Pausemenu.GameisPaused && ui.hero.HeroState == HeroStates.Dead && ui.hero.health <=0)
+        if (!Pausemenu.GameisPaused && ui.hero.HeroState == HeroStates.Dead && ui.hero.health <= 0)
         {
             m_animator.SetTrigger("Death");
             m_animator.SetInteger("death", 1);
@@ -77,8 +77,9 @@ public class Player : MonoBehaviour {
 
         //Hurt
         else if (!Pausemenu.GameisPaused && ui.enemy.EnemyState == EnemyStates.Attack)
+        {
             m_animator.SetTrigger("Hurt");
-
+        }
         //Attack
         //  else if (Input.GetMouseButtonDown(0) && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
         //  {
@@ -95,18 +96,22 @@ public class Player : MonoBehaviour {
         //Idle
         else if (ui.hero.HeroState == HeroStates.Skill1)
         {
+            ui.enemy.TakeDamage(ui.hero.Skill1Damage);
             m_animator.SetTrigger("Skill1");
         }
         else if (ui.hero.HeroState == HeroStates.Skill2)
         {
+            ui.enemy.TakeDamage(ui.hero.Skill2Damage);
             m_animator.SetTrigger("Skill2");
         }
         else if (ui.hero.HeroState == HeroStates.Skill3)
         {
+            ui.enemy.TakeDamage(ui.hero.Skill3Damage);
             m_animator.SetTrigger("Skill3");
         }
         else if (ui.hero.HeroState == HeroStates.Skill4)
         {
+            ui.enemy.TakeDamage(ui.hero.Skill4Damage);
             m_animator.SetTrigger("Skill4");
         }
         else
