@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+
 public class Player : MonoBehaviour {
 
    // [SerializeField] float m_speed = 4.0f;
@@ -9,20 +8,35 @@ public class Player : MonoBehaviour {
     //private Sensor m_groundSensor;
     //private bool m_grounded = false;
     private float m_delayToIdle = 0.0f;
-
+    
     UI ui;
+
+    public string HeroName;
+    public int health;
+    public int Skill1Damage;
+    public int Skill2Damage;
+    public int Skill3Damage;
+    public int Skill4Damage;
+
+    private HeroData hd;
     void Start()
     {
+        hd = DataTransition.HeroFromFile(HeroName);
+        health = hd.health;
+        Skill1Damage = hd.Skill1Damage;
+        Skill2Damage = hd.Skill2Damage;
+        Skill3Damage = hd.Skill3Damage;
+        Skill4Damage = hd.Skill4Damage;
         ui = GameObject.Find("UI").GetComponent<UI>();
-        m_animator = GetComponent<Animator>();
+        m_animator = GameObject.Find(HeroName + "(Clone)").GetComponent<Animator>();
        // m_body2d = GetComponent<Rigidbody2D>();
        // m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
-        /*
+        
          //Check if character just landed on the ground
         if (!m_grounded && m_groundSensor.State())
         {
@@ -59,10 +73,23 @@ public class Player : MonoBehaviour {
         else if (IsDeadHero == true)
         {
             m_body2d.velocity = new Vector2(0, m_body2d.velocity.y);
-        }*/
+        }
+        //Attack
+         else if (Input.GetMouseButtonDown(0) && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+         {
+              m_animator.SetTrigger("Attack");
+          }
+
+         //Run
+         else if (Mathf.Abs(inputX) > Mathf.Epsilon && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
+         {
+             // Reset timer
+             m_delayToIdle = 0.05f;
+             m_animator.SetInteger("AnimState", 1);
+         }
 
         //Death
-        if (!Pausemenu.GameisPaused && ui.hero.HeroState == HeroStates.Dead && ui.hero.health <= 0)
+        if (!Pausemenu.GameisPaused && ui.hero.HeroState == HeroStates.Dead && health <= 0)
         {
             m_animator.SetTrigger("Death");
             m_animator.SetInteger("death", 1);
@@ -73,46 +100,35 @@ public class Player : MonoBehaviour {
         {
             m_animator.SetTrigger("Recovery");
             m_animator.SetInteger("death", 0);
+            ui.hero.HeroState = HeroStates.Waiting;
         }
 
         //Hurt
         else if (!Pausemenu.GameisPaused && ui.enemy.EnemyState == EnemyStates.Attack)
         {
             m_animator.SetTrigger("Hurt");
+            ui.hero.HeroState = HeroStates.Waiting;
         }
-        //Attack
-        //  else if (Input.GetMouseButtonDown(0) && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
-        //  {
-        //      m_animator.SetTrigger("Attack");
-        //  }
-
-        /* //Run
-         else if (Mathf.Abs(inputX) > Mathf.Epsilon && (IsDeadHero == false) && m_grounded && !Pausemenu.GameisPaused)
-         {
-             // Reset timer
-             m_delayToIdle = 0.05f;
-             m_animator.SetInteger("AnimState", 1);
-         }*/
         //Idle
         else if (ui.hero.HeroState == HeroStates.Skill1)
         {
-            ui.enemy.TakeDamage(ui.hero.Skill1Damage);
             m_animator.SetTrigger("Skill1");
+            ui.hero.HeroState = HeroStates.Waiting;
         }
         else if (ui.hero.HeroState == HeroStates.Skill2)
         {
-            ui.enemy.TakeDamage(ui.hero.Skill2Damage);
             m_animator.SetTrigger("Skill2");
+            ui.hero.HeroState = HeroStates.Waiting;
         }
         else if (ui.hero.HeroState == HeroStates.Skill3)
         {
-            ui.enemy.TakeDamage(ui.hero.Skill3Damage);
             m_animator.SetTrigger("Skill3");
+            ui.hero.HeroState = HeroStates.Waiting;
         }
         else if (ui.hero.HeroState == HeroStates.Skill4)
         {
-            ui.enemy.TakeDamage(ui.hero.Skill4Damage);
             m_animator.SetTrigger("Skill4");
+            ui.hero.HeroState = HeroStates.Waiting;
         }
         else
         {
@@ -121,8 +137,43 @@ public class Player : MonoBehaviour {
             if (m_delayToIdle < 0)
                 m_animator.SetInteger("AnimState", 0);
         }
+    }*/
+    public void Set_Death()
+    {
+            m_animator.SetTrigger("Death");
+            m_animator.SetInteger("death", 1);
     }
-
+    public void Set_Hurt()
+    {
+            m_animator.SetTrigger("Hurt");
+    }
+    public void Set_Idle()
+    {
+        m_delayToIdle -= Time.deltaTime;
+        if (m_delayToIdle < 0)
+            m_animator.SetInteger("AnimState", 0);
+    }
+    public void Set_Recovery()
+    {
+            m_animator.SetTrigger("Recovery");
+            m_animator.SetInteger("death", 0);
+    }
+    public void Set_Skill1()
+    {
+        m_animator.SetTrigger("Skill1");
+    }
+    public void Set_Skill2()
+    {
+            m_animator.SetTrigger("Skill2");
+    }
+    public void Set_Skill3()
+    {
+            m_animator.SetTrigger("Skill3");
+    }
+    public void Set_Skill4()
+    {
+            m_animator.SetTrigger("Skill4");
+    }
     /*
         private Animator m_animator;
     [SerializeField] GameObject Explosion;

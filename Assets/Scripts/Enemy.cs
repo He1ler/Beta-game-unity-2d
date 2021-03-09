@@ -27,7 +27,7 @@ public class Enemy {
             Die();
         }
     }
-    public void Die()
+    void Die()
     {
         EnemyState = EnemyStates.Dead;
 

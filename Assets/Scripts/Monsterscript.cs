@@ -1,41 +1,51 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class Monsterscript : MonoBehaviour
 {
     private Animator m_animator;
     private float m_delayToIdle = 0.0f;
     UI ui;
+    public string EnemyName;
+    public int health;
+    public int AttackDamage;
+
+    private EnemyData ed;
     void Start()
     {
-         ui = GameObject.Find("UI").GetComponent<UI>();
-         m_animator = GetComponent<Animator>();
+        ed = DataTransition.EnemyFromFile(EnemyName);
+        health = ed.health;
+        AttackDamage = ed.AttackDamage;
+        ui = GameObject.Find("UI").GetComponent<UI>();
+        m_animator = GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>();
     }
-    void Update()
+    public void Set_Death()
     {
-        if (!Pausemenu.GameisPaused && ui.enemy.EnemyState == EnemyStates.Dead)
+        if (!Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Death");
         }
-        //Hurt
-        else if (!Pausemenu.GameisPaused && (ui.hero.HeroState == HeroStates.Skill1 || ui.hero.HeroState == HeroStates.Skill2 || ui.hero.HeroState == HeroStates.Skill3 || ui.hero.HeroState == HeroStates.Skill4))
+    }
+    public void Set_Hurt()
+    {
+        if (!Pausemenu.GameisPaused )
         {
-            m_animator.SetTrigger("Hurt"); 
-        }
+            m_animator.SetTrigger("Hurt");
 
-        else if (!Pausemenu.GameisPaused && ui.enemy.EnemyState == EnemyStates.Attack)
-        {
-            ui.hero.TakeDamage(ui.enemy.AttackDamage);
-            m_animator.SetTrigger("Attack"); 
         }
-
-        else
-        {
+    }
+    public void Set_Idle()
+    {
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
             if (m_delayToIdle < 0)
             { }
+    }
+    public void Set_Attack()
+    {
+        if (!Pausemenu.GameisPaused)
+        {
+            m_animator.SetTrigger("Attack");
+
         }
     }
-
 }

@@ -13,7 +13,7 @@ public class WaveSpawnerScript : MonoBehaviour
 	private int EnemyNumber;
 
 	public Enemy []enemies;
-	public Hero[]heroes;
+	public Hero  []heroes;
 
 	public Hero hero1;
 	public Hero hero2;
@@ -29,6 +29,10 @@ public class WaveSpawnerScript : MonoBehaviour
     {
 		hero1 = heroes[DataTransition.MapNameFromFile().heroIndex1 - 1];
 		hero2 = heroes[DataTransition.MapNameFromFile().heroIndex2 - 1];
+		DataTransition.HeroToFile(DataTransition.MapNameFromFile().heroIndex1 - 1, heroes);
+		DataTransition.HeroToFile(DataTransition.MapNameFromFile().heroIndex2 - 1, heroes);
+		hero1.HeroObject.GetComponent<Player>().HeroName = hero1.HeroName;
+		hero2.HeroObject.GetComponent<Player>().HeroName = hero2.HeroName;
 		SpawnHero(hero1.HeroObject, 1);
 		SpawnHero(hero2.HeroObject, 2);
 		SpawnWave();
@@ -42,21 +46,29 @@ public class WaveSpawnerScript : MonoBehaviour
 			if(i==1)
             {
 				enemy1 = enemies[EnemyNumber];
+				enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
+				DataTransition.EnemyToFile(EnemyNumber, enemies);
 				SpawnEnemy(enemy1.EnemyObject, i);
 			}
 			else if (i == 2)
 			{
 				enemy2 = enemies[EnemyNumber];
+				enemy2.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy2.EnemyName;
+				DataTransition.EnemyToFile(EnemyNumber, enemies);
 				SpawnEnemy(enemy2.EnemyObject, i);
 			}
 			else if (i == 3)
 			{
 				enemy3 = enemies[EnemyNumber];
+				enemy3.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy3.EnemyName;
+				DataTransition.EnemyToFile(EnemyNumber, enemies);
 				SpawnEnemy(enemy3.EnemyObject, i);
 			}
 			else if (i == 4)
 			{
 				enemy4 = enemies[EnemyNumber];
+				enemy4.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy4.EnemyName;
+				DataTransition.EnemyToFile(EnemyNumber, enemies);
 				SpawnEnemy(enemy4.EnemyObject, i);
 			}
 		}

@@ -58,7 +58,9 @@
      <Compile Include="Assets\Scripts\Data.cs" />
      <Compile Include="Assets\Scripts\DataTransition.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\EnemyData.cs" />
      <Compile Include="Assets\Scripts\Hero.cs" />
+     <Compile Include="Assets\Scripts\HeroData.cs" />
      <Compile Include="Assets\Scripts\HeroSelector.cs" />
      <Compile Include="Assets\Scripts\Loading.cs" />
      <Compile Include="Assets\Scripts\Mainmenu.cs" />

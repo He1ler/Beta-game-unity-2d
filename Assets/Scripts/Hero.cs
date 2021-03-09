@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
- public enum HeroStates { Waiting,Dead, Recovery, Skill1, Skill2, Skill3, Skill4 };
+public enum HeroStates { Waiting,Dead, Recovery, Skill1, Skill2, Skill3, Skill4 };
 [System.Serializable]
 public class Hero
 {
@@ -44,7 +44,7 @@ public class Hero
             HeroState = HeroStates.Recovery;
         }
     }
-    public void Die()
+    void Die()
     {
         HeroState = HeroStates.Dead;
     }

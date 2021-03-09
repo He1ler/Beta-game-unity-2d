@@ -39,11 +39,15 @@ public class UI : MonoBehaviour
     public Button skill3;
     public Button skill4;
 
-    public Hero hero;
-    public Enemy enemy;
+    Player hero1;
+    Player hero2;
+    Monsterscript enemy1;
+    Monsterscript enemy2;
+    Monsterscript enemy3;
+    Monsterscript enemy4;
 
     void Start ()
-    {
+    {     
         StartCoroutine(StartingHUD());
     }
     void Update()
@@ -64,10 +68,22 @@ public class UI : MonoBehaviour
         hero2Btn.enabled = false;
         Hero2Name.enabled = false;
 
-       // skill1.image = wavespawner.hero1.Skill1Image;
-       // skill2.image = wavespawner.hero1.Skill2Image;
-       // skill3.image = wavespawner.hero1.Skill3Image;
-       // skill4.image = wavespawner.hero1.Skill4Image;
+        hero1 = GameObject.Find(wavespawner.hero1.HeroName + "(Clone)").GetComponent<Player>();
+        hero2 = GameObject.Find(wavespawner.hero2.HeroName + "(Clone)").GetComponent<Player>();
+        enemy1 = GameObject.Find(wavespawner.enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>();
+        enemy2 = GameObject.Find(wavespawner.enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>();
+        if(wavespawner.EnemiesAlive>=3)
+        {
+            enemy3 = GameObject.Find(wavespawner.enemy3.EnemyName + "(Clone)").GetComponent<Monsterscript>();
+        }
+        if (wavespawner.EnemiesAlive >= 4)
+        {
+            enemy4 = GameObject.Find(wavespawner.enemy4.EnemyName + "(Clone)").GetComponent<Monsterscript>();
+        }
+        // skill1.image = wavespawner.hero1.Skill1Image;
+        // skill2.image = wavespawner.hero1.Skill2Image;
+        // skill3.image = wavespawner.hero1.Skill3Image;
+        // skill4.image = wavespawner.hero1.Skill4Image;
 
         HPCheck();
         EnemiesAlive = wavespawner.EnemiesAlive;
@@ -103,21 +119,20 @@ public class UI : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        turns = BattleState.Hero1;
         StartCoroutine(Hero1());
     }
 
     IEnumerator Hero1()
     {
+        turns = BattleState.Hero1;
         hero1Btn.enabled = true;
         Hero1Name.enabled = true;
-        
        // skill1.image = wavespawner.hero1.Skill1Image;
        // skill2.image = wavespawner.hero1.Skill2Image;
        // skill3.image = wavespawner.hero1.Skill3Image;
        //skill4.image = wavespawner.hero1.Skill4Image;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
     }
     public void FromHero1()
     {
@@ -129,18 +144,18 @@ public class UI : MonoBehaviour
     }
     IEnumerator Hero2()
     {
+        yield return new WaitForSeconds(1f);
+        turns = BattleState.Hero2;
         hero1Btn.enabled = false;
         Hero1Name.enabled = false;
         hero2Btn.enabled = true;
         Hero2Name.enabled = true;
+        // skill1.image = wavespawner.hero2.Skill1Image;
+        // skill2.image = wavespawner.hero2.Skill2Image;
+        // skill3.image = wavespawner.hero2.Skill3Image;
+        // skill4.image = wavespawner.hero2.Skill4Image;
 
-       // skill1.image = wavespawner.hero2.Skill1Image;
-       // skill2.image = wavespawner.hero2.Skill2Image;
-       // skill3.image = wavespawner.hero2.Skill3Image;
-       // skill4.image = wavespawner.hero2.Skill4Image;
-
-        yield return new WaitForSeconds(5f);
-        turns = BattleState.Hero2;
+        yield return new WaitForSeconds(3f);
     }
     public void FromHero2()
     {
@@ -152,21 +167,22 @@ public class UI : MonoBehaviour
     }
     IEnumerator Enemy1()
     {
+        yield return new WaitForSeconds(5f);
         turns = BattleState.Enemy1;
-        enemy = wavespawner.enemy1;
-        enemy.Attack();
         hero2Btn.enabled = false;
         Hero2Name.enabled = false;
-        yield return new WaitForSeconds(5f);
+        enemy1.Set_Attack();
+
         CheckIfEHeroesDead();
 
         StartCoroutine(Enemy2());
     }
     IEnumerator Enemy2()
     {
-        turns = BattleState.Enemy2;
-        enemy = wavespawner.enemy2;
         yield return new WaitForSeconds(5f);
+        turns = BattleState.Enemy2;
+        enemy2.Set_Attack();
+
         CheckIfEHeroesDead();
         if (wavespawner.EnemiesAlive>=3)
         {
@@ -179,9 +195,10 @@ public class UI : MonoBehaviour
     }
     IEnumerator Enemy3()
     {
-        turns = BattleState.Enemy3;
-        enemy = wavespawner.enemy3;
         yield return new WaitForSeconds(5f);
+        turns = BattleState.Enemy3;
+        enemy3.Set_Attack();
+
         CheckIfEHeroesDead();
         if (wavespawner.EnemiesAlive >= 3)
         {
@@ -194,9 +211,10 @@ public class UI : MonoBehaviour
     }
     IEnumerator Enemy4()
     {
-        turns = BattleState.Enemy4;
-        enemy = wavespawner.enemy4;
         yield return new WaitForSeconds(5f);
+        turns = BattleState.Enemy4;
+        enemy4.Set_Attack();
+
         CheckIfEHeroesDead();
 
         turns = BattleState.Hero1;
@@ -253,18 +271,46 @@ public class UI : MonoBehaviour
 
     public void Skill1()
     {
-        hero.Skill1();
+        if(turns == BattleState.Hero1)
+        {
+            hero1.Set_Skill1();
+        }
+        else if(turns == BattleState.Hero2)
+        {
+            hero2.Set_Skill1();
+        }
     }
     public void Skill2()
     {
-        hero.Skill2();
+        if (turns == BattleState.Hero1)
+        {
+            hero1.Set_Skill2();
+        }
+        else if (turns == BattleState.Hero2)
+        {
+            hero2.Set_Skill2();
+        }
     }
     public void Skill3()
     {
-        hero.Skill3();
+        if (turns == BattleState.Hero1)
+        {
+            hero1.Set_Skill3();
+        }
+        else if (turns == BattleState.Hero2)
+        {
+            hero2.Set_Skill3();
+        }
     }
     public void Skill4()
     {
-        hero.Skill4();
+        if (turns == BattleState.Hero1)
+        {
+            hero1.Set_Skill4();
+        }
+        else if (turns == BattleState.Hero2)
+        {
+            hero2.Set_Skill4();
+        }
     }
 }
