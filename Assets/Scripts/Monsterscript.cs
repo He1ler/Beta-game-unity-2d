@@ -8,12 +8,14 @@ public class Monsterscript : MonoBehaviour
     public string EnemyName;
     public int health;
     public int AttackDamage;
+    public int MaxHealth;
 
     private EnemyData ed;
     void Start()
     {
         ed = DataTransition.EnemyFromFile(EnemyName);
         health = ed.health;
+        MaxHealth = ed.health;
         AttackDamage = ed.AttackDamage;
         ui = GameObject.Find("UI").GetComponent<UI>();
         m_animator = GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>();
@@ -25,12 +27,17 @@ public class Monsterscript : MonoBehaviour
             m_animator.SetTrigger("Death");
         }
     }
-    public void Set_Hurt()
+    public void Set_Hurt(int hp)
     {
         if (!Pausemenu.GameisPaused )
         {
             m_animator.SetTrigger("Hurt");
-
+            health -= hp;
+            if(health<=0)
+            {
+                health = 0;
+                Set_Death();
+            }
         }
     }
     public void Set_Idle()
@@ -45,7 +52,7 @@ public class Monsterscript : MonoBehaviour
         if (!Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Attack");
-
+            ui.hero.Set_Hurt(AttackDamage);
         }
     }
 }

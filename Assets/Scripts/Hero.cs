@@ -10,10 +10,10 @@ public class Hero
 	public string HeroName;
 	public Sprite HeroImage;
 
-    public Image Skill1Image;
-    public Image Skill2Image;
-    public Image Skill3Image;
-    public Image Skill4Image;
+    public Sprite Skill1Image;
+    public Sprite Skill2Image;
+    public Sprite Skill3Image;
+    public Sprite Skill4Image;
     public string Skill1Name;
     public string Skill2Name;
     public string Skill3Name;

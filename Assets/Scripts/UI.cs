@@ -39,12 +39,17 @@ public class UI : MonoBehaviour
     public Button skill3;
     public Button skill4;
 
-    Player hero1;
-    Player hero2;
-    Monsterscript enemy1;
-    Monsterscript enemy2;
-    Monsterscript enemy3;
-    Monsterscript enemy4;
+    private Player hero1;
+    private Player hero2;
+    private Monsterscript enemy1;
+    private Monsterscript enemy2;
+    private Monsterscript enemy3;
+    private Monsterscript enemy4;
+
+    public Player hero;
+    public Monsterscript enemy;
+
+    private string skillchoose;
 
     void Start ()
     {     
@@ -67,6 +72,10 @@ public class UI : MonoBehaviour
         Hero1Name.enabled = false;
         hero2Btn.enabled = false;
         Hero2Name.enabled = false;
+        enemy3Slider.gameObject.SetActive(false);
+        enemy3HPText.gameObject.SetActive(false);
+        enemy4Slider.gameObject.SetActive(false);
+        enemy4HPText.gameObject.SetActive(false);
 
         hero1 = GameObject.Find(wavespawner.hero1.HeroName + "(Clone)").GetComponent<Player>();
         hero2 = GameObject.Find(wavespawner.hero2.HeroName + "(Clone)").GetComponent<Player>();
@@ -75,15 +84,19 @@ public class UI : MonoBehaviour
         if(wavespawner.EnemiesAlive>=3)
         {
             enemy3 = GameObject.Find(wavespawner.enemy3.EnemyName + "(Clone)").GetComponent<Monsterscript>();
+            enemy3Slider.gameObject.SetActive(true);
+            enemy3HPText.gameObject.SetActive(true);
         }
         if (wavespawner.EnemiesAlive >= 4)
         {
             enemy4 = GameObject.Find(wavespawner.enemy4.EnemyName + "(Clone)").GetComponent<Monsterscript>();
+            enemy4Slider.gameObject.SetActive(true);
+            enemy4HPText.gameObject.SetActive(true);
         }
-        // skill1.image = wavespawner.hero1.Skill1Image;
-        // skill2.image = wavespawner.hero1.Skill2Image;
-        // skill3.image = wavespawner.hero1.Skill3Image;
-        // skill4.image = wavespawner.hero1.Skill4Image;
+         skill1.image.sprite = wavespawner.hero1.Skill1Image;
+         skill2.image.sprite = wavespawner.hero1.Skill2Image;
+         skill3.image.sprite = wavespawner.hero1.Skill3Image;
+         skill4.image.sprite = wavespawner.hero1.Skill4Image;
 
         HPCheck();
         EnemiesAlive = wavespawner.EnemiesAlive;
@@ -101,19 +114,26 @@ public class UI : MonoBehaviour
     }
     void HPCheck()
     {
-        hero1Slider.value = wavespawner.hero1.health / wavespawner.hero1.MaxHealth;
-        hero2Slider.value = wavespawner.hero2.health / wavespawner.hero2.MaxHealth;
-        enemy1Slider.value = wavespawner.enemy1.health / wavespawner.enemy1.MaxHealth;
-        enemy2Slider.value = wavespawner.enemy2.health / wavespawner.enemy2.MaxHealth;
-        enemy3Slider.value = wavespawner.enemy3.health / wavespawner.enemy3.MaxHealth;
-        enemy4Slider.value = wavespawner.enemy4.health / wavespawner.enemy4.MaxHealth;
+        hero1Slider.value = Convert.ToSingle(hero1.health) / Convert.ToSingle(hero1.MaxHealth);
+        hero2Slider.value = Convert.ToSingle(hero2.health) / Convert.ToSingle(hero2.MaxHealth);
+        enemy1Slider.value = Convert.ToSingle(enemy1.health) / Convert.ToSingle(enemy1.MaxHealth);
+        enemy2Slider.value = Convert.ToSingle(enemy2.health) / Convert.ToSingle(enemy2.MaxHealth);       
 
-        hero1HPText.text = Convert.ToString(wavespawner.hero1.health) + " / " + Convert.ToString(wavespawner.hero1.MaxHealth);
-        hero2HPText.text = Convert.ToString(wavespawner.hero2.health) + " / " + Convert.ToString(wavespawner.hero2.MaxHealth);
-        enemy1HPText.text = Convert.ToString(wavespawner.enemy1.health) + " / " + Convert.ToString(wavespawner.enemy1.MaxHealth);
-        enemy2HPText.text = Convert.ToString(wavespawner.enemy2.health) + " / " + Convert.ToString(wavespawner.enemy2.MaxHealth);
-        enemy3HPText.text = Convert.ToString(wavespawner.enemy3.health) + " / " + Convert.ToString(wavespawner.enemy3.MaxHealth);
-        enemy4HPText.text = Convert.ToString(wavespawner.enemy4.health) + " / " + Convert.ToString(wavespawner.enemy4.MaxHealth);
+        hero1HPText.text = Convert.ToString(hero1.health) + " / " + Convert.ToString(hero1.MaxHealth);
+        hero2HPText.text = Convert.ToString(hero2.health) + " / " + Convert.ToString(hero2.MaxHealth);
+        enemy1HPText.text = Convert.ToString(enemy1.health) + " / " + Convert.ToString(enemy1.MaxHealth);
+        enemy2HPText.text = Convert.ToString(enemy2.health) + " / " + Convert.ToString(enemy2.MaxHealth);     
+
+        if (wavespawner.EnemiesAlive >= 3)
+        {
+            enemy3Slider.value = Convert.ToSingle(enemy3.health) / Convert.ToSingle(enemy3.MaxHealth);
+            enemy3HPText.text = Convert.ToString(enemy3.health) + " / " + Convert.ToString(enemy3.MaxHealth);
+        }
+        if (wavespawner.EnemiesAlive >= 4)
+        {
+            enemy4Slider.value = Convert.ToSingle(enemy4.health) / Convert.ToSingle(enemy4.MaxHealth);
+            enemy4HPText.text = Convert.ToString(enemy4.health) + " / " + Convert.ToString(enemy4.MaxHealth);
+        }
     }
     IEnumerator BattleStart()
     {
@@ -127,20 +147,12 @@ public class UI : MonoBehaviour
         turns = BattleState.Hero1;
         hero1Btn.enabled = true;
         Hero1Name.enabled = true;
-       // skill1.image = wavespawner.hero1.Skill1Image;
-       // skill2.image = wavespawner.hero1.Skill2Image;
-       // skill3.image = wavespawner.hero1.Skill3Image;
-       //skill4.image = wavespawner.hero1.Skill4Image;
+        skill1.image.sprite = wavespawner.hero1.Skill1Image;
+        skill2.image.sprite = wavespawner.hero1.Skill2Image;
+        skill3.image.sprite = wavespawner.hero1.Skill3Image;
+        skill4.image.sprite = wavespawner.hero1.Skill4Image;
 
         yield return new WaitForSeconds(3f);
-    }
-    public void FromHero1()
-    {
-        if (turns == BattleState.Hero1)
-        {
-            CheckIfEnemiesDead();
-            StartCoroutine(Hero2());
-        }
     }
     IEnumerator Hero2()
     {
@@ -150,16 +162,21 @@ public class UI : MonoBehaviour
         Hero1Name.enabled = false;
         hero2Btn.enabled = true;
         Hero2Name.enabled = true;
-        // skill1.image = wavespawner.hero2.Skill1Image;
-        // skill2.image = wavespawner.hero2.Skill2Image;
-        // skill3.image = wavespawner.hero2.Skill3Image;
-        // skill4.image = wavespawner.hero2.Skill4Image;
+         skill1.image.sprite = wavespawner.hero2.Skill1Image;
+         skill2.image.sprite = wavespawner.hero2.Skill2Image;
+         skill3.image.sprite = wavespawner.hero2.Skill3Image;
+         skill4.image.sprite = wavespawner.hero2.Skill4Image;
 
         yield return new WaitForSeconds(3f);
     }
-    public void FromHero2()
+    public void FromHero()
     {
-        if (turns == BattleState.Hero2)
+        if (turns == BattleState.Hero1)
+        {
+            CheckIfEnemiesDead();
+            StartCoroutine(Hero2());
+        }
+        else if (turns == BattleState.Hero2)
         {
             CheckIfEnemiesDead();
             StartCoroutine(Enemy1());
@@ -171,6 +188,7 @@ public class UI : MonoBehaviour
         turns = BattleState.Enemy1;
         hero2Btn.enabled = false;
         Hero2Name.enabled = false;
+        EnemyAttack();
         enemy1.Set_Attack();
 
         CheckIfEHeroesDead();
@@ -181,6 +199,7 @@ public class UI : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         turns = BattleState.Enemy2;
+        EnemyAttack();
         enemy2.Set_Attack();
 
         CheckIfEHeroesDead();
@@ -197,10 +216,11 @@ public class UI : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         turns = BattleState.Enemy3;
+        EnemyAttack();
         enemy3.Set_Attack();
 
         CheckIfEHeroesDead();
-        if (wavespawner.EnemiesAlive >= 3)
+        if (wavespawner.EnemiesAlive == 4)
         {
             StartCoroutine(Enemy4());
         }
@@ -213,11 +233,11 @@ public class UI : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         turns = BattleState.Enemy4;
+        EnemyAttack();
         enemy4.Set_Attack();
 
         CheckIfEHeroesDead();
 
-        turns = BattleState.Hero1;
         StartCoroutine(Hero1());
     }
     void CheckIfEnemiesDead()
@@ -269,7 +289,7 @@ public class UI : MonoBehaviour
         }
     }
 
-    public void Skill1()
+    private void Skill1()
     {
         if(turns == BattleState.Hero1)
         {
@@ -280,7 +300,7 @@ public class UI : MonoBehaviour
             hero2.Set_Skill1();
         }
     }
-    public void Skill2()
+    private void Skill2()
     {
         if (turns == BattleState.Hero1)
         {
@@ -291,7 +311,7 @@ public class UI : MonoBehaviour
             hero2.Set_Skill2();
         }
     }
-    public void Skill3()
+    private void Skill3()
     {
         if (turns == BattleState.Hero1)
         {
@@ -302,7 +322,7 @@ public class UI : MonoBehaviour
             hero2.Set_Skill3();
         }
     }
-    public void Skill4()
+    private void Skill4()
     {
         if (turns == BattleState.Hero1)
         {
@@ -313,4 +333,70 @@ public class UI : MonoBehaviour
             hero2.Set_Skill4();
         }
     }
+    public void ChoosingEnemy(Button btn)
+    {
+        if (btn.name == "1")
+        {
+            enemy = enemy1;
+        }
+        else if (btn.name == "2")
+        {
+            enemy = enemy2;
+        }
+        else if (btn.name == "3")
+        {
+            enemy = enemy3;
+        }
+        else if (btn.name == "4")
+        {
+            enemy = enemy4;
+        }
+        if (skillchoose == "Skill1")
+        {
+            Skill1();
+        }
+        else if (skillchoose == "Skill2")
+        {
+            Skill2();
+        }
+        else if (skillchoose == "Skill3")
+        {
+            Skill3();
+        }
+        else if (skillchoose == "Skill4")
+        {
+            Skill4();
+        }
+    }
+    public void ChoosingSkill(Button btn)
+    {
+        if (btn.name == "Skill1")
+        {
+            skillchoose = btn.name;
+        }
+        else if (btn.name == "Skill2")
+        {
+            skillchoose = btn.name;
+        }
+        else if (btn.name == "Skill3")
+        {
+            skillchoose = btn.name;
+        }
+        else if (btn.name == "Skill4")
+        {
+            skillchoose = btn.name;
+        }
+    }
+    private void EnemyAttack()
+    {
+        if (UnityEngine.Random.Range(1, 10) % 2 != 0)
+        {
+            hero = hero1;
+        }
+        else
+        {
+            hero = hero2;
+        }
+    }
+        
 }

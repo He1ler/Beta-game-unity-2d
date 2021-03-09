@@ -191,10 +191,10 @@ MonoBehaviour:
       type: 3}
     HeroName: Blacksmith
     HeroImage: {fileID: 21300000, guid: 14e20b82f5820864fbc4e9bce20480f2, type: 3}
-    Skill1Image: {fileID: 0}
-    Skill2Image: {fileID: 0}
-    Skill3Image: {fileID: 0}
-    Skill4Image: {fileID: 0}
+    Skill1Image: {fileID: 21300000, guid: 65d211f55b476254ea778e5c4d2e5735, type: 3}
+    Skill2Image: {fileID: 21300000, guid: 95820cd46a64ec340875178db11a4775, type: 3}
+    Skill3Image: {fileID: 21300000, guid: 76f741d85e32e8f48ac969cea5662544, type: 3}
+    Skill4Image: {fileID: 21300000, guid: 7434430da0d7e9b478d477f2d77f4f37, type: 3}
     Skill1Name: 
     Skill2Name: 
     Skill3Name: 
@@ -266,7 +266,7 @@ MonoBehaviour:
     HeroObject: {fileID: 8481325847892598963, guid: 5d1f0695da9820e4cbdb1f5b2f342e7e,
       type: 3}
     HeroName: King
-    HeroImage: {fileID: 21300000, guid: 9ffde1592863e5e43b82ce85dd96165a, type: 3}
+    HeroImage: {fileID: 21300000, guid: 38def6b68e702304980960741a38ac5c, type: 3}
     Skill1Image: {fileID: 0}
     Skill2Image: {fileID: 0}
     Skill3Image: {fileID: 0}

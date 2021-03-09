@@ -17,6 +17,9 @@ public class Player : MonoBehaviour {
     public int Skill2Damage;
     public int Skill3Damage;
     public int Skill4Damage;
+    public int MaxHealth;
+
+    public bool IsDead = false;
 
     private HeroData hd;
     void Start()
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour {
         Skill2Damage = hd.Skill2Damage;
         Skill3Damage = hd.Skill3Damage;
         Skill4Damage = hd.Skill4Damage;
+        MaxHealth = hd.health;
         ui = GameObject.Find("UI").GetComponent<UI>();
         m_animator = GameObject.Find(HeroName + "(Clone)").GetComponent<Animator>();
        // m_body2d = GetComponent<Rigidbody2D>();
@@ -138,14 +142,33 @@ public class Player : MonoBehaviour {
                 m_animator.SetInteger("AnimState", 0);
         }
     }*/
+    void Update ()
+    {
+        if (IsDead)
+        {
+            health += (MaxHealth / 10);
+            if(health >= MaxHealth)
+            {
+                health = MaxHealth;
+                Set_Recovery();
+            }
+        }
+    }
     public void Set_Death()
     {
             m_animator.SetTrigger("Death");
             m_animator.SetInteger("death", 1);
+
     }
-    public void Set_Hurt()
+    public void Set_Hurt(int hp)
     {
             m_animator.SetTrigger("Hurt");
+        health -= hp;
+        if (health <= 0)
+        {
+            health = 0;
+            Set_Death();
+        }
     }
     public void Set_Idle()
     {
@@ -161,19 +184,24 @@ public class Player : MonoBehaviour {
     public void Set_Skill1()
     {
         m_animator.SetTrigger("Skill1");
+        ui.enemy.Set_Hurt(Skill1Damage);
     }
     public void Set_Skill2()
     {
             m_animator.SetTrigger("Skill2");
+        ui.enemy.Set_Hurt(Skill2Damage);
     }
     public void Set_Skill3()
     {
             m_animator.SetTrigger("Skill3");
+        ui.enemy.Set_Hurt(Skill3Damage);
     }
     public void Set_Skill4()
     {
             m_animator.SetTrigger("Skill4");
+        ui.enemy.Set_Hurt(Skill4Damage);
     }
+
     /*
         private Animator m_animator;
     [SerializeField] GameObject Explosion;
