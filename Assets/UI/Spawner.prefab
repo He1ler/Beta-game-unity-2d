@@ -229,10 +229,10 @@ MonoBehaviour:
       type: 3}
     HeroName: Condotier
     HeroImage: {fileID: 21300000, guid: f41be60091a2e2042944c6a3591d142f, type: 3}
-    Skill1Image: {fileID: 0}
-    Skill2Image: {fileID: 0}
-    Skill3Image: {fileID: 0}
-    Skill4Image: {fileID: 0}
+    Skill1Image: {fileID: 21300000, guid: 7434430da0d7e9b478d477f2d77f4f37, type: 3}
+    Skill2Image: {fileID: 21300000, guid: e6aa180725acf9446a08de1a76ab3c31, type: 3}
+    Skill3Image: {fileID: 21300000, guid: 28a02df1369b7fd4eab040459b0cc450, type: 3}
+    Skill4Image: {fileID: 21300000, guid: 7b8e0222a006d824e930445c7d435ac3, type: 3}
     Skill1Name: 
     Skill2Name: 
     Skill3Name: 
@@ -248,10 +248,10 @@ MonoBehaviour:
       type: 3}
     HeroName: GirlKnight
     HeroImage: {fileID: 21300000, guid: 63b1d0eff85ff7c4299ab3220ac62006, type: 3}
-    Skill1Image: {fileID: 0}
-    Skill2Image: {fileID: 0}
-    Skill3Image: {fileID: 0}
-    Skill4Image: {fileID: 0}
+    Skill1Image: {fileID: 21300000, guid: ac6ad492dd4743a47ab4da7cf07f6a95, type: 3}
+    Skill2Image: {fileID: 21300000, guid: 42f6c722ead369b4b934a116b4324a4d, type: 3}
+    Skill3Image: {fileID: 21300000, guid: 0d1dc8ade7e63d14da6ea8a209621906, type: 3}
+    Skill4Image: {fileID: 21300000, guid: 4f9df37e2a573a64cbc944fe068893cb, type: 3}
     Skill1Name: 
     Skill2Name: 
     Skill3Name: 
@@ -267,10 +267,10 @@ MonoBehaviour:
       type: 3}
     HeroName: King
     HeroImage: {fileID: 21300000, guid: 38def6b68e702304980960741a38ac5c, type: 3}
-    Skill1Image: {fileID: 0}
-    Skill2Image: {fileID: 0}
-    Skill3Image: {fileID: 0}
-    Skill4Image: {fileID: 0}
+    Skill1Image: {fileID: 21300000, guid: 1c59dbf7721d29f49896b04e5826acec, type: 3}
+    Skill2Image: {fileID: 21300000, guid: 5dc5f26eb2281954ea9f360eca7dc1a9, type: 3}
+    Skill3Image: {fileID: 21300000, guid: 65d211f55b476254ea778e5c4d2e5735, type: 3}
+    Skill4Image: {fileID: 21300000, guid: eced15bb959edc54c8457ab75f9a45b5, type: 3}
     Skill1Name: 
     Skill2Name: 
     Skill3Name: 
@@ -286,10 +286,10 @@ MonoBehaviour:
       type: 3}
     HeroName: Knight
     HeroImage: {fileID: 21300000, guid: 9ffde1592863e5e43b82ce85dd96165a, type: 3}
-    Skill1Image: {fileID: 0}
-    Skill2Image: {fileID: 0}
-    Skill3Image: {fileID: 0}
-    Skill4Image: {fileID: 0}
+    Skill1Image: {fileID: 21300000, guid: cc2b5254bc6d899428cdf9c883c79d6d, type: 3}
+    Skill2Image: {fileID: 21300000, guid: a5d9d7fef5fd2194ea14ff1561195c64, type: 3}
+    Skill3Image: {fileID: 21300000, guid: 2d089513ae4adfc48a683c362ad9992c, type: 3}
+    Skill4Image: {fileID: 21300000, guid: fb1ae10a47c45d04c807f8e2b317257b, type: 3}
     Skill1Name: 
     Skill2Name: 
     Skill3Name: 
@@ -305,10 +305,10 @@ MonoBehaviour:
       type: 3}
     HeroName: Monk
     HeroImage: {fileID: 21300000, guid: 3dadccf12d651d841966479acdd9d7cd, type: 3}
-    Skill1Image: {fileID: 0}
-    Skill2Image: {fileID: 0}
-    Skill3Image: {fileID: 0}
-    Skill4Image: {fileID: 0}
+    Skill1Image: {fileID: 21300000, guid: 6341005da49c17b4ebc0bd19107f0945, type: 3}
+    Skill2Image: {fileID: 21300000, guid: dbc021c87f35c8d45bf98ac669d91952, type: 3}
+    Skill3Image: {fileID: 21300000, guid: b692cd971b3d12e4a849330a7913aca4, type: 3}
+    Skill4Image: {fileID: 21300000, guid: 7f063e204fa5d9749abc2f89430fa955, type: 3}
     Skill1Name: 
     Skill2Name: 
     Skill3Name: 
@@ -324,10 +324,10 @@ MonoBehaviour:
       type: 3}
     HeroName: Wizard
     HeroImage: {fileID: 21300000, guid: a67c7d002152b0847873e741a42ae3f0, type: 3}
-    Skill1Image: {fileID: 0}
-    Skill2Image: {fileID: 0}
-    Skill3Image: {fileID: 0}
-    Skill4Image: {fileID: 0}
+    Skill1Image: {fileID: 21300000, guid: 92b315788e6ebb34f90dddacbca17e68, type: 3}
+    Skill2Image: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+    Skill3Image: {fileID: 21300000, guid: 6e7451a3e6c5edb4aa5ce0fa9c5ac259, type: 3}
+    Skill4Image: {fileID: 21300000, guid: 8a5f9829a049c704fa992203bfc451f2, type: 3}
     Skill1Name: 
     Skill2Name: 
     Skill3Name: 

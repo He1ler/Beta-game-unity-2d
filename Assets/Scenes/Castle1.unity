@@ -1449,6 +1449,21 @@ PrefabInstance:
       propertyPath: LoadCan
       value: 
       objectReference: {fileID: 1435619325}
+    - target: {fileID: 4199874105826392762, guid: f5cc8c1d9e381f24fa9c410ab5d036fa,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199874105826392762, guid: f5cc8c1d9e381f24fa9c410ab5d036fa,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199874105826392762, guid: f5cc8c1d9e381f24fa9c410ab5d036fa,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4199874106138935779, guid: f5cc8c1d9e381f24fa9c410ab5d036fa,
         type: 3}
       propertyPath: m_Camera

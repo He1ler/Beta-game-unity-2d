@@ -9,7 +9,7 @@ public class Monsterscript : MonoBehaviour
     public int health;
     public int AttackDamage;
     public int MaxHealth;
-
+    public bool IsDead = false;
     private EnemyData ed;
     void Start()
     {
@@ -25,11 +25,12 @@ public class Monsterscript : MonoBehaviour
         if (!Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Death");
+            IsDead = true;
         }
     }
     public void Set_Hurt(int hp)
     {
-        if (!Pausemenu.GameisPaused )
+        if (!Pausemenu.GameisPaused && (!IsDead))
         {
             m_animator.SetTrigger("Hurt");
             health -= hp;
@@ -42,14 +43,17 @@ public class Monsterscript : MonoBehaviour
     }
     public void Set_Idle()
     {
+        if (!Pausemenu.GameisPaused && (!IsDead))
+        {
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
             if (m_delayToIdle < 0)
             { }
+        }
     }
     public void Set_Attack()
     {
-        if (!Pausemenu.GameisPaused)
+        if (!Pausemenu.GameisPaused &&(!ui.hero.IsDead))
         {
             m_animator.SetTrigger("Attack");
             ui.hero.Set_Hurt(AttackDamage);

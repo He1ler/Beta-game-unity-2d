@@ -351,21 +351,24 @@ public class UI : MonoBehaviour
         {
             enemy = enemy4;
         }
-        if (skillchoose == "Skill1")
+        if (!enemy.IsDead)
         {
-            Skill1();
-        }
-        else if (skillchoose == "Skill2")
-        {
-            Skill2();
-        }
-        else if (skillchoose == "Skill3")
-        {
-            Skill3();
-        }
-        else if (skillchoose == "Skill4")
-        {
-            Skill4();
+            if (skillchoose == "Skill1")
+            {
+                Skill1();
+            }
+            else if (skillchoose == "Skill2")
+            {
+                Skill2();
+            }
+            else if (skillchoose == "Skill3")
+            {
+                Skill3();
+            }
+            else if (skillchoose == "Skill4")
+            {
+                Skill4();
+            }
         }
     }
     public void ChoosingSkill(Button btn)
@@ -389,13 +392,21 @@ public class UI : MonoBehaviour
     }
     private void EnemyAttack()
     {
-        if (UnityEngine.Random.Range(1, 10) % 2 != 0)
-        {
-            hero = hero1;
-        }
-        else
-        {
-            hero = hero2;
+            if (UnityEngine.Random.Range(1, 10) % 2 != 0)
+            {
+                hero = hero1;
+            if (hero.IsDead)
+            {
+                EnemyAttack();
+            }
+            }
+            else
+            {
+                hero = hero2;
+            if (hero.IsDead)
+            {
+                EnemyAttack();
+            }
         }
     }
         

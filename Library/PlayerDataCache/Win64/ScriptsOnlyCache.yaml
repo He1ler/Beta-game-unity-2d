@@ -18,6 +18,8 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -33,8 +35,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -1312,7 +1316,7 @@ ScriptsOnlyBuild:
     className: Benchmark01
   - hash:
       serializedVersion: 2
-      Hash: 966e1d42d7d1bade950a678f270e6e78
+      Hash: 6c2a87357ff32ebb2ff7b294fd4e234a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1324,7 +1328,7 @@ ScriptsOnlyBuild:
     className: TMP_Asset
   - hash:
       serializedVersion: 2
-      Hash: 3d78708959fa4732dae01e89ffc67a12
+      Hash: cf129fb5990e8ce7fc725db7063eb2bf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Monsterscript
@@ -1372,7 +1376,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 475c5c7c285be01912f6162a5e912661
+      Hash: eedb4822c7a10c54196c145592a85593
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WaveSpawnerScript
@@ -1384,7 +1388,7 @@ ScriptsOnlyBuild:
     className: screen_transition
   - hash:
       serializedVersion: 2
-      Hash: 3bb4231e5e3d32f9a03b5be14fa67511
+      Hash: cf106d3658e1e71ed9889792091ee521
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI

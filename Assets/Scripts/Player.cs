@@ -150,6 +150,7 @@ public class Player : MonoBehaviour {
             if(health >= MaxHealth)
             {
                 health = MaxHealth;
+                IsDead = false;
                 Set_Recovery();
             }
         }
@@ -158,49 +159,70 @@ public class Player : MonoBehaviour {
     {
             m_animator.SetTrigger("Death");
             m_animator.SetInteger("death", 1);
-
+            IsDead = true;
     }
     public void Set_Hurt(int hp)
     {
-            m_animator.SetTrigger("Hurt");
-        health -= hp;
-        if (health <= 0)
+        if (!IsDead)
         {
-            health = 0;
-            Set_Death();
+            m_animator.SetTrigger("Hurt");
+            health -= hp;
+            if (health <= 0)
+            {
+                health = 0;
+                Set_Death();
+            }
         }
     }
     public void Set_Idle()
     {
-        m_delayToIdle -= Time.deltaTime;
-        if (m_delayToIdle < 0)
-            m_animator.SetInteger("AnimState", 0);
+        if (!IsDead)
+        {
+            m_delayToIdle -= Time.deltaTime;
+            if (m_delayToIdle < 0)
+                m_animator.SetInteger("AnimState", 0);
+        }
     }
     public void Set_Recovery()
     {
+        if (!IsDead)
+        {
             m_animator.SetTrigger("Recovery");
             m_animator.SetInteger("death", 0);
+        }
     }
     public void Set_Skill1()
     {
-        m_animator.SetTrigger("Skill1");
-        ui.enemy.Set_Hurt(Skill1Damage);
+        if (!ui.enemy.IsDead && !IsDead)
+        {
+            m_animator.SetTrigger("Skill1");
+            ui.enemy.Set_Hurt(Skill1Damage);
+        }
     }
     public void Set_Skill2()
     {
+        if (!ui.enemy.IsDead && !IsDead)
+        {
             m_animator.SetTrigger("Skill2");
-        ui.enemy.Set_Hurt(Skill2Damage);
+            ui.enemy.Set_Hurt(Skill2Damage);
+        }
     }
     public void Set_Skill3()
     {
+        if (!ui.enemy.IsDead && !IsDead)
+        {
             m_animator.SetTrigger("Skill3");
-        ui.enemy.Set_Hurt(Skill3Damage);
+            ui.enemy.Set_Hurt(Skill3Damage);
+        }
     }
     public void Set_Skill4()
     {
+        if (!ui.enemy.IsDead && !IsDead)
+        {
             m_animator.SetTrigger("Skill4");
-        ui.enemy.Set_Hurt(Skill4Damage);
-    }
+            ui.enemy.Set_Hurt(Skill4Damage);
+        }
+        }
 
     /*
         private Animator m_animator;
