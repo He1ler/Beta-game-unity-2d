@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System.Collections;
 public class Monsterscript : MonoBehaviour
 {
     private Animator m_animator;
@@ -28,8 +28,15 @@ public class Monsterscript : MonoBehaviour
             IsDead = true;
         }
     }
+
     public void Set_Hurt(int hp)
     {
+        StartCoroutine(Set_HurtI(hp, ui.hero.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length / 2));
+    }
+
+    public IEnumerator Set_HurtI(int hp, float f)
+    {
+        yield return new WaitForSeconds(f);
         if (!Pausemenu.GameisPaused && (!IsDead))
         {
             m_animator.SetTrigger("Hurt");

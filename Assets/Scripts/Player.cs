@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System.Collections;
 public class Player : MonoBehaviour {
 
    // [SerializeField] float m_speed = 4.0f;
@@ -163,6 +163,11 @@ public class Player : MonoBehaviour {
     }
     public void Set_Hurt(int hp)
     {
+        StartCoroutine(Set_HurtI(hp,ui.enemy.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length / 2));
+    }
+    public IEnumerator Set_HurtI(int hp, float f)
+    {
+        yield return new WaitForSeconds(f);
         if (!IsDead)
         {
             m_animator.SetTrigger("Hurt");
