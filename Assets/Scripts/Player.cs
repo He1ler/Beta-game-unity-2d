@@ -163,7 +163,7 @@ public class Player : MonoBehaviour {
     }
     public void Set_Hurt(int hp)
     {
-        StartCoroutine(Set_HurtI(hp,ui.enemy.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length / 2));
+        StartCoroutine(Set_HurtI(hp, GameObject.Find(ui.hero.HeroName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length / 2));
     }
     public IEnumerator Set_HurtI(int hp, float f)
     {

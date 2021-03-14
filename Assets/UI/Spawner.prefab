@@ -210,10 +210,10 @@ MonoBehaviour:
       type: 3}
     HeroName: Brother
     HeroImage: {fileID: 21300000, guid: bd630f2ffe543aa46af42c00c6bbb054, type: 3}
-    Skill1Image: {fileID: 0}
-    Skill2Image: {fileID: 0}
-    Skill3Image: {fileID: 0}
-    Skill4Image: {fileID: 0}
+    Skill1Image: {fileID: 21300000, guid: 21118b555a61b4a409ec20ba884cbcda, type: 3}
+    Skill2Image: {fileID: 21300000, guid: f0ab63148a67c7746aa6bbe5ec8b43e0, type: 3}
+    Skill3Image: {fileID: 21300000, guid: 411f88b287eb8504aa08edb04c1443c6, type: 3}
+    Skill4Image: {fileID: 21300000, guid: eced15bb959edc54c8457ab75f9a45b5, type: 3}
     Skill1Name: 
     Skill2Name: 
     Skill3Name: 

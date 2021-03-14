@@ -48,13 +48,12 @@ public class UI : MonoBehaviour
 
     public Player hero;
     public Monsterscript enemy;
-    private screen_transition st;
+    public screen_transition st;
 
     private string skillchoose;
 
     void Start ()
     {
-       st = GameObject.Find("DarkscreenTransition").GetComponent<screen_transition>();
         StartCoroutine(StartingHUD());
     }
     void Update()
@@ -146,9 +145,14 @@ public class UI : MonoBehaviour
 
     IEnumerator Hero1()
     {
+        skill1.gameObject.SetActive(true);
+        skill2.gameObject.SetActive(true);
+        skill3.gameObject.SetActive(true);
+        skill4.gameObject.SetActive(true);
         turns = BattleState.Hero1;
         hero1Btn.enabled = true;
         Hero1Name.enabled = true;
+        hero = hero1;
         skill1.image.sprite = wavespawner.hero1.Skill1Image;
         skill2.image.sprite = wavespawner.hero1.Skill2Image;
         skill3.image.sprite = wavespawner.hero1.Skill3Image;
@@ -164,7 +168,8 @@ public class UI : MonoBehaviour
         Hero1Name.enabled = false;
         hero2Btn.enabled = true;
         Hero2Name.enabled = true;
-         skill1.image.sprite = wavespawner.hero2.Skill1Image;
+        hero = hero2;
+        skill1.image.sprite = wavespawner.hero2.Skill1Image;
          skill2.image.sprite = wavespawner.hero2.Skill2Image;
          skill3.image.sprite = wavespawner.hero2.Skill3Image;
          skill4.image.sprite = wavespawner.hero2.Skill4Image;
@@ -187,9 +192,14 @@ public class UI : MonoBehaviour
     IEnumerator Enemy1()
     {
         yield return new WaitForSeconds(5f);
+        skill1.gameObject.SetActive(false);
+        skill2.gameObject.SetActive(false);
+        skill3.gameObject.SetActive(false);
+        skill4.gameObject.SetActive(false);
         turns = BattleState.Enemy1;
         hero2Btn.enabled = false;
         Hero2Name.enabled = false;
+        enemy = enemy1;
         EnemyAttack();
         enemy1.Set_Attack();
         SkillScreenEnemy();
@@ -204,6 +214,7 @@ public class UI : MonoBehaviour
         turns = BattleState.Enemy2;
         EnemyAttack();
         enemy2.Set_Attack();
+        enemy = enemy2;
         SkillScreenEnemy();
 
         CheckIfEHeroesDead();
@@ -222,6 +233,7 @@ public class UI : MonoBehaviour
         turns = BattleState.Enemy3;
         EnemyAttack();
         enemy3.Set_Attack();
+        enemy = enemy3;
         SkillScreenEnemy();
 
         CheckIfEHeroesDead();
@@ -239,6 +251,7 @@ public class UI : MonoBehaviour
         yield return new WaitForSeconds(5f);
         turns = BattleState.Enemy4;
         EnemyAttack();
+        enemy = enemy4;
         enemy4.Set_Attack();
         SkillScreenEnemy();
 
@@ -421,23 +434,11 @@ public class UI : MonoBehaviour
     }
     private void SkillScreenHero ()
     {
-        st.StartBattleScreen();
-        GameObject.Find(hero.HeroName + "(Clone)").GetComponent<SpriteRenderer>().sortingLayerName = "AttackAnim";
-        GameObject.Find(enemy.EnemyName + "(Clone)").GetComponent<SpriteRenderer>().sortingLayerName = "AttackAnim";
         st.Blood(hero.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length / 2);
-        st.Blood(hero.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-        GameObject.Find(hero.HeroName + "(Clone)").GetComponent<SpriteRenderer>().sortingLayerName = "Characters";
-        GameObject.Find(enemy.EnemyName + "(Clone)").GetComponent<SpriteRenderer>().sortingLayerName = "Characters";
     }
     private void SkillScreenEnemy()
     {
-        st.StartBattleScreen();
-        GameObject.Find(hero.HeroName + "(Clone)").GetComponent<SpriteRenderer>().sortingLayerName = "AttackAnim";
-        GameObject.Find(enemy.EnemyName + "(Clone)").GetComponent<SpriteRenderer>().sortingLayerName = "AttackAnim";
         st.Blood(enemy.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length / 2);
-        st.Blood(enemy.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-        GameObject.Find(hero.HeroName + "(Clone)").GetComponent<SpriteRenderer>().sortingLayerName = "Characters";
-        GameObject.Find(enemy.EnemyName + "(Clone)").GetComponent<SpriteRenderer>().sortingLayerName = "Characters";
     }
 
 }

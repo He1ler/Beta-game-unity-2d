@@ -21,11 +21,6 @@ public class screen_transition : MonoBehaviour
         animator.SetTrigger("End");
     }
 
-    public void StartBattleScreen ()
-    {
-        animator.SetTrigger("Battle");
-    }
-
     public void Blood (float f)
     {
         StartCoroutine(BloodI(f));
@@ -35,17 +30,6 @@ public class screen_transition : MonoBehaviour
     {   
         yield return new WaitForSeconds(f);
         animator.SetTrigger("Blood");
-    }
-
-    public void DarkScreenAfterBattle(float f)
-    {
-        StartCoroutine(DarkScreenAfterBattleI(f));
-    }
-
-    private IEnumerator DarkScreenAfterBattleI(float f)
-    {
-        yield return new WaitForSeconds(f);
-        animator.SetTrigger("End");
     }
 
     private IEnumerator WaitLoadScene ()
