@@ -31,7 +31,7 @@ public class Monsterscript : MonoBehaviour
 
     public void Set_Hurt(int hp)
     {
-        StartCoroutine(Set_HurtI(hp, GameObject.Find(ui.hero.HeroName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length / 2));
+        StartCoroutine(Set_HurtI(hp, GameObject.Find(ui.hero.HeroName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length * 0.7f));
     }
 
     public IEnumerator Set_HurtI(int hp, float f)
@@ -60,7 +60,7 @@ public class Monsterscript : MonoBehaviour
     }
     public void Set_Attack()
     {
-        if (!Pausemenu.GameisPaused &&(!ui.hero.IsDead))
+        if (!Pausemenu.GameisPaused &&(!ui.hero.IsDead)&& (!IsDead))
         {
             m_animator.SetTrigger("Attack");
             ui.hero.Set_Hurt(AttackDamage);

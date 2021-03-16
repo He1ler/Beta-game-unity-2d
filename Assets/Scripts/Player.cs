@@ -142,19 +142,6 @@ public class Player : MonoBehaviour {
                 m_animator.SetInteger("AnimState", 0);
         }
     }*/
-    void Update ()
-    {
-        if (IsDead)
-        {
-            health += (MaxHealth / 10);
-            if(health >= MaxHealth)
-            {
-                health = MaxHealth;
-                IsDead = false;
-                Set_Recovery();
-            }
-        }
-    }
     public void Set_Death()
     {
             m_animator.SetTrigger("Death");
@@ -163,7 +150,7 @@ public class Player : MonoBehaviour {
     }
     public void Set_Hurt(int hp)
     {
-        StartCoroutine(Set_HurtI(hp, GameObject.Find(ui.hero.HeroName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length / 2));
+        StartCoroutine(Set_HurtI(hp, GameObject.Find(ui.hero.HeroName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length *0.7f));
     }
     public IEnumerator Set_HurtI(int hp, float f)
     {
@@ -190,6 +177,12 @@ public class Player : MonoBehaviour {
     }
     public void Set_Recovery()
     {
+            health += (MaxHealth / 10);
+            if (health >= MaxHealth)
+            {
+                health = MaxHealth;
+                IsDead = false;
+            }
         if (!IsDead)
         {
             m_animator.SetTrigger("Recovery");

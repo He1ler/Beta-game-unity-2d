@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
-public enum HeroStates { Waiting,Dead, Recovery, Skill1, Skill2, Skill3, Skill4 };
 [System.Serializable]
 public class Hero
 {
-    public HeroStates HeroState = HeroStates.Waiting;
 	public GameObject HeroObject;
 	public string HeroName;
 	public Sprite HeroImage;
@@ -27,45 +24,4 @@ public class Hero
     public int Skill3Damage=20;
     public int Skill4Damage=30;
 
-    public void TakeDamage(int amount)
-    {
-       health -= amount;
-
-       if (health <= 0 && HeroState == HeroStates.Dead)
-       {
-           Die();
-       }
-    }
-    public void Recovery()
-    {
-        health += (MaxHealth / 10);
-        if(health >= MaxHealth)
-        {
-            HeroState = HeroStates.Recovery;
-        }
-    }
-    void Die()
-    {
-        HeroState = HeroStates.Dead;
-    }
-    public int Skill1()
-    {
-        HeroState = HeroStates.Skill1;
-        return Skill1Damage;
-    }
-    public int Skill2()
-    {
-        HeroState = HeroStates.Skill2;
-        return Skill1Damage;
-    }
-    public int Skill3()
-    {
-        HeroState = HeroStates.Skill3;
-        return Skill1Damage;
-    }
-    public int Skill4()
-    {
-        HeroState = HeroStates.Skill4;
-        return Skill1Damage;
-    }
 }
