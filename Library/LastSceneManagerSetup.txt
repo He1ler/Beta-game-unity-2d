@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Cave2.unity
+- path: Assets/Scenes/Castle2.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

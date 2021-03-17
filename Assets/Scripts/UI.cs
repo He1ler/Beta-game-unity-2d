@@ -145,6 +145,7 @@ public class UI : MonoBehaviour
 
     IEnumerator Hero1()
     {
+        CheckIfEHeroesDead();
         turns = BattleState.Hero1;
         if(hero1.IsDead)
         {
@@ -164,11 +165,12 @@ public class UI : MonoBehaviour
             skill3.image.sprite = wavespawner.hero1.Skill3Image;
             skill4.image.sprite = wavespawner.hero1.Skill4Image;
         }
-
+        CheckIfEnemiesDead();
         yield return new WaitForSeconds(3f);
     }
     IEnumerator Hero2()
     {
+        CheckIfEHeroesDead();
         yield return new WaitForSeconds(1f);
         turns = BattleState.Hero2;
 
@@ -192,24 +194,23 @@ public class UI : MonoBehaviour
             skill3.image.sprite = wavespawner.hero2.Skill3Image;
             skill4.image.sprite = wavespawner.hero2.Skill4Image;
         }
-
+        CheckIfEnemiesDead();
         yield return new WaitForSeconds(3f);
     }
     public void FromHero()
     {
         if (turns == BattleState.Hero1)
         {
-            CheckIfEnemiesDead();
             StartCoroutine(Hero2());
         }
         else if (turns == BattleState.Hero2)
         {
-            CheckIfEnemiesDead();
             StartCoroutine(Enemy1());
         }
     }
     IEnumerator Enemy1()
     {
+        CheckIfEnemiesDead();
         turns = BattleState.Enemy1;
         skill1.gameObject.SetActive(false);
         skill2.gameObject.SetActive(false);
@@ -231,6 +232,7 @@ public class UI : MonoBehaviour
     }
     IEnumerator Enemy2()
     {
+        CheckIfEnemiesDead();
         yield return new WaitForSeconds(5f);
         turns = BattleState.Enemy2;
         if (!enemy2.IsDead)
@@ -253,6 +255,7 @@ public class UI : MonoBehaviour
     }
     IEnumerator Enemy3()
     {
+        CheckIfEnemiesDead();
         yield return new WaitForSeconds(5f);
         turns = BattleState.Enemy3;
         if (!enemy3.IsDead)
@@ -275,6 +278,7 @@ public class UI : MonoBehaviour
     }
     IEnumerator Enemy4()
     {
+        CheckIfEnemiesDead();
         yield return new WaitForSeconds(5f);
         turns = BattleState.Enemy4;
         if (!enemy4.IsDead)
