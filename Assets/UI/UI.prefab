@@ -922,7 +922,7 @@ MonoBehaviour:
         m_MethodName: ChoosingSkill
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8394024955873831737}
+          m_ObjectArgument: {fileID: 8121465204499927030}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1639,7 +1639,7 @@ MonoBehaviour:
         m_MethodName: ChoosingSkill
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8394024955873831737}
+          m_ObjectArgument: {fileID: 7841090524467182121}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2010,7 +2010,7 @@ MonoBehaviour:
         m_MethodName: ChoosingSkill
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8394024955873831737}
+          m_ObjectArgument: {fileID: 4170913729764020041}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2452,8 +2452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavespawner: {fileID: 0}
   turns: 0
-  gameOverUI: {fileID: 5473712334493690229, guid: c638b8306cef27142bab7cc74da20341,
-    type: 3}
+  gameOverUI: {fileID: 0}
   completeLevelUI: {fileID: 0}
   hero1Slider: {fileID: 8974829918027911233}
   hero2Slider: {fileID: 7936096205687486143}

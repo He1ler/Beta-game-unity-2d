@@ -197,6 +197,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6202144096592573922, guid: a6801d916de69514e98e3f03eb990f6b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 6578068541911413508, guid: a6801d916de69514e98e3f03eb990f6b,
         type: 3}
       propertyPath: m_Camera
@@ -231,6 +236,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035760907368877756, guid: a6801d916de69514e98e3f03eb990f6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3447633778663233298, guid: a6801d916de69514e98e3f03eb990f6b, type: 3}
