@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4510561477667024636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 150, y: 350, z: 1}
+  m_LocalPosition: {x: -256.53, y: 0, z: 0}
+  m_LocalScale: {x: 63.876198, y: 73.3656, z: 1}
   m_Children:
   - {fileID: 5727689985584554198}
   m_Father: {fileID: 0}
@@ -99,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0004710257, y: 0.17474693}
+  m_Offset: {x: -0.003285408, y: 0.79198515}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.96, y: 0.53}
+    oldSize: {x: 4.3636365, y: 2.409091}
     newSize: {x: 0.96, y: 0.53}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5807758, y: 0.35059392}
+  m_Size: {x: 2.6315775, y: 1.5850704}
   m_EdgeRadius: 0
 --- !u!114 &8352272159307080473
 MonoBehaviour:
@@ -141,7 +141,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 10689.863
+  m_Mass: 19547.725
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
