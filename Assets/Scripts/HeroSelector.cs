@@ -6,6 +6,7 @@ public class HeroSelector : MonoBehaviour
 {
     public int heroSelect1 = 0;
     public int heroSelect2 = 0;
+    public bool Isboss = false;
     public string MapName;
 
     public Button button1;
@@ -75,5 +76,9 @@ public class HeroSelector : MonoBehaviour
     public void StartLevel()
     {
         SceneManager.LoadScene("Loading");
+    }
+    public void SetBossTrue()
+    {
+        Isboss = true;
     }
 }

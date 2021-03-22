@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
 public class WaveSpawnerScript : MonoBehaviour
 {
-	public Vector3 EnemyPosition1 = new Vector3(38, 193, 0);
-	public Vector3 EnemyPosition2 = new Vector3(178, 193, 0);
-	public Vector3 EnemyPosition3 = new Vector3(38, 193, 0);
-	public Vector3 EnemyPosition4 = new Vector3(178, 193, 0);
-	public Vector3 HeroPosition1 = new Vector3(38, 193, 0);
-	public Vector3 HeroPosition2 = new Vector3(178, 193, 0);
+	public Vector3 EnemyPosition1 = new Vector3(50, -140, 0);
+	public Vector3 EnemyPosition2 = new Vector3(150, -140, 0);
+	public Vector3 EnemyPosition3 = new Vector3(250, -140, 0);
+	public Vector3 EnemyPosition4 = new Vector3(350, -140, 0);
+	public Vector3 HeroPosition1 = new Vector3(-150, -140, 0);
+	public Vector3 HeroPosition2 = new Vector3(-330, -140, 0);
+	public Vector3 BossPosition = new Vector3(300, -140, 0);
 
 	public int waveIndex = 0;
 	public int EnemiesAlive = 0;
 	private int EnemyNumber;
 
-	public Enemy []enemies;
-	public Hero  []heroes;
+	public Enemy [] enemies;
+	public Enemy [] Bosses;
+	public Hero  [] heroes;
 
 	public Hero hero1;
 	public Hero hero2;
@@ -22,9 +24,6 @@ public class WaveSpawnerScript : MonoBehaviour
 	public Enemy enemy2;
 	public Enemy enemy3;
 	public Enemy enemy4;
-
-	public bool IsBoss = false;
-
 	void Start()
     {
 		hero1 = heroes[DataTransition.MapNameFromFile().heroIndex1 - 1];
@@ -35,7 +34,15 @@ public class WaveSpawnerScript : MonoBehaviour
 		hero2.HeroObject.GetComponent<Player>().HeroName = hero2.HeroName;
 		SpawnHero(hero1.HeroObject, 1);
 		SpawnHero(hero2.HeroObject, 2);
-		SpawnWave();
+		if(DataTransition.MapNameFromFile().Isboss)
+        {
+		EnemiesAlive = 1;
+		SpawnBoss();
+        }
+        else
+        {
+			SpawnWave();
+		}
 	}
 	public void SpawnWave()
 	{
@@ -73,6 +80,33 @@ public class WaveSpawnerScript : MonoBehaviour
 			}
 		}
 		waveIndex++;
+	}
+	void SpawnBoss()
+    {
+		if(DataTransition.MapNameFromFile().mapName == "Castle3")
+        {
+			Instantiate(Bosses[0].EnemyObject, BossPosition, Quaternion.identity);
+		}
+		else if (DataTransition.MapNameFromFile().mapName == "Cave")
+		{
+			Instantiate(Bosses[1].EnemyObject, BossPosition, Quaternion.identity);
+		}
+		else if (DataTransition.MapNameFromFile().mapName == "Church3")
+        {
+			Instantiate(Bosses[2].EnemyObject, BossPosition, Quaternion.identity);
+		}
+		else if (DataTransition.MapNameFromFile().mapName == "Dungeon3")
+		{
+			Instantiate(Bosses[3].EnemyObject, BossPosition, Quaternion.identity);
+		}
+		else if (DataTransition.MapNameFromFile().mapName == "Forest3")
+		{
+			Instantiate(Bosses[4].EnemyObject, BossPosition, Quaternion.identity);
+		}
+		else if (DataTransition.MapNameFromFile().mapName == "Graveyard3")
+		{
+			Instantiate(Bosses[5].EnemyObject, BossPosition, Quaternion.identity);
+		}
 	}
 	void SpawnEnemy(GameObject enemy,int n)
 	{

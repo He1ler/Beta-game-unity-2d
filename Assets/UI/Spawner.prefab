@@ -49,6 +49,7 @@ MonoBehaviour:
   EnemyPosition4: {x: 350, y: -140, z: 0}
   HeroPosition1: {x: -155, y: -140, z: 0}
   HeroPosition2: {x: -330, y: -140, z: 0}
+  BossPosition: {x: 300, y: -140, z: 0}
   waveIndex: 0
   EnemiesAlive: 0
   enemies:
@@ -166,6 +167,103 @@ MonoBehaviour:
     MaxHealth: 100
     health: 100
     AttackDamage: 10
+  - EnemyObject: {fileID: 8776561655351575541, guid: e41835cf1cec48441a54e97b09f23dd6,
+      type: 3}
+    EnemyName: Blacksmith Dark
+    MaxHealth: 100
+    health: 100
+    AttackDamage: 10
+  - EnemyObject: {fileID: 7535283850282367633, guid: 01c4215e4a14c5948b95e70d9242a8c3,
+      type: 3}
+    EnemyName: Brother Dark
+    MaxHealth: 100
+    health: 100
+    AttackDamage: 10
+  - EnemyObject: {fileID: 4296361006943601561, guid: d7b17114a3cb3364d8e13d5b1f8ec0c5,
+      type: 3}
+    EnemyName: Condotier Dark
+    MaxHealth: 100
+    health: 100
+    AttackDamage: 10
+  - EnemyObject: {fileID: 8355508651715472864, guid: c69cf63076ffd2240b37d835f3dc4751,
+      type: 3}
+    EnemyName: GirlKnight Dark
+    MaxHealth: 100
+    health: 100
+    AttackDamage: 10
+  - EnemyObject: {fileID: 7122412878878452651, guid: 210a780760d7dec4aa8690592f74dd4b,
+      type: 3}
+    EnemyName: HeroKnight
+    MaxHealth: 100
+    health: 100
+    AttackDamage: 10
+  - EnemyObject: {fileID: 8481325847892598963, guid: 2df4c0accf775d047963bed4f6d9d508,
+      type: 3}
+    EnemyName: King Dark
+    MaxHealth: 100
+    health: 100
+    AttackDamage: 10
+  - EnemyObject: {fileID: 7152154017721613807, guid: 0f4b27e90614eb84b855fae9cfabd0db,
+      type: 3}
+    EnemyName: Monk Dark
+    MaxHealth: 100
+    health: 100
+    AttackDamage: 10
+  - EnemyObject: {fileID: 1546437751752358348, guid: c41ec3d50303f3143a42854c7e073a05,
+      type: 3}
+    EnemyName: Muslim Dark
+    MaxHealth: 100
+    health: 100
+    AttackDamage: 10
+  - EnemyObject: {fileID: 7412486073415291261, guid: 5c324bc4f2bc66b4692818372a568090,
+      type: 3}
+    EnemyName: Vampire Dark
+    MaxHealth: 100
+    health: 100
+    AttackDamage: 10
+  - EnemyObject: {fileID: 3221440567231578696, guid: cc1b728677f6b434d8736095b4639330,
+      type: 3}
+    EnemyName: Wizard Dark
+    MaxHealth: 100
+    health: 100
+    AttackDamage: 10
+  Bosses:
+  - EnemyObject: {fileID: 2423197114075985243, guid: 8f3f4ae74ffcead429fe9cc0ac64b2c3,
+      type: 3}
+    EnemyName: Flying eyeBoss
+    MaxHealth: 300
+    health: 300
+    AttackDamage: 25
+  - EnemyObject: {fileID: 2864191101156823346, guid: 81ffec8273e27234ca271d8b9702c2a4,
+      type: 3}
+    EnemyName: CravBoss
+    MaxHealth: 300
+    health: 300
+    AttackDamage: 25
+  - EnemyObject: {fileID: 4510561477667024636, guid: 1aead379d555c8b4db0214a0aa98bae6,
+      type: 3}
+    EnemyName: hell-gatoBoss
+    MaxHealth: 300
+    health: 300
+    AttackDamage: 25
+  - EnemyObject: {fileID: 6344214216210160991, guid: 9442baad5124b6a4a90c3d8f19f9afd0,
+      type: 3}
+    EnemyName: octopusBoss
+    MaxHealth: 300
+    health: 300
+    AttackDamage: 25
+  - EnemyObject: {fileID: 6298202166443123783, guid: d619fa8e05e894044bba9066a0e91ec4,
+      type: 3}
+    EnemyName: MushroomBoss
+    MaxHealth: 300
+    health: 300
+    AttackDamage: 25
+  - EnemyObject: {fileID: 1139793519818416030, guid: b0e0abb4f77be0c46a36a17113759605,
+      type: 3}
+    EnemyName: Skeleton twohandedBoss
+    MaxHealth: 300
+    health: 300
+    AttackDamage: 25
   heroes:
   - HeroObject: {fileID: 8776561655351575541, guid: f8be9717f55290043876af31c52a1bbe,
       type: 3}

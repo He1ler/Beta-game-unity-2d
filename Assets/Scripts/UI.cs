@@ -295,19 +295,19 @@ public class UI : MonoBehaviour
     }
     void CheckIfEnemiesDead()
     {
-        if(enemy1.IsDead && !CheckIsEnemiesDead[0])
+        if(enemy1.IsDead && !CheckIsEnemiesDead[0] && !DataTransition.MapNameFromFile().Isboss)
         {
             CheckIsEnemiesDead[0] = true;
             wavespawner.EnemiesAlive--;
         }
-        if (enemy2.IsDead && !CheckIsEnemiesDead[1] && EnemiesAlive == 2)
+        if (enemy2.IsDead && !CheckIsEnemiesDead[1] && EnemiesAlive == 2 && !DataTransition.MapNameFromFile().Isboss)
         {
             CheckIsEnemiesDead[1] = true;
             wavespawner.EnemiesAlive--;
         }
         if(EnemiesAlive>=3)
         {
-            if (enemy3.IsDead && !CheckIsEnemiesDead[2] && EnemiesAlive == 3)
+            if (enemy3.IsDead && !CheckIsEnemiesDead[2] && EnemiesAlive == 3 && !DataTransition.MapNameFromFile().Isboss)
             {
                 CheckIsEnemiesDead[2] = true;
                 wavespawner.EnemiesAlive--;
@@ -315,7 +315,7 @@ public class UI : MonoBehaviour
         }
         if(EnemiesAlive==4)
         {
-            if (enemy4.IsDead && !CheckIsEnemiesDead[3] && EnemiesAlive == 4)
+            if (enemy4.IsDead && !CheckIsEnemiesDead[3] && EnemiesAlive == 4 && !DataTransition.MapNameFromFile().Isboss)
             {
                 CheckIsEnemiesDead[3] = true;
                 wavespawner.EnemiesAlive--;
@@ -326,7 +326,7 @@ public class UI : MonoBehaviour
         {
             return;
         }
-        else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex < 3)
+        else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex < 3 && !DataTransition.MapNameFromFile().Isboss)
         {
             wavespawner.SpawnWave();
             EnemiesAlive = wavespawner.EnemiesAlive;
@@ -335,7 +335,11 @@ public class UI : MonoBehaviour
                 CheckIsEnemiesDead[i] = false;
             }
         }
-        else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex >= 3)
+        else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex >= 3 && !DataTransition.MapNameFromFile().Isboss)
+        {
+            WinLevel();
+        }
+        else if (enemy1.IsDead && DataTransition.MapNameFromFile().Isboss)
         {
             WinLevel();
         }
