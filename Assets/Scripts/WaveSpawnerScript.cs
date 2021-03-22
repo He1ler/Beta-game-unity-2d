@@ -87,7 +87,7 @@ public class WaveSpawnerScript : MonoBehaviour
         {
 			Instantiate(Bosses[0].EnemyObject, BossPosition, Quaternion.identity);
 		}
-		else if (DataTransition.MapNameFromFile().mapName == "Cave")
+		else if (DataTransition.MapNameFromFile().mapName == "Cave3")
 		{
 			Instantiate(Bosses[1].EnemyObject, BossPosition, Quaternion.identity);
 		}

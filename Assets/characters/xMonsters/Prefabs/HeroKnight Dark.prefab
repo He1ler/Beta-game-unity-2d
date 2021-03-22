@@ -106,7 +106,7 @@ Animator:
   m_GameObject: {fileID: 7122412878878452651}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 37cf64d242a90554abc9d89a338d02e1, type: 2}
+  m_Controller: {fileID: 22100000, guid: a0417ea46b0614d45ab671fedd2d14e3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyName: 
+  EnemyName: HeroKnight
   health: 0
   AttackDamage: 0
   MaxHealth: 0

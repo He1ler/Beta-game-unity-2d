@@ -193,7 +193,7 @@ MonoBehaviour:
     AttackDamage: 10
   - EnemyObject: {fileID: 7122412878878452651, guid: 210a780760d7dec4aa8690592f74dd4b,
       type: 3}
-    EnemyName: HeroKnight
+    EnemyName: HeroKnight Dark
     MaxHealth: 100
     health: 100
     AttackDamage: 10
@@ -218,12 +218,6 @@ MonoBehaviour:
   - EnemyObject: {fileID: 7412486073415291261, guid: 5c324bc4f2bc66b4692818372a568090,
       type: 3}
     EnemyName: Vampire Dark
-    MaxHealth: 100
-    health: 100
-    AttackDamage: 10
-  - EnemyObject: {fileID: 3221440567231578696, guid: cc1b728677f6b434d8736095b4639330,
-      type: 3}
-    EnemyName: Wizard Dark
     MaxHealth: 100
     health: 100
     AttackDamage: 10
@@ -469,4 +463,3 @@ MonoBehaviour:
     MaxHealth: 100
     health: 0
     AttackDamage: 10
-  IsBoss: 0

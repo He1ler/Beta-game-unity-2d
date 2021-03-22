@@ -73,6 +73,8 @@ public class UI : MonoBehaviour
         Hero1Name.enabled = false;
         hero2Btn.enabled = false;
         Hero2Name.enabled = false;
+        enemy2Slider.gameObject.SetActive(false);
+        enemy2HPText.gameObject.SetActive(false);
         enemy3Slider.gameObject.SetActive(false);
         enemy3HPText.gameObject.SetActive(false);
         enemy4Slider.gameObject.SetActive(false);
@@ -81,7 +83,17 @@ public class UI : MonoBehaviour
         hero1 = GameObject.Find(wavespawner.hero1.HeroName + "(Clone)").GetComponent<Player>();
         hero2 = GameObject.Find(wavespawner.hero2.HeroName + "(Clone)").GetComponent<Player>();
         enemy1 = GameObject.Find(wavespawner.enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>();
-        enemy2 = GameObject.Find(wavespawner.enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>();
+        if (wavespawner.EnemiesAlive == 1)
+        {
+           // enemy1Slider.gameObject(300, -150, 0);
+        }
+
+        if (wavespawner.EnemiesAlive >= 2)
+        {
+            enemy2 = GameObject.Find(wavespawner.enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>();
+            enemy2Slider.gameObject.SetActive(true);
+            enemy2HPText.gameObject.SetActive(true);
+        }
         if(wavespawner.EnemiesAlive>=3)
         {
             enemy3 = GameObject.Find(wavespawner.enemy3.EnemyName + "(Clone)").GetComponent<Monsterscript>();
@@ -117,14 +129,17 @@ public class UI : MonoBehaviour
     {
         hero1Slider.value = Convert.ToSingle(hero1.health) / Convert.ToSingle(hero1.MaxHealth);
         hero2Slider.value = Convert.ToSingle(hero2.health) / Convert.ToSingle(hero2.MaxHealth);
-        enemy1Slider.value = Convert.ToSingle(enemy1.health) / Convert.ToSingle(enemy1.MaxHealth);
-        enemy2Slider.value = Convert.ToSingle(enemy2.health) / Convert.ToSingle(enemy2.MaxHealth);       
-
         hero1HPText.text = Convert.ToString(hero1.health) + " / " + Convert.ToString(hero1.MaxHealth);
         hero2HPText.text = Convert.ToString(hero2.health) + " / " + Convert.ToString(hero2.MaxHealth);
-        enemy1HPText.text = Convert.ToString(enemy1.health) + " / " + Convert.ToString(enemy1.MaxHealth);
-        enemy2HPText.text = Convert.ToString(enemy2.health) + " / " + Convert.ToString(enemy2.MaxHealth);     
 
+        enemy1Slider.value = Convert.ToSingle(enemy1.health) / Convert.ToSingle(enemy1.MaxHealth);
+        enemy1HPText.text = Convert.ToString(enemy1.health) + " / " + Convert.ToString(enemy1.MaxHealth);
+
+        if (wavespawner.EnemiesAlive >= 2)
+        {
+            enemy2Slider.value = Convert.ToSingle(enemy2.health) / Convert.ToSingle(enemy2.MaxHealth);
+            enemy2HPText.text = Convert.ToString(enemy2.health) + " / " + Convert.ToString(enemy2.MaxHealth);
+        }
         if (wavespawner.EnemiesAlive >= 3)
         {
             enemy3Slider.value = Convert.ToSingle(enemy3.health) / Convert.ToSingle(enemy3.MaxHealth);
@@ -233,7 +248,6 @@ public class UI : MonoBehaviour
     IEnumerator Enemy2()
     {
         CheckIfEnemiesDead();
-        yield return new WaitForSeconds(5f);
         turns = BattleState.Enemy2;
         if (!enemy2.IsDead)
         {
@@ -242,7 +256,7 @@ public class UI : MonoBehaviour
             enemy2.Set_Attack();
             SkillScreenEnemy();
         }
-
+        yield return new WaitForSeconds(5f);
         CheckIfEHeroesDead();
         if (wavespawner.EnemiesAlive>=3)
         {
@@ -256,7 +270,6 @@ public class UI : MonoBehaviour
     IEnumerator Enemy3()
     {
         CheckIfEnemiesDead();
-        yield return new WaitForSeconds(5f);
         turns = BattleState.Enemy3;
         if (!enemy3.IsDead)
         {
@@ -265,7 +278,7 @@ public class UI : MonoBehaviour
             enemy3.Set_Attack();
             SkillScreenEnemy();
         }
-
+        yield return new WaitForSeconds(5f);
         CheckIfEHeroesDead();
         if (wavespawner.EnemiesAlive == 4)
         {
@@ -279,7 +292,6 @@ public class UI : MonoBehaviour
     IEnumerator Enemy4()
     {
         CheckIfEnemiesDead();
-        yield return new WaitForSeconds(5f);
         turns = BattleState.Enemy4;
         if (!enemy4.IsDead)
         {
@@ -288,7 +300,7 @@ public class UI : MonoBehaviour
             enemy4.Set_Attack();
             SkillScreenEnemy();
         }
-
+        yield return new WaitForSeconds(5f);
         CheckIfEHeroesDead();
 
         StartCoroutine(Hero1());
@@ -478,11 +490,11 @@ public class UI : MonoBehaviour
     }
     private void SkillScreenHero ()
     {
-        st.Blood(hero.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length * 0.7f);
+        st.Blood(hero.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length * 0.65f);
     }
     private void SkillScreenEnemy()
     {
-        st.Blood(enemy.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length * 0.7f);
+        st.Blood(enemy.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length * 0.65f);
     }
 
 }

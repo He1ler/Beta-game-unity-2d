@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 7666525428017728887}
   - component: {fileID: 7503716007315828383}
   - component: {fileID: 7516072555871597029}
-  - component: {fileID: 7077948878367473154}
   - component: {fileID: -1615679809933715343}
   m_Layer: 0
   m_Name: Brother Dark
@@ -107,7 +106,7 @@ Animator:
   m_GameObject: {fileID: 7535283850282367633}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 23719ea5252ea1b479fbad53062bad16, type: 2}
+  m_Controller: {fileID: 22100000, guid: cc611bfb6bbace548acdbfc4dda7797b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -213,58 +212,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0014375, y: 1.7265601}
   m_EdgeRadius: 0
---- !u!114 &7077948878367473154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7535283850282367633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 0000000065fb296bc1c91ba473ff4168bf7d17412f50d490b7e84f128b064776
-  m_ShapePath:
-  - {x: -0.28353485, y: 0.07013456, z: 0}
-  - {x: 0.49653468, y: 0.07941078, z: 0}
-  - {x: 0.34698284, y: 0.27410936, z: 0}
-  - {x: 0.42220828, y: 0.3916373, z: 0}
-  - {x: 0.42937315, y: 0.55999005, z: 0}
-  - {x: 0.37564063, y: 0.582225, z: 0}
-  - {x: 0.3863873, y: 0.7982223, z: 0}
-  - {x: 0.37564215, y: 1.1190425, z: 0}
-  - {x: 0.29683447, y: 1.2206882, z: 0}
-  - {x: 0.33265626, y: 1.2842169, z: 0}
-  - {x: 0.32907397, y: 1.417627, z: 0}
-  - {x: 0.20369835, y: 1.484332, z: 0}
-  - {x: 0.20679092, y: 1.7721334, z: 0}
-  - {x: 0.09719257, y: 1.8588911, z: 0}
-  - {x: -0.064966895, y: 1.8527951, z: 0}
-  - {x: -0.21183558, y: 1.6939735, z: 0}
-  - {x: -0.23332863, y: 1.51927, z: 0}
-  - {x: -0.36945087, y: 1.379507, z: 0}
-  - {x: -0.38736168, y: 1.233391, z: 0}
-  - {x: -0.51631963, y: 1.0936282, z: 0}
-  - {x: -0.51990175, y: 0.99833524, z: 0}
-  - {x: -0.6488596, y: 1.173039, z: 0}
-  - {x: -0.7455788, y: 1.0872757, z: 0}
-  - {x: -0.72408587, y: 1.0364529, z: 0}
-  - {x: -0.573635, y: 0.8998664, z: 0}
-  - {x: -0.5306479, y: 0.7537504, z: 0}
-  - {x: -0.46975094, y: 0.5726938, z: 0}
-  - {x: -0.34795764, y: 0.5568117, z: 0}
-  - {x: -0.4518402, y: 0.22646293, z: 0}
-  - {x: -0.41601866, y: 0.096229225, z: 0}
-  m_ShapePathHash: 1242909538
-  m_Mesh: {fileID: 0}
-  m_InstanceId: 130212
 --- !u!114 &-1615679809933715343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyName: 
+  EnemyName: Brother Dark
   health: 0
   AttackDamage: 0
   MaxHealth: 0

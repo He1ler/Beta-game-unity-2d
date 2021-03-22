@@ -204,7 +204,7 @@ Animator:
   m_GameObject: {fileID: 8481325847892598963}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 0d0ab286bcbb7f641910d7b96d893770, type: 2}
+  m_Controller: {fileID: 22100000, guid: 61b1b4e39827fa740ba07e3d264436a0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyName: 
+  EnemyName: King Dark
   health: 0
   AttackDamage: 0
   MaxHealth: 0
