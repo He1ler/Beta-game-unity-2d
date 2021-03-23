@@ -9,21 +9,21 @@ public static class DataTransition
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/Name.map";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
-        Data data = new Data(hs);
-        formatter.Serialize(stream, data);
+        GameData GameData = new GameData(hs);
+        formatter.Serialize(stream, GameData);
         stream.Close();
     }
-    public static Data MapNameFromFile()
+    public static GameData MapNameFromFile()
     {
         string path = Application.persistentDataPath + "/Name.map";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-            Data data = formatter.Deserialize(stream) as Data;
+            GameData GameData = formatter.Deserialize(stream) as GameData;
             stream.Close();
 
-            return data;
+            return GameData;
         }
         else
         {
@@ -37,8 +37,8 @@ public static class DataTransition
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/" + hero[i].HeroName + ".hero";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
-        HeroData data = new HeroData(hero[i]);
-        formatter.Serialize(stream, data);
+        HeroData GameData = new HeroData(hero[i]);
+        formatter.Serialize(stream, GameData);
         stream.Close();
     }
     public static HeroData HeroFromFile(string HeroName)
@@ -48,10 +48,10 @@ public static class DataTransition
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-            HeroData data = formatter.Deserialize(stream) as HeroData;
+            HeroData GameData = formatter.Deserialize(stream) as HeroData;
             stream.Close();
 
-            return data;
+            return GameData;
         }
         else
         {
@@ -64,8 +64,8 @@ public static class DataTransition
         string path = Application.persistentDataPath + "/" + enemy[i].EnemyName + ".enemy";
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
-        EnemyData data = new EnemyData(enemy[i]);
-        formatter.Serialize(stream, data);
+        EnemyData GameData = new EnemyData(enemy[i]);
+        formatter.Serialize(stream, GameData);
         stream.Close();
     }
     public static EnemyData EnemyFromFile(string EnemyName)
@@ -75,10 +75,10 @@ public static class DataTransition
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-            EnemyData data = formatter.Deserialize(stream) as EnemyData;
+            EnemyData GameData = formatter.Deserialize(stream) as EnemyData;
             stream.Close();
 
-            return data;
+            return GameData;
         }
         else
         {

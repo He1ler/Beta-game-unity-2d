@@ -193,7 +193,7 @@ MonoBehaviour:
     AttackDamage: 10
   - EnemyObject: {fileID: 7122412878878452651, guid: 210a780760d7dec4aa8690592f74dd4b,
       type: 3}
-    EnemyName: HeroKnight Dark
+    EnemyName: Knight Dark
     MaxHealth: 100
     health: 100
     AttackDamage: 10
@@ -463,3 +463,4 @@ MonoBehaviour:
     MaxHealth: 100
     health: 0
     AttackDamage: 10
+  IsBoss: 0

@@ -21,7 +21,6 @@ public class UI : MonoBehaviour
     public Slider enemy2Slider;
     public Slider enemy3Slider;
     public Slider enemy4Slider;
-    public Slider BossSlider;
 
     public TMP_Text hero1HPText;
     public TMP_Text hero2HPText;
@@ -29,7 +28,6 @@ public class UI : MonoBehaviour
     public TMP_Text enemy2HPText;
     public TMP_Text enemy3HPText;
     public TMP_Text enemy4HPText;
-    public TMP_Text BossHPText;
 
     public Button hero1Btn;
     public Button hero2Btn;
@@ -57,14 +55,15 @@ public class UI : MonoBehaviour
     void Start ()
     {
         StartCoroutine(StartingHUD());
+        InvokeRepeating("update", 3.0f, 1.0f);
     }
-    void Update()
+    void update()
     {
         HPCheck();
     }
     IEnumerator StartingHUD()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         hero1Btn.image.sprite = wavespawner.hero1.HeroImage;
         hero2Btn.image.sprite = wavespawner.hero2.HeroImage;
 
@@ -85,10 +84,12 @@ public class UI : MonoBehaviour
         hero1 = GameObject.Find(wavespawner.hero1.HeroName + "(Clone)").GetComponent<Player>();
         hero2 = GameObject.Find(wavespawner.hero2.HeroName + "(Clone)").GetComponent<Player>();
         enemy1 = GameObject.Find(wavespawner.enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>();
-        if(DataTransition.MapNameFromFile().Isboss)
+
+        if(wavespawner.IsBoss)
         {
             enemy = enemy1;
         }
+
         if (wavespawner.EnemiesAlive >= 2)
         {
             enemy2 = GameObject.Find(wavespawner.enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>();
@@ -112,7 +113,6 @@ public class UI : MonoBehaviour
          skill3.image.sprite = wavespawner.hero1.Skill3Image;
          skill4.image.sprite = wavespawner.hero1.Skill4Image;
 
-        HPCheck();
         EnemiesAlive = wavespawner.EnemiesAlive;
 
         turns = BattleState.Waiting;
@@ -243,7 +243,7 @@ public class UI : MonoBehaviour
             SkillScreenEnemy();
         }
         CheckIfEHeroesDead();
-        if(!DataTransition.MapNameFromFile().Isboss)
+        if(!wavespawner.IsBoss)
         StartCoroutine(Enemy2());
         else
             StartCoroutine(Hero1());
@@ -310,7 +310,7 @@ public class UI : MonoBehaviour
     }
     void CheckIfEnemiesDead()
     {
-        if(!DataTransition.MapNameFromFile().Isboss)
+        if(!wavespawner.IsBoss)
         {
         if (enemy1.IsDead && !CheckIsEnemiesDead[0])
         {
@@ -357,7 +357,7 @@ public class UI : MonoBehaviour
             WinLevel();
         }
     }
-        else if (enemy1.IsDead && DataTransition.MapNameFromFile().Isboss)
+        else if (enemy1.IsDead && wavespawner.IsBoss)
         {
             WinLevel();
         }
@@ -475,7 +475,7 @@ public class UI : MonoBehaviour
             skillchoose = btn.name;
         }
 
-        if(DataTransition.MapNameFromFile().Isboss)
+        if(wavespawner.IsBoss)
         {
             if (!enemy.IsDead)
             {

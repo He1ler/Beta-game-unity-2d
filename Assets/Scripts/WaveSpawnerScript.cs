@@ -24,6 +24,8 @@ public class WaveSpawnerScript : MonoBehaviour
 	public Enemy enemy2;
 	public Enemy enemy3;
 	public Enemy enemy4;
+
+	public bool IsBoss = false;
 	void Start()
     {
 		hero1 = heroes[DataTransition.MapNameFromFile().heroIndex1 - 1];
@@ -34,7 +36,8 @@ public class WaveSpawnerScript : MonoBehaviour
 		hero2.HeroObject.GetComponent<Player>().HeroName = hero2.HeroName;
 		SpawnHero(hero1.HeroObject, 1);
 		SpawnHero(hero2.HeroObject, 2);
-		if(DataTransition.MapNameFromFile().Isboss)
+		IsBoss = DataTransition.MapNameFromFile().Isboss;
+		if (IsBoss)
         {
 		EnemiesAlive = 1;
 		SpawnBoss();
