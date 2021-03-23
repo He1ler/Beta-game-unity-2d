@@ -21,6 +21,7 @@ public class UI : MonoBehaviour
     public Slider enemy2Slider;
     public Slider enemy3Slider;
     public Slider enemy4Slider;
+    public Slider BossSlider;
 
     public TMP_Text hero1HPText;
     public TMP_Text hero2HPText;
@@ -28,6 +29,7 @@ public class UI : MonoBehaviour
     public TMP_Text enemy2HPText;
     public TMP_Text enemy3HPText;
     public TMP_Text enemy4HPText;
+    public TMP_Text BossHPText;
 
     public Button hero1Btn;
     public Button hero2Btn;
@@ -41,7 +43,7 @@ public class UI : MonoBehaviour
 
     private Player hero1;
     private Player hero2;
-    private Monsterscript enemy1;
+    public Monsterscript enemy1;
     private Monsterscript enemy2;
     private Monsterscript enemy3;
     private Monsterscript enemy4;
@@ -83,11 +85,10 @@ public class UI : MonoBehaviour
         hero1 = GameObject.Find(wavespawner.hero1.HeroName + "(Clone)").GetComponent<Player>();
         hero2 = GameObject.Find(wavespawner.hero2.HeroName + "(Clone)").GetComponent<Player>();
         enemy1 = GameObject.Find(wavespawner.enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>();
-        if (wavespawner.EnemiesAlive == 1)
+        if(DataTransition.MapNameFromFile().Isboss)
         {
-           // enemy1Slider.gameObject(300, -150, 0);
+            enemy = enemy1;
         }
-
         if (wavespawner.EnemiesAlive >= 2)
         {
             enemy2 = GameObject.Find(wavespawner.enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>();
@@ -242,8 +243,10 @@ public class UI : MonoBehaviour
             SkillScreenEnemy();
         }
         CheckIfEHeroesDead();
-
+        if(!DataTransition.MapNameFromFile().Isboss)
         StartCoroutine(Enemy2());
+        else
+            StartCoroutine(Hero1());
     }
     IEnumerator Enemy2()
     {
@@ -307,27 +310,29 @@ public class UI : MonoBehaviour
     }
     void CheckIfEnemiesDead()
     {
-        if(enemy1.IsDead && !CheckIsEnemiesDead[0] && !DataTransition.MapNameFromFile().Isboss)
+        if(!DataTransition.MapNameFromFile().Isboss)
+        {
+        if (enemy1.IsDead && !CheckIsEnemiesDead[0])
         {
             CheckIsEnemiesDead[0] = true;
             wavespawner.EnemiesAlive--;
         }
-        if (enemy2.IsDead && !CheckIsEnemiesDead[1] && EnemiesAlive == 2 && !DataTransition.MapNameFromFile().Isboss)
+        if (enemy2.IsDead && !CheckIsEnemiesDead[1] && EnemiesAlive == 2)
         {
             CheckIsEnemiesDead[1] = true;
             wavespawner.EnemiesAlive--;
         }
-        if(EnemiesAlive>=3)
+        if (EnemiesAlive >= 3)
         {
-            if (enemy3.IsDead && !CheckIsEnemiesDead[2] && EnemiesAlive == 3 && !DataTransition.MapNameFromFile().Isboss)
+            if (enemy3.IsDead && !CheckIsEnemiesDead[2] && EnemiesAlive == 3)
             {
                 CheckIsEnemiesDead[2] = true;
                 wavespawner.EnemiesAlive--;
             }
         }
-        if(EnemiesAlive==4)
+        if (EnemiesAlive == 4)
         {
-            if (enemy4.IsDead && !CheckIsEnemiesDead[3] && EnemiesAlive == 4 && !DataTransition.MapNameFromFile().Isboss)
+            if (enemy4.IsDead && !CheckIsEnemiesDead[3] && EnemiesAlive == 4)
             {
                 CheckIsEnemiesDead[3] = true;
                 wavespawner.EnemiesAlive--;
@@ -338,19 +343,20 @@ public class UI : MonoBehaviour
         {
             return;
         }
-        else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex < 3 && !DataTransition.MapNameFromFile().Isboss)
+        else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex < 3)
         {
             wavespawner.SpawnWave();
             EnemiesAlive = wavespawner.EnemiesAlive;
-            for (int i=0;i<=3;i++)
+            for (int i = 0; i <= 3; i++)
             {
                 CheckIsEnemiesDead[i] = false;
             }
         }
-        else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex >= 3 && !DataTransition.MapNameFromFile().Isboss)
+        else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex >= 3)
         {
             WinLevel();
         }
+    }
         else if (enemy1.IsDead && DataTransition.MapNameFromFile().Isboss)
         {
             WinLevel();
@@ -410,45 +416,45 @@ public class UI : MonoBehaviour
     }
     public void ChoosingEnemy(Button btn)
     {
-        if (btn.name == "1")
-        {
-            enemy = enemy1;
-        }
-        else if (btn.name == "2")
-        {
-            enemy = enemy2;
-        }
-        else if (btn.name == "3")
-        {
-            enemy = enemy3;
-        }
-        else if (btn.name == "4")
-        {
-            enemy = enemy4;
-        }
-        if (!enemy.IsDead)
-        {
-            if (skillchoose == "Skill1")
+            if (btn.name == "1")
             {
-                Skill1();
-                SkillScreenHero();
+                enemy = enemy1;
             }
-            else if (skillchoose == "Skill2")
+            else if (btn.name == "2")
             {
-                Skill2();
-                SkillScreenHero();
+                enemy = enemy2;
             }
-            else if (skillchoose == "Skill3")
+            else if (btn.name == "3")
             {
-                Skill3();
-                SkillScreenHero();
+                enemy = enemy3;
             }
-            else if (skillchoose == "Skill4")
+            else if (btn.name == "4")
             {
-                Skill4();
-                SkillScreenHero();
+                enemy = enemy4;
             }
-        }
+            if (!enemy.IsDead)
+            {
+                if (skillchoose == "Skill1")
+                {
+                    Skill1();
+                    SkillScreenHero();
+                }
+                else if (skillchoose == "Skill2")
+                {
+                    Skill2();
+                    SkillScreenHero();
+                }
+                else if (skillchoose == "Skill3")
+                {
+                    Skill3();
+                    SkillScreenHero();
+                }
+                else if (skillchoose == "Skill4")
+                {
+                    Skill4();
+                    SkillScreenHero();
+                }
+            } 
     }
     public void ChoosingSkill(Button btn)
     {
@@ -467,6 +473,34 @@ public class UI : MonoBehaviour
         else if (btn.name == "Skill4")
         {
             skillchoose = btn.name;
+        }
+
+        if(DataTransition.MapNameFromFile().Isboss)
+        {
+            if (!enemy.IsDead)
+            {
+                if (skillchoose == "Skill1")
+                {
+                    Skill1();
+                    SkillScreenHero();
+                }
+                else if (skillchoose == "Skill2")
+                {
+                    Skill2();
+                    SkillScreenHero();
+                }
+                else if (skillchoose == "Skill3")
+                {
+                    Skill3();
+                    SkillScreenHero();
+                }
+                else if (skillchoose == "Skill4")
+                {
+                    Skill4();
+                    SkillScreenHero();
+                }
+                FromHero();
+            }
         }
     }
     private void EnemyAttack()

@@ -2,18 +2,37 @@
 
 public class CrabScript : MonoBehaviour
 {
-    [SerializeField] float m_speed = 100.0f;
+    public string Bossname;
+    public float m_speed = 150.0f;
+    public Vector3 walkingChangeXY1 = new Vector3(140, -155, 0);
+    public float size = 0;
+
     private Animator m_animator;
-    private Vector3 walkingChangeXY1 = new Vector3(140, -140, 0);
     private bool target = false;
+    public Transform groundDetection;
+    private float lenght = 0.0f;
     // Use this for initialization
     void Start()
     {
-        m_animator = GameObject.Find("CrabBoss" + "(Clone)").GetComponent<Animator>();
-        while (!Pausemenu.GameisPaused && !target)
+        m_animator = GameObject.Find(Bossname + "(Clone)").GetComponent<Animator>();
+        m_animator.SetTrigger("Attack");
+        lenght = m_animator.GetCurrentAnimatorStateInfo(0).length;
+    }
+    void Update ()
+    {
+        if (!Pausemenu.GameisPaused && !target)
         {
+            lenght -= Time.deltaTime*size;
+            if (lenght<=0)
+            {
+                m_animator.SetTrigger("Attack");
+                lenght = m_animator.GetCurrentAnimatorStateInfo(0).length;
+            }
             transform.position = Vector2.MoveTowards(transform.position, walkingChangeXY1, m_speed * Time.deltaTime);
-            m_animator.SetTrigger("Attack");
+            if (groundDetection.position == walkingChangeXY1)
+            {
+                target = true;
+            }
         }
     }
 }

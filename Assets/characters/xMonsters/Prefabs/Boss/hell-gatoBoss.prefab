@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8352272159307080473}
   - component: {fileID: 4510561477667024635}
   - component: {fileID: 5355792315956875071}
+  - component: {fileID: 4340237689143032811}
   m_Layer: 0
   m_Name: hell-gatoBoss
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4510561477667024636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -187.1, y: 0, z: 0}
-  m_LocalScale: {x: 95.71221, y: 111.39927, z: 1}
+  m_LocalScale: {x: 90, y: 105, z: 1}
   m_Children:
   - {fileID: 5727689985584554198}
   m_Father: {fileID: 0}
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyName: 
+  EnemyName: hell-gatoBoss
   health: 0
   AttackDamage: 0
   MaxHealth: 0
@@ -169,6 +170,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4340237689143032811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4510561477667024636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c6d423f32204545ad90c95f90a49e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bossname: hell-gatoBoss
+  m_speed: 150
+  walkingChangeXY1: {x: 150, y: -129, z: 0}
+  size: 4
+  groundDetection: {fileID: 4510561477667024632}
 --- !u!1 &5486282252423543378
 GameObject:
   m_ObjectHideFlags: 0

@@ -85,26 +85,44 @@ public class WaveSpawnerScript : MonoBehaviour
     {
 		if(DataTransition.MapNameFromFile().mapName == "Castle3")
         {
+			enemy1 = Bosses[0];
+			enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
+			DataTransition.EnemyToFile(0, Bosses);
 			Instantiate(Bosses[0].EnemyObject, BossPosition, Quaternion.identity);
 		}
 		else if (DataTransition.MapNameFromFile().mapName == "Cave3")
 		{
+			enemy1 = Bosses[1];
+			enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
+			DataTransition.EnemyToFile(1, Bosses);
 			Instantiate(Bosses[1].EnemyObject, BossPosition, Quaternion.identity);
 		}
 		else if (DataTransition.MapNameFromFile().mapName == "Church3")
         {
+			enemy1 = Bosses[2];
+			enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
+			DataTransition.EnemyToFile(2, Bosses);
 			Instantiate(Bosses[2].EnemyObject, BossPosition, Quaternion.identity);
 		}
 		else if (DataTransition.MapNameFromFile().mapName == "Dungeon3")
 		{
+			enemy1 = Bosses[3];
+			enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
+			DataTransition.EnemyToFile(3, Bosses);
 			Instantiate(Bosses[3].EnemyObject, BossPosition, Quaternion.identity);
 		}
 		else if (DataTransition.MapNameFromFile().mapName == "Forest3")
 		{
+			enemy1 = Bosses[4];
+			enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
+			DataTransition.EnemyToFile(4, Bosses);
 			Instantiate(Bosses[4].EnemyObject, BossPosition, Quaternion.identity);
 		}
 		else if (DataTransition.MapNameFromFile().mapName == "Graveyard3")
 		{
+			enemy1 = Bosses[5];
+			enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
+			DataTransition.EnemyToFile(5, Bosses);
 			Instantiate(Bosses[5].EnemyObject, BossPosition, Quaternion.identity);
 		}
 	}

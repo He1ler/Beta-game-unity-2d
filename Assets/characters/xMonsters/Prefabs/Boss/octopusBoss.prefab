@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 6344214216210160991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 106.2, y: 0, z: 0}
-  m_LocalScale: {x: 1158.8107, y: 1039.5247, z: 1}
+  m_LocalScale: {x: 900, y: 850, z: 1}
   m_Children:
   - {fileID: 4213683518725894679}
   m_Father: {fileID: 0}
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyName: 
+  EnemyName: octopusBoss
   health: 0
   AttackDamage: 0
   MaxHealth: 0

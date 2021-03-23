@@ -230,7 +230,7 @@ MonoBehaviour:
     AttackDamage: 25
   - EnemyObject: {fileID: 2864191101156823346, guid: 81ffec8273e27234ca271d8b9702c2a4,
       type: 3}
-    EnemyName: CravBoss
+    EnemyName: CrabBoss
     MaxHealth: 300
     health: 300
     AttackDamage: 25
