@@ -85,7 +85,9 @@ public class UI : MonoBehaviour
         hero2 = GameObject.Find(wavespawner.hero2.HeroName + "(Clone)").GetComponent<Player>();
         enemy1 = GameObject.Find(wavespawner.enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>();
 
-        if(wavespawner.IsBoss)
+        hero1.health = hero1.MaxHealth;
+        hero2.health = hero2.MaxHealth;
+        if (wavespawner.IsBoss)
         {
             enemy = enemy1;
         }
@@ -161,11 +163,13 @@ public class UI : MonoBehaviour
 
     IEnumerator Hero1()
     {
+        CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Hero1;
         if(hero1.IsDead)
         {
             hero1.Set_Recovery();
+            FromHero();
         }
         else 
         {
@@ -182,10 +186,12 @@ public class UI : MonoBehaviour
             skill4.image.sprite = wavespawner.hero1.Skill4Image;
         }
         CheckIfEnemiesDead();
+        CheckIfEHeroesDead();
         yield return new WaitForSeconds(3f);
     }
     IEnumerator Hero2()
     {
+        CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         yield return new WaitForSeconds(1f);
         turns = BattleState.Hero2;
@@ -193,6 +199,7 @@ public class UI : MonoBehaviour
         if (hero2.IsDead)
         {
             hero2.Set_Recovery();
+            FromHero();
         }
         else
         {
@@ -211,6 +218,7 @@ public class UI : MonoBehaviour
             skill4.image.sprite = wavespawner.hero2.Skill4Image;
         }
         CheckIfEnemiesDead();
+        CheckIfEHeroesDead();
         yield return new WaitForSeconds(3f);
     }
     public void FromHero()
@@ -227,6 +235,7 @@ public class UI : MonoBehaviour
     IEnumerator Enemy1()
     {
         CheckIfEnemiesDead();
+        CheckIfEHeroesDead();
         turns = BattleState.Enemy1;
         skill1.gameObject.SetActive(false);
         skill2.gameObject.SetActive(false);
@@ -242,8 +251,9 @@ public class UI : MonoBehaviour
             enemy1.Set_Attack();
             SkillScreenEnemy();
         }
+        CheckIfEnemiesDead();
         CheckIfEHeroesDead();
-        if(!wavespawner.IsBoss)
+        if (!wavespawner.IsBoss)
         StartCoroutine(Enemy2());
         else
             StartCoroutine(Hero1());
@@ -251,6 +261,7 @@ public class UI : MonoBehaviour
     IEnumerator Enemy2()
     {
         CheckIfEnemiesDead();
+        CheckIfEHeroesDead();
         turns = BattleState.Enemy2;
         if (!enemy2.IsDead)
         {
@@ -260,6 +271,7 @@ public class UI : MonoBehaviour
             SkillScreenEnemy();
         }
         yield return new WaitForSeconds(5f);
+        CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         if (wavespawner.EnemiesAlive>=3)
         {
@@ -273,6 +285,7 @@ public class UI : MonoBehaviour
     IEnumerator Enemy3()
     {
         CheckIfEnemiesDead();
+        CheckIfEHeroesDead();
         turns = BattleState.Enemy3;
         if (!enemy3.IsDead)
         {
@@ -282,6 +295,7 @@ public class UI : MonoBehaviour
             SkillScreenEnemy();
         }
         yield return new WaitForSeconds(5f);
+        CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         if (wavespawner.EnemiesAlive == 4)
         {
@@ -295,6 +309,7 @@ public class UI : MonoBehaviour
     IEnumerator Enemy4()
     {
         CheckIfEnemiesDead();
+        CheckIfEHeroesDead();
         turns = BattleState.Enemy4;
         if (!enemy4.IsDead)
         {
@@ -304,6 +319,7 @@ public class UI : MonoBehaviour
             SkillScreenEnemy();
         }
         yield return new WaitForSeconds(5f);
+        CheckIfEnemiesDead();
         CheckIfEHeroesDead();
 
         StartCoroutine(Hero1());
@@ -316,19 +332,25 @@ public class UI : MonoBehaviour
         {
             CheckIsEnemiesDead[0] = true;
             wavespawner.EnemiesAlive--;
-        }
+                enemy1Slider.gameObject.SetActive(false);
+                enemy1HPText.gameObject.SetActive(false);
+            }
         if (enemy2.IsDead && !CheckIsEnemiesDead[1] && EnemiesAlive == 2)
         {
             CheckIsEnemiesDead[1] = true;
             wavespawner.EnemiesAlive--;
-        }
+                enemy2Slider.gameObject.SetActive(false);
+                enemy2HPText.gameObject.SetActive(false);
+            }
         if (EnemiesAlive >= 3)
         {
             if (enemy3.IsDead && !CheckIsEnemiesDead[2] && EnemiesAlive == 3)
             {
                 CheckIsEnemiesDead[2] = true;
                 wavespawner.EnemiesAlive--;
-            }
+                    enemy3Slider.gameObject.SetActive(false);
+                    enemy3HPText.gameObject.SetActive(false);
+                }
         }
         if (EnemiesAlive == 4)
         {
@@ -336,7 +358,9 @@ public class UI : MonoBehaviour
             {
                 CheckIsEnemiesDead[3] = true;
                 wavespawner.EnemiesAlive--;
-            }
+                    enemy4Slider.gameObject.SetActive(false);
+                    enemy4HPText.gameObject.SetActive(false);
+                }
         }
 
         if (wavespawner.EnemiesAlive > 0)
@@ -346,11 +370,12 @@ public class UI : MonoBehaviour
         else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex < 3)
         {
             wavespawner.SpawnWave();
-            EnemiesAlive = wavespawner.EnemiesAlive;
+                EnemiesAlive = wavespawner.EnemiesAlive;
             for (int i = 0; i <= 3; i++)
             {
                 CheckIsEnemiesDead[i] = false;
             }
+                StartCoroutine(StartingHUD());
         }
         else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex >= 3)
         {
@@ -368,6 +393,11 @@ public class UI : MonoBehaviour
         {
             LoseLevel();
         }
+    }
+
+    void WavespawnerFunc()
+    {
+
     }
 
     private void Skill1()

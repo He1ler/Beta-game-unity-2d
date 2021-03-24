@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5473712334493690232}
   - component: {fileID: 5473712334493690235}
   - component: {fileID: 5473712334493690234}
+  - component: {fileID: 5161535094510153147}
   m_Layer: 5
   m_Name: LoseScreenCanvas
   m_TagString: Untagged
@@ -102,6 +103,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5161535094510153147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5473712334493690229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03a0563b81f5244ea6d4c6c631e8a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5473712334684827625
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +208,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60.85
+  m_fontSize: 60.35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -628,7 +641,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5473712336164034631}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5161535094510153147}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5473712336248966513
 GameObject:
   m_ObjectHideFlags: 0

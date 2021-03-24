@@ -118,7 +118,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2854374141416113651}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4086184507817850706}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2854374141663493778
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +394,7 @@ GameObject:
   - component: {fileID: 2854374142985876684}
   - component: {fileID: 2854374142985876687}
   - component: {fileID: 2854374142985876686}
+  - component: {fileID: 4086184507817850706}
   m_Layer: 5
   m_Name: WinScreenCanvas
   m_TagString: Untagged
@@ -474,6 +486,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4086184507817850706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2854374142985876673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03a0563b81f5244ea6d4c6c631e8a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2854374143158137437
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +591,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60.85
+  m_fontSize: 60.35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
