@@ -59,3 +59,13 @@ The following packages were updated:
   com.unity.2d.spriteshape from version 3.0.12 to 3.0.14
   com.unity.ide.vscode from version 1.2.1 to 1.2.3
   com.unity.test-framework from version 1.1.14 to 1.1.20
+
+=== Thu Mar 25 10:59:51 2021
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.2d.spriteshape from version 3.0.14 to 3.0.15
+  com.unity.test-framework from version 1.1.20 to 1.1.22
+  com.unity.timeline from version 1.2.15 to 1.2.18
