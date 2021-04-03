@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class beardedscript : MonoBehaviour
 {
     [SerializeField] float m_speed = 4.0f;
     private Animator m_animator;
-    private Rigidbody2D m_body2d;
     private Sensor m_groundSensor;
     private bool m_grounded = false;
     public float m_time = 51f;
@@ -18,7 +15,6 @@ public class beardedscript : MonoBehaviour
     void Start()
     {
         m_animator = GetComponent<Animator>();
-        m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
     }
 

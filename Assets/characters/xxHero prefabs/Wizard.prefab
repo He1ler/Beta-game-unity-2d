@@ -161,6 +161,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172a1816c5375134aab6deb6cf75686e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireBall: {fileID: 6908594672650232680, guid: 677f53c1a2381e846b0607d4c45c01ea,
+    type: 3}
+  FireBlast: {fileID: 600856788094827668, guid: 5fe9f9996a9315d48bdd539ca0cbd189,
+    type: 3}
+  FireExplosion: {fileID: 6761991834179852393, guid: 4fc6a19f4d00327499761dee2dd2db8d,
+    type: 3}
+  BlackExplosion: {fileID: 1560478732324127767, guid: 2cb624726e31847469235ab6bac72fcd,
+    type: 3}
   HeroName: 
   health: 0
   Skill1Damage: 0

@@ -42,9 +42,9 @@ public class UI : MonoBehaviour
     private Player hero1;
     private Player hero2;
     public Monsterscript enemy1;
-    private Monsterscript enemy2;
-    private Monsterscript enemy3;
-    private Monsterscript enemy4;
+    public Monsterscript enemy2;
+    public Monsterscript enemy3;
+    public Monsterscript enemy4;
 
     public Player hero;
     public Monsterscript enemy;
@@ -157,7 +157,6 @@ public class UI : MonoBehaviour
     IEnumerator BattleStart()
     {
         yield return new WaitForSeconds(1f);
-
         StartCoroutine(Hero1());
     }
 
@@ -166,7 +165,8 @@ public class UI : MonoBehaviour
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Hero1;
-        if(hero1.IsDead)
+        yield return new WaitForSeconds(3f);
+        if (hero1.IsDead)
         {
             hero1.Set_Recovery();
             FromHero();
@@ -185,17 +185,16 @@ public class UI : MonoBehaviour
             skill3.image.sprite = wavespawner.hero1.Skill3Image;
             skill4.image.sprite = wavespawner.hero1.Skill4Image;
         }
+        yield return new WaitForSeconds(3f);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
-        yield return new WaitForSeconds(3f);
     }
     IEnumerator Hero2()
     {
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
-        yield return new WaitForSeconds(1f);
         turns = BattleState.Hero2;
-
+        yield return new WaitForSeconds(3f);
         if (hero2.IsDead)
         {
             hero2.Set_Recovery();
@@ -217,9 +216,9 @@ public class UI : MonoBehaviour
             skill3.image.sprite = wavespawner.hero2.Skill3Image;
             skill4.image.sprite = wavespawner.hero2.Skill4Image;
         }
+        yield return new WaitForSeconds(3f);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
-        yield return new WaitForSeconds(3f);
     }
     public void FromHero()
     {
@@ -237,13 +236,13 @@ public class UI : MonoBehaviour
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy1;
+        yield return new WaitForSeconds(5f);
         skill1.gameObject.SetActive(false);
         skill2.gameObject.SetActive(false);
         skill3.gameObject.SetActive(false);
         skill4.gameObject.SetActive(false);
         hero2Btn.enabled = false;
         Hero2Name.enabled = false;
-        yield return new WaitForSeconds(5f);
         if (!enemy1.IsDead)
         {
             enemy = enemy1;
@@ -251,6 +250,7 @@ public class UI : MonoBehaviour
             enemy1.Set_Attack();
             SkillScreenEnemy();
         }
+        yield return new WaitForSeconds(5f);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         if (!wavespawner.IsBoss)
@@ -263,6 +263,7 @@ public class UI : MonoBehaviour
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy2;
+        yield return new WaitForSeconds(5f);
         if (!enemy2.IsDead)
         {
             enemy = enemy2;
@@ -287,6 +288,7 @@ public class UI : MonoBehaviour
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy3;
+        yield return new WaitForSeconds(5f);
         if (!enemy3.IsDead)
         {
             enemy = enemy3;
@@ -311,6 +313,7 @@ public class UI : MonoBehaviour
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy4;
+        yield return new WaitForSeconds(5f);
         if (!enemy4.IsDead)
         {
             enemy = enemy4;
@@ -395,11 +398,6 @@ public class UI : MonoBehaviour
         }
     }
 
-    void WavespawnerFunc()
-    {
-
-    }
-
     private void Skill1()
     {
         if(turns == BattleState.Hero1)
@@ -437,7 +435,7 @@ public class UI : MonoBehaviour
     {
         if (turns == BattleState.Hero1)
         {
-            hero1.Set_Skill4();
+                hero1.Set_Skill4();
         }
         else if (turns == BattleState.Hero2)
         {
@@ -491,18 +489,42 @@ public class UI : MonoBehaviour
         if (btn.name == "Skill1")
         {
             skillchoose = btn.name;
+            if (hero.HeroName == "Wizard")
+            {
+                Skill1();
+                SkillScreenHero();
+                FromHero();
+            }
         }
         else if (btn.name == "Skill2")
         {
             skillchoose = btn.name;
+            if (hero.HeroName == "GirlKnight" || hero.HeroName == "Wizard")
+            {
+                Skill2();
+                SkillScreenHero();
+                FromHero();
+            }
         }
         else if (btn.name == "Skill3")
         {
             skillchoose = btn.name;
+            if ( hero.HeroName == "Wizard" && EnemiesAlive>=3)
+            {
+                Skill3();
+                SkillScreenHero();
+                FromHero();
+            }
         }
         else if (btn.name == "Skill4")
         {
             skillchoose = btn.name;
+            if (hero.HeroName == "Brother" || (hero.HeroName == "Wizard" && EnemiesAlive >= 4))
+            {
+                Skill4();
+                SkillScreenHero();
+                FromHero();
+            }
         }
 
         if(wavespawner.IsBoss)
@@ -550,7 +572,7 @@ public class UI : MonoBehaviour
             {
                 EnemyAttack();
             }
-        }
+            }
     }
     private void SkillScreenHero ()
     {
@@ -560,7 +582,6 @@ public class UI : MonoBehaviour
     {
         st.Blood(enemy.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length * 0.65f);
     }
-
 }
 
 

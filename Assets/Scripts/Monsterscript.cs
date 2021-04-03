@@ -26,13 +26,8 @@ public class Monsterscript : MonoBehaviour
         {
             m_animator.SetTrigger("Death");
             IsDead = true;
-            DestroyEnemy(GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            Destroy(this.gameObject,(GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length+1f));
         }
-    }
-    IEnumerator DestroyEnemy(float f)
-    {
-        yield return new WaitForSeconds(f+1);
-        Destroy(this);
     }
     public void Set_Hurt(int hp)
     {
