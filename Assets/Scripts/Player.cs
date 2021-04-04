@@ -196,7 +196,7 @@ public class Player : MonoBehaviour {
     }
     public void Set_Skill1()
     {
-            if (HeroName == "Wizard" && !IsDead)
+            if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[0])
             {
                 Vector3 SpelPos;
                 Vector3 EnemyPos;
@@ -219,7 +219,7 @@ public class Player : MonoBehaviour {
     }
     public void Set_Skill2()
     {
-        if (HeroName == "Wizard" && !IsDead)
+        if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[0] && !ui.CheckIsEnemiesDead[1])
         {
             Vector3 SpelPos;
             Vector3 EnemyPos;
@@ -247,7 +247,7 @@ public class Player : MonoBehaviour {
     }
     public void Set_Skill3()
     {
-        if (HeroName == "Wizard" && !IsDead)
+        if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[2] && !ui.CheckIsEnemiesDead[1])
         {
             Vector3 EnemyPos;
             EnemyPos = GameObject.Find(ui.enemy2.EnemyName + "(Clone)").transform.position;
@@ -267,20 +267,20 @@ public class Player : MonoBehaviour {
     }
     public void Set_Skill4()
     {
-        if (HeroName == "Wizard" && !IsDead)
-        {
-            Vector3 EnemyPos;
-            EnemyPos = GameObject.Find(ui.enemy3.EnemyName + "(Clone)").transform.position;
-            EnemyPos.y += 44;
-            EnemyPos.x += 164;
-            m_animator.SetTrigger("Skill4");
-            GameObject Spel = Instantiate(BlackExplosion, EnemyPos, Quaternion.identity) as GameObject;
-            Spel.transform.Rotate(0f, 0f, -92f);
-            Destroy(Spel.gameObject, Spel.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-            ui.enemy2.Set_Hurt(Skill4Damage);
-            ui.enemy3.Set_Hurt(Skill4Damage);
-            ui.enemy4.Set_Hurt(Skill4Damage);
-        }
+            if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[2] && !ui.CheckIsEnemiesDead[3] && !ui.CheckIsEnemiesDead[1])
+            {
+                Vector3 EnemyPos;
+                EnemyPos = GameObject.Find(ui.enemy3.EnemyName + "(Clone)").transform.position;
+                EnemyPos.y += 44;
+                EnemyPos.x += 164;
+                m_animator.SetTrigger("Skill4");
+                GameObject Spel = Instantiate(BlackExplosion, EnemyPos, Quaternion.identity) as GameObject;
+                Spel.transform.Rotate(0f, 0f, -92f);
+                Destroy(Spel.gameObject, Spel.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+                ui.enemy2.Set_Hurt(Skill4Damage);
+                ui.enemy3.Set_Hurt(Skill4Damage);
+                ui.enemy4.Set_Hurt(Skill4Damage);
+            }
         else if (!ui.enemy.IsDead && !IsDead)
         {
             m_animator.SetTrigger("Skill4");

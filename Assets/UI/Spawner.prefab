@@ -399,10 +399,10 @@ MonoBehaviour:
     Skill4Name: 
     MaxHealth: 100
     health: 100
-    Skill1Damage: 10
+    Skill1Damage: 20
     Skill2Damage: 15
     Skill3Damage: 20
-    Skill4Damage: 30
+    Skill4Damage: 15
   hero1:
     HeroObject: {fileID: 0}
     HeroName: 

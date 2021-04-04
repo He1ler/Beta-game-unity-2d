@@ -9,7 +9,7 @@ public class UI : MonoBehaviour
     public WaveSpawnerScript wavespawner;
 
     public BattleState turns;
-    bool[] CheckIsEnemiesDead = {false,false,false,false};
+    public bool[] CheckIsEnemiesDead = {false,false,false,false};
     static int EnemiesAlive;
 
     public GameObject gameOverUI;
@@ -57,7 +57,7 @@ public class UI : MonoBehaviour
         StartCoroutine(StartingHUD());
         InvokeRepeating("update", 3.0f, 1.0f);
     }
-    void update()
+    void Update()
     {
         HPCheck();
     }
@@ -236,7 +236,7 @@ public class UI : MonoBehaviour
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy1;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         skill1.gameObject.SetActive(false);
         skill2.gameObject.SetActive(false);
         skill3.gameObject.SetActive(false);
@@ -250,7 +250,7 @@ public class UI : MonoBehaviour
             enemy1.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         if (!wavespawner.IsBoss)
@@ -263,7 +263,7 @@ public class UI : MonoBehaviour
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy2;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         if (!enemy2.IsDead)
         {
             enemy = enemy2;
@@ -271,7 +271,7 @@ public class UI : MonoBehaviour
             enemy2.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         if (wavespawner.EnemiesAlive>=3)
@@ -288,7 +288,7 @@ public class UI : MonoBehaviour
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy3;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         if (!enemy3.IsDead)
         {
             enemy = enemy3;
@@ -296,7 +296,7 @@ public class UI : MonoBehaviour
             enemy3.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         if (wavespawner.EnemiesAlive == 4)
@@ -313,7 +313,7 @@ public class UI : MonoBehaviour
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy4;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         if (!enemy4.IsDead)
         {
             enemy = enemy4;
@@ -321,7 +321,7 @@ public class UI : MonoBehaviour
             enemy4.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
 
@@ -337,33 +337,33 @@ public class UI : MonoBehaviour
             wavespawner.EnemiesAlive--;
                 enemy1Slider.gameObject.SetActive(false);
                 enemy1HPText.gameObject.SetActive(false);
-            }
-        if (enemy2.IsDead && !CheckIsEnemiesDead[1] && EnemiesAlive == 2)
+        }
+        if (enemy2.IsDead && !CheckIsEnemiesDead[1])
         {
             CheckIsEnemiesDead[1] = true;
             wavespawner.EnemiesAlive--;
                 enemy2Slider.gameObject.SetActive(false);
                 enemy2HPText.gameObject.SetActive(false);
-            }
+        }
         if (EnemiesAlive >= 3)
         {
-            if (enemy3.IsDead && !CheckIsEnemiesDead[2] && EnemiesAlive == 3)
+            if (enemy3.IsDead && !CheckIsEnemiesDead[2])
             {
                 CheckIsEnemiesDead[2] = true;
                 wavespawner.EnemiesAlive--;
                     enemy3Slider.gameObject.SetActive(false);
                     enemy3HPText.gameObject.SetActive(false);
-                }
+            }
         }
         if (EnemiesAlive == 4)
         {
-            if (enemy4.IsDead && !CheckIsEnemiesDead[3] && EnemiesAlive == 4)
+            if (enemy4.IsDead && !CheckIsEnemiesDead[3])
             {
                 CheckIsEnemiesDead[3] = true;
                 wavespawner.EnemiesAlive--;
                     enemy4Slider.gameObject.SetActive(false);
                     enemy4HPText.gameObject.SetActive(false);
-                }
+            }
         }
 
         if (wavespawner.EnemiesAlive > 0)
@@ -489,14 +489,14 @@ public class UI : MonoBehaviour
         if (btn.name == "Skill1")
         {
             skillchoose = btn.name;
-            if (hero.HeroName == "Wizard")
+            if (hero.HeroName == "Wizard" && !CheckIsEnemiesDead[0])
             {
                 Skill1();
                 SkillScreenHero();
                 FromHero();
             }
         }
-        else if (btn.name == "Skill2")
+        else if (btn.name == "Skill2" && !CheckIsEnemiesDead[0] && !CheckIsEnemiesDead[1])
         {
             skillchoose = btn.name;
             if (hero.HeroName == "GirlKnight" || hero.HeroName == "Wizard")
@@ -506,7 +506,7 @@ public class UI : MonoBehaviour
                 FromHero();
             }
         }
-        else if (btn.name == "Skill3")
+        else if (btn.name == "Skill3" && !CheckIsEnemiesDead[2] && !CheckIsEnemiesDead[1])
         {
             skillchoose = btn.name;
             if ( hero.HeroName == "Wizard" && EnemiesAlive>=3)
@@ -516,7 +516,7 @@ public class UI : MonoBehaviour
                 FromHero();
             }
         }
-        else if (btn.name == "Skill4")
+        else if (btn.name == "Skill4" && !CheckIsEnemiesDead[3] && !CheckIsEnemiesDead[1] && !CheckIsEnemiesDead[2])
         {
             skillchoose = btn.name;
             if (hero.HeroName == "Brother" || (hero.HeroName == "Wizard" && EnemiesAlive >= 4))
