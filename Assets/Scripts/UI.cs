@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Collections;
+using UnityEngine.Audio;
 public enum BattleState { Waiting, Hero1, Hero2, Enemy1, Enemy2, Enemy3, Enemy4 };
 public class UI : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class UI : MonoBehaviour
 
     public GameObject gameOverUI;
     public GameObject completeLevelUI;
+
+    [SerializeField]
+    public AudioClip[] music = new AudioClip[8];
+
+    int[] musicnumbers = new int[8];
+    int musicnumber = 1;
 
     public GameObject panel;
 
@@ -57,9 +64,36 @@ public class UI : MonoBehaviour
     void Start ()
     {
         StartCoroutine(StartingHUD());
-        InvokeRepeating("update", 3.0f, 1.0f);
+        InvokeRepeating("updating", 3.0f, 1.0f);
+        for(int i=0;i<8;i++)
+        {
+            int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7 };
+            musicnumbers[i] = UnityEngine.Random.Range(0, 8);
+            if(musicnumbers[i]==numbers[musicnumbers[i]])
+            {
+                numbers[musicnumbers[i]] = -1;
+            }
+            else
+            {
+                i--;
+            }
+        }     
+        gameObject.GetComponent<AudioSource>().clip = music[musicnumbers[0]];
+        gameObject.GetComponent<AudioSource>().Play();
     }
-    void Update()
+    void Update ()
+    {
+        if (!gameObject.GetComponent<AudioSource>().isPlaying)
+        {
+            gameObject.GetComponent<AudioSource>().clip = music[musicnumbers[musicnumber]];
+            musicnumber++;
+            if(musicnumber==7)
+            {
+                musicnumber = 0;
+            }
+        }
+    }
+    void updating()
     {
         HPCheck();
     }
