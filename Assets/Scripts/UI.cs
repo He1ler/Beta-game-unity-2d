@@ -15,6 +15,8 @@ public class UI : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject completeLevelUI;
 
+    public GameObject panel;
+
     public Slider hero1Slider;
     public Slider hero2Slider;
     public Slider enemy1Slider;
@@ -63,7 +65,8 @@ public class UI : MonoBehaviour
     }
     IEnumerator StartingHUD()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
+        panel.SetActive(false);
         hero1Btn.image.sprite = wavespawner.hero1.HeroImage;
         hero2Btn.image.sprite = wavespawner.hero2.HeroImage;
 
@@ -186,6 +189,7 @@ public class UI : MonoBehaviour
             skill4.image.sprite = wavespawner.hero1.Skill4Image;
         }
         yield return new WaitForSeconds(3f);
+        panel.SetActive(false);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
     }
@@ -217,6 +221,7 @@ public class UI : MonoBehaviour
             skill4.image.sprite = wavespawner.hero2.Skill4Image;
         }
         yield return new WaitForSeconds(3f);
+        panel.SetActive(false);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
     }
@@ -233,6 +238,7 @@ public class UI : MonoBehaviour
     }
     IEnumerator Enemy1()
     {
+        panel.SetActive(false);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy1;
@@ -260,6 +266,7 @@ public class UI : MonoBehaviour
     }
     IEnumerator Enemy2()
     {
+        panel.SetActive(false);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy2;
@@ -285,6 +292,7 @@ public class UI : MonoBehaviour
     }
     IEnumerator Enemy3()
     {
+        panel.SetActive(false);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy3;
@@ -310,6 +318,7 @@ public class UI : MonoBehaviour
     }
     IEnumerator Enemy4()
     {
+        panel.SetActive(false);
         CheckIfEnemiesDead();
         CheckIfEHeroesDead();
         turns = BattleState.Enemy4;
@@ -394,6 +403,7 @@ public class UI : MonoBehaviour
     {
         if(hero1.IsDead && hero2.IsDead)
         {
+            panel.SetActive(false);
             LoseLevel();
         }
     }
@@ -408,6 +418,7 @@ public class UI : MonoBehaviour
         {
             hero2.Set_Skill1();
         }
+        panel.SetActive(true);
     }
     private void Skill2()
     {
@@ -419,6 +430,7 @@ public class UI : MonoBehaviour
         {
             hero2.Set_Skill2();
         }
+        panel.SetActive(true);
     }
     private void Skill3()
     {
@@ -430,6 +442,7 @@ public class UI : MonoBehaviour
         {
             hero2.Set_Skill3();
         }
+        panel.SetActive(true);
     }
     private void Skill4()
     {
@@ -441,6 +454,7 @@ public class UI : MonoBehaviour
         {
             hero2.Set_Skill4();
         }
+        panel.SetActive(true);
     }
     public void ChoosingEnemy(Button btn)
     {
@@ -492,6 +506,7 @@ public class UI : MonoBehaviour
             if (hero.HeroName == "Wizard" && !CheckIsEnemiesDead[0])
             {
                 Skill1();
+                panel.SetActive(false);
                 SkillScreenHero();
                 FromHero();
             }
@@ -502,6 +517,7 @@ public class UI : MonoBehaviour
             if (hero.HeroName == "GirlKnight" || hero.HeroName == "Wizard")
             {
                 Skill2();
+                panel.SetActive(false);
                 SkillScreenHero();
                 FromHero();
             }
@@ -512,6 +528,7 @@ public class UI : MonoBehaviour
             if ( hero.HeroName == "Wizard" && EnemiesAlive>=3)
             {
                 Skill3();
+                panel.SetActive(false);
                 SkillScreenHero();
                 FromHero();
             }
@@ -522,6 +539,7 @@ public class UI : MonoBehaviour
             if (hero.HeroName == "Brother" || (hero.HeroName == "Wizard" && EnemiesAlive >= 4))
             {
                 Skill4();
+                panel.SetActive(false);
                 SkillScreenHero();
                 FromHero();
             }
@@ -529,6 +547,7 @@ public class UI : MonoBehaviour
 
         if(wavespawner.IsBoss)
         {
+            panel.SetActive(false);
             if (!enemy.IsDead)
             {
                 if (skillchoose == "Skill1")

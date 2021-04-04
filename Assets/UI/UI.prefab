@@ -2452,8 +2452,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavespawner: {fileID: 0}
   turns: 0
+  CheckIsEnemiesDead: 00000000
   gameOverUI: {fileID: 0}
   completeLevelUI: {fileID: 0}
+  panel: {fileID: 3742130592436046667}
   hero1Slider: {fileID: 8974829918027911233}
   hero2Slider: {fileID: 7936096205687486143}
   enemy1Slider: {fileID: 7699905003217082461}
@@ -2474,6 +2476,10 @@ MonoBehaviour:
   skill2: {fileID: 4170913729764020041}
   skill3: {fileID: 8394024955873831737}
   skill4: {fileID: 7841090524467182121}
+  enemy1: {fileID: 0}
+  enemy2: {fileID: 0}
+  enemy3: {fileID: 0}
+  enemy4: {fileID: 0}
   hero: {fileID: 0}
   enemy: {fileID: 0}
   st: {fileID: 0}
