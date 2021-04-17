@@ -13,6 +13,15 @@ public static class DataTransition
         formatter.Serialize(stream, GameData);
         stream.Close();
     }
+    public static void MapNameToFileMenu(string MapName)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/Name.map";
+        FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+        GameData GameData = new GameData(MapName);
+        formatter.Serialize(stream, GameData);
+        stream.Close();
+    }
     public static GameData MapNameFromFile()
     {
         string path = Application.persistentDataPath + "/Name.map";

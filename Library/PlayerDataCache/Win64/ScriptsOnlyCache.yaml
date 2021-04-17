@@ -3648,7 +3648,7 @@ ScriptsOnlyBuild:
     className: Sensor
   - hash:
       serializedVersion: 2
-      Hash: 03632973c3ee8f45eb07eed879207929
+      Hash: 6487a0e374337534966c7507464a01cb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pausemenu

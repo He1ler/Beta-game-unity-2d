@@ -9,4 +9,8 @@ public class Enemy {
 	public int MaxHealth = 100;
 	public int health = 100;
     public int AttackDamage = 10;
+
+	public AudioClip Attack;
+	public AudioClip Hit;
+	public AudioClip Death;
 }

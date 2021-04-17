@@ -12,4 +12,11 @@ public class GameData
         heroIndex2 = hs.heroSelect2;
         Isboss = hs.Isboss;
     }
+    public GameData(string mapName)
+    {
+        this.mapName = mapName;
+        heroIndex1 = 0;
+        heroIndex2 = 0;
+        Isboss = false;
+    }
 }

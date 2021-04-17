@@ -24,4 +24,10 @@ public class Hero
     public int Skill3Damage=20;
     public int Skill4Damage=30;
 
+    public AudioClip Attack1;
+    public AudioClip Attack2;
+    public AudioClip Attack3;
+    public AudioClip Attack4;
+    public AudioClip Hit;
+    public AudioClip Death;
 }

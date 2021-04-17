@@ -160,10 +160,12 @@ public class UI : MonoBehaviour
     void LoseLevel()
     {
         gameOverUI.SetActive(true);
+        gameObject.GetComponent<AudioSource>().Stop();
     }
     void WinLevel()
     {
         completeLevelUI.SetActive(true);
+        gameObject.GetComponent<AudioSource>().Stop();
     }
     void HPCheck()
     {

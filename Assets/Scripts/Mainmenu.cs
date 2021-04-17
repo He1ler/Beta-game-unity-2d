@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using static DataTransition;
 public class Mainmenu : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("Hub location");
+        MapNameToFileMenu("Hub location");
+        SceneManager.LoadScene("Loading");
     }
     public void Exit()
     {
