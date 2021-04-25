@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 public class Monsterscript : MonoBehaviour
 {
     private Animator m_animator;
@@ -10,7 +11,10 @@ public class Monsterscript : MonoBehaviour
     public int AttackDamage;
     public int MaxHealth;
     public bool IsDead = false;
+    public AudioClip Attack;
+    public AudioClip Death;
     private EnemyData ed;
+    public AudioSource AS;
     void Start()
     {
         ed = DataTransition.EnemyFromFile(EnemyName);
@@ -19,14 +23,25 @@ public class Monsterscript : MonoBehaviour
         AttackDamage = ed.AttackDamage;
         ui = GameObject.Find("UI").GetComponent<UI>();
         m_animator = GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>();
+        AS = GameObject.Find(EnemyName + "(Clone)").GetComponent<AudioSource>();
     }
     public void Set_Death()
     {
         if (!Pausemenu.GameisPaused)
         {
             m_animator.SetTrigger("Death");
+            AS.clip = Death;
+            AS.Play();
             IsDead = true;
-            Destroy(this.gameObject,(GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length+1f));
+            if (EnemyName == "burning-ghoul")
+            {
+                burningghoul();
+                Destroy(this.gameObject, (GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length));
+            }
+            else
+            {
+                Destroy(this.gameObject, (GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 1f));
+            }         
         }
     }
     public void Set_Hurt(int hp)
@@ -63,7 +78,59 @@ public class Monsterscript : MonoBehaviour
         if (!Pausemenu.GameisPaused &&(!ui.hero.IsDead)&& (!IsDead))
         {
             m_animator.SetTrigger("Attack");
-            ui.hero.Set_Hurt(AttackDamage);
+            AS.clip = Attack;
+            AS.Play();
+            if (EnemyName == "burning-ghoul")
+            {
+                burningghoul();
+            }
+            else
+            {
+                ui.hero.Set_Hurt(AttackDamage);
+            }
+        }
+    }
+    void burningghoul ()
+    {
+        if(IsDead)
+        {
+            if (!ui.hero.IsDead)
+            {
+                ui.hero.Set_Hurt(AttackDamage);
+            }
+            if (!ui.enemy1.IsDead && ui.enemy1.EnemyName != "burning-ghoul")
+            {
+                ui.enemy1.Set_Hurt(AttackDamage);
+            }
+            if (!ui.enemy2.IsDead && ui.enemy2.EnemyName != "burning-ghoul")
+            {
+                ui.enemy2.Set_Hurt(AttackDamage);
+            }
+            if(ui.wavespawner.EnemiesAlive>=3)
+            {
+                if (!ui.enemy3.IsDead && ui.enemy3.EnemyName != "burning-ghoul")
+                {
+                    ui.enemy3.Set_Hurt(AttackDamage);
+                }
+            }
+            if (ui.wavespawner.EnemiesAlive >= 4)
+            {
+                if (!ui.enemy4.IsDead && ui.enemy4.EnemyName != "burning-ghoul")
+                {
+                    ui.enemy4.Set_Hurt(AttackDamage);
+                }
+            }
+        }
+        else
+        {
+            if (!ui.hero1.IsDead)
+            {
+                ui.hero1.Set_Hurt(AttackDamage);
+            }
+            if (!ui.hero2.IsDead)
+            {
+                ui.hero2.Set_Hurt(AttackDamage);
+            }
         }
     }
 }

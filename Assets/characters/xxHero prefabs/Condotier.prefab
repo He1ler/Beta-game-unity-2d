@@ -104,7 +104,7 @@ MonoBehaviour:
   FireBall: {fileID: 0}
   FireExplosion: {fileID: 0}
   BlackExplosion: {fileID: 0}
-  HeroName: 
+  HeroName: Condotier
   health: 0
   Skill1Damage: 0
   Skill2Damage: 0
@@ -112,6 +112,12 @@ MonoBehaviour:
   Skill4Damage: 0
   MaxHealth: 0
   IsDead: 0
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Death: {fileID: 0}
+  AS: {fileID: 0}
 --- !u!50 &4296361006943601563
 Rigidbody2D:
   serializedVersion: 4
@@ -190,8 +196,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: bebe706ddb88237459455dc2483f8f8e,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.85
   m_Pitch: 1
   Loop: 0
   Mute: 0

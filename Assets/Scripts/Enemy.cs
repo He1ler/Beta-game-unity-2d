@@ -11,6 +11,5 @@ public class Enemy {
     public int AttackDamage = 10;
 
 	public AudioClip Attack;
-	public AudioClip Hit;
 	public AudioClip Death;
 }

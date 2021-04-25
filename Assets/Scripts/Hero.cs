@@ -28,6 +28,5 @@ public class Hero
     public AudioClip Attack2;
     public AudioClip Attack3;
     public AudioClip Attack4;
-    public AudioClip Hit;
     public AudioClip Death;
 }

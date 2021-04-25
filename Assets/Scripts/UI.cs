@@ -48,8 +48,8 @@ public class UI : MonoBehaviour
     public Button skill3;
     public Button skill4;
 
-    private Player hero1;
-    private Player hero2;
+    public Player hero1;
+    public Player hero2;
     public Monsterscript enemy1;
     public Monsterscript enemy2;
     public Monsterscript enemy3;
@@ -60,7 +60,7 @@ public class UI : MonoBehaviour
     public screen_transition st;
 
     private string skillchoose;
-
+    
     void Start ()
     {
         StartCoroutine(StartingHUD());

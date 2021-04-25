@@ -2486,6 +2486,8 @@ MonoBehaviour:
   skill2: {fileID: 4170913729764020041}
   skill3: {fileID: 8394024955873831737}
   skill4: {fileID: 7841090524467182121}
+  hero1: {fileID: 0}
+  hero2: {fileID: 0}
   enemy1: {fileID: 0}
   enemy2: {fileID: 0}
   enemy3: {fileID: 0}
@@ -2507,7 +2509,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.8
-  m_Pitch: 0.9
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0

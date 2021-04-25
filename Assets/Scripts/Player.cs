@@ -27,6 +27,12 @@ public class Player : MonoBehaviour {
     public bool IsDead = false;
 
     private HeroData hd;
+    public AudioClip Attack1;
+    public AudioClip Attack2;
+    public AudioClip Attack3;
+    public AudioClip Attack4;
+    public AudioClip Death;
+    public AudioSource AS;
     void Start()
     {
         hd = DataTransition.HeroFromFile(HeroName);
@@ -38,8 +44,9 @@ public class Player : MonoBehaviour {
         MaxHealth = hd.health;
         ui = GameObject.Find("UI").GetComponent<UI>();
         m_animator = GameObject.Find(HeroName + "(Clone)").GetComponent<Animator>();
-       // m_body2d = GetComponent<Rigidbody2D>();
-       // m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
+        AS = GameObject.Find(HeroName + "(Clone)").GetComponent<AudioSource>();
+        // m_body2d = GetComponent<Rigidbody2D>();
+        // m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
     }
 
     // Update is called once per frame
@@ -150,6 +157,8 @@ public class Player : MonoBehaviour {
     public void Set_Death()
     {
             m_animator.SetTrigger("Death");
+            AS.clip = Death;
+            AS.Play();
             m_animator.SetInteger("death", 1);
             IsDead = true;
     }
@@ -157,7 +166,7 @@ public class Player : MonoBehaviour {
     {
         StartCoroutine(Set_HurtI(hp, GameObject.Find(ui.hero.HeroName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length *0.7f));
     }
-    public IEnumerator Set_HurtI(int hp, float f)
+    private IEnumerator Set_HurtI(int hp, float f)
     {
         yield return new WaitForSeconds(f);
         if (!IsDead)
@@ -216,6 +225,8 @@ public class Player : MonoBehaviour {
             m_animator.SetTrigger("Skill1");
             ui.enemy.Set_Hurt(Skill1Damage);
         }
+        AS.clip = Attack1;
+        AS.Play();
     }
     public void Set_Skill2()
     {
@@ -240,10 +251,16 @@ public class Player : MonoBehaviour {
             m_animator.SetTrigger("Skill2");
             health += 20;
         }
+        else if (HeroName == "Brother")
+        {
+            health += 25;
+        }
         else if (!ui.enemy.IsDead && !IsDead)
         {
                 ui.enemy.Set_Hurt(Skill2Damage);
         }
+        AS.clip = Attack2;
+        AS.Play();
     }
     public void Set_Skill3()
     {
@@ -264,6 +281,8 @@ public class Player : MonoBehaviour {
             m_animator.SetTrigger("Skill3");
                 ui.enemy.Set_Hurt(Skill3Damage);
         }
+        AS.clip = Attack3;
+        AS.Play();
     }
     public void Set_Skill4()
     {
@@ -284,12 +303,10 @@ public class Player : MonoBehaviour {
         else if (!ui.enemy.IsDead && !IsDead)
         {
             m_animator.SetTrigger("Skill4");
-            if (HeroName == "Brother")
-            {
-                health += 25;
-            }
-            else { ui.enemy.Set_Hurt(Skill4Damage); }
+            ui.enemy.Set_Hurt(Skill4Damage);
         }
+        AS.clip = Attack4;
+        AS.Play();
     }
     /*
         private Animator m_animator;
