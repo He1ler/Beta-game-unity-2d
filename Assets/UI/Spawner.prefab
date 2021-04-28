@@ -68,7 +68,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: b6774c7f985e6644fa45d2e7b6b3d3bc, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 88596417f1983254682c20d40822ae47, type: 3}
   - EnemyObject: {fileID: 2266645083484464226, guid: 1371c0ec11b2107459fd466b964ddb10,
       type: 3}
     EnemyName: burning-ghoul
@@ -92,7 +92,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 4d185305750bd9241b569817ec525263, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 49546399410076f45a740efdb6a8e3d8, type: 3}
   - EnemyObject: {fileID: 4318639180523963332, guid: bc81839bfa947ff4587eb0b690bbf0e7,
       type: 3}
     EnemyName: Evil Wizard
@@ -100,7 +100,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 4e185b92cecc1ca48a756ca5f1f6d2ff, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: f9c34e59112739345aa4f0c7181ccab2, type: 3}
   - EnemyObject: {fileID: 2423197114075985243, guid: 30b487d98057a174d9bb77cff8d9c41e,
       type: 3}
     EnemyName: Flying eye
@@ -124,7 +124,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: fac0693cf40b06344a034ce1785c1907, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: d3b772db9dd889f44b0167778e90a3e9, type: 3}
   - EnemyObject: {fileID: 6298202166443123783, guid: a218306883b8c384eb27337bec86a3fe,
       type: 3}
     EnemyName: Mushroom
@@ -132,7 +132,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 841615eac75a58d48bcefebdb71cd919, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 35de34d0d4349d84eb14b4b71f8040dc, type: 3}
   - EnemyObject: {fileID: 1546437751752358348, guid: af60e2bd3a6ae5a46a2a2b837154b502,
       type: 3}
     EnemyName: Muslim
@@ -148,23 +148,23 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 79d39f3eb3c3bef4dae3c1670454a514, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 4a5a2596364143e41abf9a9f9616733c, type: 3}
   - EnemyObject: {fileID: 5234165237246476856, guid: 43eee1e127f105240a3a9a9eb45e80ba,
       type: 3}
     EnemyName: skeleton 1
     MaxHealth: 100
     health: 100
     AttackDamage: 10
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    Attack: {fileID: 8300000, guid: 45194d3ada2579b47bd6914c50247bbb, type: 3}
+    Death: {fileID: 8300000, guid: 6f140afa557765347b9fae917a161cbe, type: 3}
   - EnemyObject: {fileID: 6143187667349952278, guid: d612a3292b58b21488dd53123375f06b,
       type: 3}
     EnemyName: skeleton 2-clothed
     MaxHealth: 100
     health: 100
     AttackDamage: 10
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    Attack: {fileID: 8300000, guid: 45194d3ada2579b47bd6914c50247bbb, type: 3}
+    Death: {fileID: 8300000, guid: 6f140afa557765347b9fae917a161cbe, type: 3}
   - EnemyObject: {fileID: 6206937524759054684, guid: 1cbdc2b5c243fdf42a5fb2911a9bb34b,
       type: 3}
     EnemyName: Skeleton shield 1
@@ -172,7 +172,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 44382f47b14a19540835c89ef8911b78, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 88dcc36212aa0f643a6856011368fae7, type: 3}
   - EnemyObject: {fileID: 5663049995826928250, guid: 00ebbe469269be9469e5ea868f46937e,
       type: 3}
     EnemyName: Skeleton shield 2
@@ -180,7 +180,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: e1216903ac3e8a54a906d28856c5e761, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 88dcc36212aa0f643a6856011368fae7, type: 3}
   - EnemyObject: {fileID: 1197492408265921121, guid: ca2bb65092f50cf4d85089a7bf847420,
       type: 3}
     EnemyName: Skeleton spear
@@ -188,7 +188,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: ee744ab0948e30b46a6673b2a930dc3f, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 88dcc36212aa0f643a6856011368fae7, type: 3}
   - EnemyObject: {fileID: 1139793519818416030, guid: 9016076d632e1b54ebcc781dca730f76,
       type: 3}
     EnemyName: Skeleton twohanded
@@ -196,7 +196,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 5c13f63348043fd44b2863fda659cc8d, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 88dcc36212aa0f643a6856011368fae7, type: 3}
   - EnemyObject: {fileID: 7412486073415291261, guid: 8b43b7c97d841984d8b0053c20c01a50,
       type: 3}
     EnemyName: Vampire
@@ -210,73 +210,73 @@ MonoBehaviour:
     EnemyName: Blacksmith Dark
     MaxHealth: 100
     health: 100
-    AttackDamage: 10
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    AttackDamage: 20
+    Attack: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
+    Death: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
   - EnemyObject: {fileID: 7535283850282367633, guid: 01c4215e4a14c5948b95e70d9242a8c3,
       type: 3}
     EnemyName: Brother Dark
     MaxHealth: 100
     health: 100
-    AttackDamage: 10
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    AttackDamage: 20
+    Attack: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
+    Death: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
   - EnemyObject: {fileID: 4296361006943601561, guid: d7b17114a3cb3364d8e13d5b1f8ec0c5,
       type: 3}
     EnemyName: Condotier Dark
     MaxHealth: 100
     health: 100
-    AttackDamage: 10
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    AttackDamage: 20
+    Attack: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
+    Death: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
   - EnemyObject: {fileID: 8355508651715472864, guid: c69cf63076ffd2240b37d835f3dc4751,
       type: 3}
     EnemyName: GirlKnight Dark
     MaxHealth: 100
     health: 100
-    AttackDamage: 10
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    AttackDamage: 20
+    Attack: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
+    Death: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
   - EnemyObject: {fileID: 7122412878878452651, guid: 210a780760d7dec4aa8690592f74dd4b,
       type: 3}
     EnemyName: Knight Dark
     MaxHealth: 100
     health: 100
-    AttackDamage: 10
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    AttackDamage: 20
+    Attack: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
+    Death: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
   - EnemyObject: {fileID: 8481325847892598963, guid: 2df4c0accf775d047963bed4f6d9d508,
       type: 3}
     EnemyName: King Dark
     MaxHealth: 100
     health: 100
-    AttackDamage: 10
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    AttackDamage: 20
+    Attack: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
+    Death: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
   - EnemyObject: {fileID: 7152154017721613807, guid: 0f4b27e90614eb84b855fae9cfabd0db,
       type: 3}
     EnemyName: Monk Dark
     MaxHealth: 100
     health: 100
-    AttackDamage: 10
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    AttackDamage: 20
+    Attack: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
+    Death: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
   - EnemyObject: {fileID: 1546437751752358348, guid: c41ec3d50303f3143a42854c7e073a05,
       type: 3}
     EnemyName: Muslim Dark
     MaxHealth: 100
     health: 100
-    AttackDamage: 10
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    AttackDamage: 20
+    Attack: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
+    Death: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
   - EnemyObject: {fileID: 7412486073415291261, guid: 5c324bc4f2bc66b4692818372a568090,
       type: 3}
     EnemyName: Vampire Dark
     MaxHealth: 100
     health: 100
-    AttackDamage: 10
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    AttackDamage: 20
+    Attack: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
+    Death: {fileID: 8300000, guid: 6ac35dcff51d1e448869f8fb7b795dc7, type: 3}
   Bosses:
   - EnemyObject: {fileID: 2423197114075985243, guid: 8f3f4ae74ffcead429fe9cc0ac64b2c3,
       type: 3}
