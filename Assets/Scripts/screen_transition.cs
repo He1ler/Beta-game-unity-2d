@@ -4,12 +4,10 @@ public class screen_transition : MonoBehaviour
 {
     public Animator animator;
     public GameObject LoadCan;
-   // public bool IsRealLoading = true;
     void Start ()
-    { //if(!IsRealLoading)
-      //{
-            StartCoroutine(WaitLoadScene());
-        //}
+    {
+        Time.timeScale = 1;
+        StartCoroutine(WaitLoadScene());
     }
     public void StartDarkSreen ()
     {

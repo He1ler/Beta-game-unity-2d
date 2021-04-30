@@ -12,6 +12,7 @@ public class SettingsMenu : MonoBehaviour
     Resolution[] resolutions;
     void Start()
     {
+        Time.timeScale = 1;
         //setFullscreen.isOn = Screen.fullScreen;
         //GrafhicDropdown.value = QualitySettings.GetQualityLevel();
         resolutions = Screen.resolutions;

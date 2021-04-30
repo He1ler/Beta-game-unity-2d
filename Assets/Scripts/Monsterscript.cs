@@ -17,6 +17,7 @@ public class Monsterscript : MonoBehaviour
     public AudioSource AS;
     void Start()
     {
+        Time.timeScale = 1;
         ed = DataTransition.EnemyFromFile(EnemyName);
         health = ed.health;
         MaxHealth = ed.health;

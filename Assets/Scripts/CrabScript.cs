@@ -14,6 +14,7 @@ public class CrabScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Time.timeScale = 1;
         m_animator = GameObject.Find(Bossname + "(Clone)").GetComponent<Animator>();
         m_animator.SetTrigger("Attack");
         lenght = m_animator.GetCurrentAnimatorStateInfo(0).length;

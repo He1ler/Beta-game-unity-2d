@@ -12,6 +12,7 @@ public class oldman_script : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Time.timeScale = 1;
         m_animator = GetComponent<Animator>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
     }
@@ -35,7 +36,7 @@ public class oldman_script : MonoBehaviour
 
         if (m_grounded && !Pausemenu.GameisPaused && !target)
         {
-                transform.position = Vector2.MoveTowards(transform.position, walkingChangeXY1, m_speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, walkingChangeXY1, m_speed*Time.deltaTime);
                 m_animator.SetInteger("AnimState", 1);
                 if (groundDetection.position == walkingChangeXY1)
                 {

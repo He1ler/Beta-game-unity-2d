@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.Audio;
+
 public class Pausemenu : MonoBehaviour
 {
     public static bool GameisPaused = false;
@@ -10,6 +10,7 @@ public class Pausemenu : MonoBehaviour
     private AudioSource audio;
     void Start()
     {
+        Time.timeScale = 1;
         audio = Sound.GetComponent<AudioSource>();
     }
     void Update ()

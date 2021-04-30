@@ -35,6 +35,7 @@ public class Player : MonoBehaviour {
     public AudioSource AS;
     void Start()
     {
+        Time.timeScale = 1;
         hd = DataTransition.HeroFromFile(HeroName);
         health = hd.health;
         Skill1Damage = hd.Skill1Damage;
@@ -230,37 +231,42 @@ public class Player : MonoBehaviour {
     }
     public void Set_Skill2()
     {
-        if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[0] && !ui.CheckIsEnemiesDead[1])
+        if (!IsDead)
         {
-            Vector3 SpelPos;
-            Vector3 EnemyPos;
-            SpelPos = GameObject.Find(ui.hero.HeroName + "(Clone)").transform.position;
-            EnemyPos = GameObject.Find(ui.enemy2.EnemyName + "(Clone)").transform.position;
-            SpelPos.x += 85;
-            SpelPos.y += 44;
-            EnemyPos.y += 44;
-            EnemyPos.x -= 64;
-            m_animator.SetTrigger("Skill2");
-            GameObject Spel = Instantiate(FireBall, SpelPos, Quaternion.identity) as GameObject;
-            Spel.GetComponent<Projectile>().Starting(EnemyPos);
-            ui.enemy1.Set_Hurt(Skill2Damage);
-            ui.enemy2.Set_Hurt(Skill2Damage);
-        }
-        else if (HeroName == "GirlKnight" && !IsDead)
-        {
-            m_animator.SetTrigger("Skill2");
-            health += 20;
-        }
-        else if (HeroName == "Brother")
-        {
-            health += 25;
-        }
-        else if (!ui.enemy.IsDead && !IsDead)
-        {
+            if (HeroName == "Wizard" && !ui.CheckIsEnemiesDead[0] && !ui.CheckIsEnemiesDead[1])
+            {
+                Vector3 SpelPos;
+                Vector3 EnemyPos;
+                SpelPos = GameObject.Find(ui.hero.HeroName + "(Clone)").transform.position;
+                EnemyPos = GameObject.Find(ui.enemy2.EnemyName + "(Clone)").transform.position;
+                SpelPos.x += 85;
+                SpelPos.y += 44;
+                EnemyPos.y += 44;
+                EnemyPos.x -= 64;
+                m_animator.SetTrigger("Skill2");
+                GameObject Spel = Instantiate(FireBall, SpelPos, Quaternion.identity) as GameObject;
+                Spel.GetComponent<Projectile>().Starting(EnemyPos);
+                ui.enemy1.Set_Hurt(Skill2Damage);
+                ui.enemy2.Set_Hurt(Skill2Damage);
+            }
+            else if (HeroName == "GirlKnight")
+            {
+                m_animator.SetTrigger("Skill2");
+                health += 20;
+            }
+            else if (HeroName == "Brother")
+            {
+                m_animator.SetTrigger("Skill2");
+                health += 25;
+            }
+            else if (!ui.enemy.IsDead)
+            {
+                m_animator.SetTrigger("Skill2");
                 ui.enemy.Set_Hurt(Skill2Damage);
+            }
+            AS.clip = Attack2;
+            AS.Play();
         }
-        AS.clip = Attack2;
-        AS.Play();
     }
     public void Set_Skill3()
     {

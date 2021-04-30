@@ -14,6 +14,7 @@ public class beardedscript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Time.timeScale = 1;
         m_animator = GetComponent<Animator>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
     }

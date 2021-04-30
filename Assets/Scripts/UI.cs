@@ -21,6 +21,7 @@ public class UI : MonoBehaviour
 
     int[] musicnumbers = new int[8];
     int musicnumber = 1;
+    float musiclength = 0.0f;
 
     public GameObject panel;
 
@@ -60,16 +61,18 @@ public class UI : MonoBehaviour
     public screen_transition st;
 
     private string skillchoose;
-    
-    void Start ()
+
+    void Start()
     {
+        Time.timeScale = 1;
         StartCoroutine(StartingHUD());
         InvokeRepeating("updating", 3.0f, 1.0f);
-        for(int i=0;i<8;i++)
+        InvokeRepeating("Music", 2.0f, 1.0f);
+        for (int i = 0; i < 8; i++)
         {
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7 };
             musicnumbers[i] = UnityEngine.Random.Range(0, 8);
-            if(musicnumbers[i]==numbers[musicnumbers[i]])
+            if (musicnumbers[i] == numbers[musicnumbers[i]])
             {
                 numbers[musicnumbers[i]] = -1;
             }
@@ -77,17 +80,21 @@ public class UI : MonoBehaviour
             {
                 i--;
             }
-        }     
+        }
         gameObject.GetComponent<AudioSource>().clip = music[musicnumbers[0]];
-        gameObject.GetComponent<AudioSource>().Play();
+        gameObject.GetComponent<AudioSource>().PlayDelayed(1);
+        musiclength = gameObject.GetComponent<AudioSource>().clip.length + 1.0f;
     }
-    void Update ()
+    void Music()
     {
-        if (!gameObject.GetComponent<AudioSource>().isPlaying)
+        musiclength -= 1.0f;
+        if (musiclength < 0)
         {
             gameObject.GetComponent<AudioSource>().clip = music[musicnumbers[musicnumber]];
+            gameObject.GetComponent<AudioSource>().Play();
+            musiclength = gameObject.GetComponent<AudioSource>().clip.length;
             musicnumber++;
-            if(musicnumber==7)
+            if (musicnumber == 7)
             {
                 musicnumber = 0;
             }
@@ -610,9 +617,9 @@ public class UI : MonoBehaviour
             }
         }
     }
-    private void EnemyAttack()
+    private void EnemyAttack() // simple recursive function choosing the hero will be attacked by enemy 
     {
-            if (UnityEngine.Random.Range(1, 10) % 2 != 0)
+            if ((UnityEngine.Random.Range(1, 11) % 2) != 0)
             {
                 hero = hero1;
             if (hero.IsDead)

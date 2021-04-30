@@ -28,6 +28,7 @@ public class WaveSpawnerScript : MonoBehaviour
 	public bool IsBoss = false;
 	void Start()
     {
+		Time.timeScale = 1;
 		hero1 = heroes[DataTransition.MapNameFromFile().heroIndex1 - 1];
 		hero2 = heroes[DataTransition.MapNameFromFile().heroIndex2 - 1];
 		DataTransition.HeroToFile(DataTransition.MapNameFromFile().heroIndex1 - 1, heroes);
