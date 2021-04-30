@@ -60,7 +60,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 502e913959660f545b2fedf9628f20cf, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 5f21cefd8a0eea4429667866c2fed9cd, type: 3}
   - EnemyObject: {fileID: 2657256689749842804, guid: c2df6871e15cfda4a8720fa140ab45e7,
       type: 3}
     EnemyName: Black clime
@@ -84,7 +84,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 602a9e1b2f768f74abc3fe568cc3ad3d, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 149c354c95e8deb4083440fafb62e585, type: 3}
   - EnemyObject: {fileID: 2864191101156823346, guid: f38b1ca40f92d8844a4859ee25c890ff,
       type: 3}
     EnemyName: Crab
@@ -108,7 +108,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 841615eac75a58d48bcefebdb71cd919, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: d6ad54e65eb8adc468f78dba8fff8a5c, type: 3}
   - EnemyObject: {fileID: 4798511893860951622, guid: 391af6af77848144e8d276fcef311e67,
       type: 3}
     EnemyName: Goblin
@@ -116,7 +116,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 6f504438e46933e449ce89d7cc8a2cec, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 249e03a59f4dc464a98644da3b47c30a, type: 3}
   - EnemyObject: {fileID: 4510561477667024636, guid: 8f5bd7ed5780e9e4294bd9934ce5f4df,
       type: 3}
     EnemyName: hell-gato
@@ -140,7 +140,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 00861ff00f62f3548b483db48b60c5fb, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 0749156d07bbc5f4b9685066496d866a, type: 3}
   - EnemyObject: {fileID: 6344214216210160991, guid: 0172c1ebb06ddc046907343d9f4d8e4e,
       type: 3}
     EnemyName: octopus
@@ -204,7 +204,7 @@ MonoBehaviour:
     health: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 023202140a0bebc4f8574547ce1e4afe, type: 3}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 5b34551433aad164884d0f8eaae21841, type: 3}
   - EnemyObject: {fileID: 8776561655351575541, guid: e41835cf1cec48441a54e97b09f23dd6,
       type: 3}
     EnemyName: Blacksmith Dark
@@ -284,48 +284,48 @@ MonoBehaviour:
     MaxHealth: 300
     health: 300
     AttackDamage: 25
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    Attack: {fileID: 8300000, guid: 841615eac75a58d48bcefebdb71cd919, type: 3}
+    Death: {fileID: 8300000, guid: d6ad54e65eb8adc468f78dba8fff8a5c, type: 3}
   - EnemyObject: {fileID: 2864191101156823346, guid: 81ffec8273e27234ca271d8b9702c2a4,
       type: 3}
     EnemyName: CrabBoss
     MaxHealth: 300
     health: 300
     AttackDamage: 25
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    Attack: {fileID: 8300000, guid: 4d185305750bd9241b569817ec525263, type: 3}
+    Death: {fileID: 8300000, guid: 49546399410076f45a740efdb6a8e3d8, type: 3}
   - EnemyObject: {fileID: 4510561477667024636, guid: 1aead379d555c8b4db0214a0aa98bae6,
       type: 3}
     EnemyName: hell-gatoBoss
     MaxHealth: 300
     health: 300
     AttackDamage: 25
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    Attack: {fileID: 8300000, guid: fac0693cf40b06344a034ce1785c1907, type: 3}
+    Death: {fileID: 8300000, guid: d3b772db9dd889f44b0167778e90a3e9, type: 3}
   - EnemyObject: {fileID: 6344214216210160991, guid: 9442baad5124b6a4a90c3d8f19f9afd0,
       type: 3}
     EnemyName: octopusBoss
     MaxHealth: 300
     health: 300
     AttackDamage: 25
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    Attack: {fileID: 8300000, guid: 79d39f3eb3c3bef4dae3c1670454a514, type: 3}
+    Death: {fileID: 8300000, guid: 4a5a2596364143e41abf9a9f9616733c, type: 3}
   - EnemyObject: {fileID: 6298202166443123783, guid: d619fa8e05e894044bba9066a0e91ec4,
       type: 3}
     EnemyName: MushroomBoss
     MaxHealth: 300
     health: 300
     AttackDamage: 25
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    Attack: {fileID: 8300000, guid: 841615eac75a58d48bcefebdb71cd919, type: 3}
+    Death: {fileID: 8300000, guid: 35de34d0d4349d84eb14b4b71f8040dc, type: 3}
   - EnemyObject: {fileID: 1139793519818416030, guid: b0e0abb4f77be0c46a36a17113759605,
       type: 3}
     EnemyName: Skeleton twohandedBoss
     MaxHealth: 300
     health: 300
     AttackDamage: 25
-    Attack: {fileID: 0}
-    Death: {fileID: 0}
+    Attack: {fileID: 8300000, guid: 5c13f63348043fd44b2863fda659cc8d, type: 3}
+    Death: {fileID: 8300000, guid: 88dcc36212aa0f643a6856011368fae7, type: 3}
   heroes:
   - HeroObject: {fileID: 8776561655351575541, guid: f8be9717f55290043876af31c52a1bbe,
       type: 3}
@@ -349,7 +349,7 @@ MonoBehaviour:
     Attack2: {fileID: 0}
     Attack3: {fileID: 0}
     Attack4: {fileID: 0}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 09d4a262ce8436641a755616651cf6eb, type: 3}
   - HeroObject: {fileID: 7535283850282367633, guid: 6ad88ed3bb44a91498d78fc3be301a43,
       type: 3}
     HeroName: Brother
@@ -372,7 +372,7 @@ MonoBehaviour:
     Attack2: {fileID: 0}
     Attack3: {fileID: 0}
     Attack4: {fileID: 0}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: b8e037aebb69e5f418bc397c6f3fb6d3, type: 3}
   - HeroObject: {fileID: 4296361006943601561, guid: 2dcc0b5ea10e48c488de0fd60f68fed2,
       type: 3}
     HeroName: Condotier
@@ -395,7 +395,7 @@ MonoBehaviour:
     Attack2: {fileID: 0}
     Attack3: {fileID: 0}
     Attack4: {fileID: 0}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 65a5d5e2780cd984e804379f519470e5, type: 3}
   - HeroObject: {fileID: 8355508651715472864, guid: ad52b6678d3874b43b46fa8acb286926,
       type: 3}
     HeroName: GirlKnight
@@ -418,7 +418,7 @@ MonoBehaviour:
     Attack2: {fileID: 0}
     Attack3: {fileID: 0}
     Attack4: {fileID: 0}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: aa240ff0a2397134798dd7be6c7fd913, type: 3}
   - HeroObject: {fileID: 8481325847892598963, guid: 5d1f0695da9820e4cbdb1f5b2f342e7e,
       type: 3}
     HeroName: King
@@ -441,7 +441,7 @@ MonoBehaviour:
     Attack2: {fileID: 0}
     Attack3: {fileID: 0}
     Attack4: {fileID: 0}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: ed179a492b751214688d2571f41547fe, type: 3}
   - HeroObject: {fileID: 7122412878878452651, guid: 47255da24e5ad8f4084fa47c5c63b993,
       type: 3}
     HeroName: Knight
@@ -464,7 +464,7 @@ MonoBehaviour:
     Attack2: {fileID: 0}
     Attack3: {fileID: 0}
     Attack4: {fileID: 0}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: e7cb8861a25a3934996ebce08a57d3f6, type: 3}
   - HeroObject: {fileID: 7152154017721613807, guid: 22255a5446ced584ca21eaf966f517af,
       type: 3}
     HeroName: Monk
@@ -487,7 +487,7 @@ MonoBehaviour:
     Attack2: {fileID: 0}
     Attack3: {fileID: 0}
     Attack4: {fileID: 0}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 6409a6538709fa344bca87f29fb79250, type: 3}
   - HeroObject: {fileID: 3221440567231578696, guid: c9817532254cca0498a0ffc232f871c8,
       type: 3}
     HeroName: Wizard
@@ -510,7 +510,7 @@ MonoBehaviour:
     Attack2: {fileID: 0}
     Attack3: {fileID: 0}
     Attack4: {fileID: 0}
-    Death: {fileID: 0}
+    Death: {fileID: 8300000, guid: 6c6b6dd521cea7a4699a456c769fcf84, type: 3}
   hero1:
     HeroObject: {fileID: 0}
     HeroName: 
