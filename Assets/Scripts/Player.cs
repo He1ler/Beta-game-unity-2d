@@ -249,16 +249,6 @@ public class Player : MonoBehaviour {
                 ui.enemy1.Set_Hurt(Skill2Damage);
                 ui.enemy2.Set_Hurt(Skill2Damage);
             }
-            else if (HeroName == "GirlKnight")
-            {
-                m_animator.SetTrigger("Skill2");
-                health += 20;
-            }
-            else if (HeroName == "Brother")
-            {
-                m_animator.SetTrigger("Skill2");
-                health += 25;
-            }
             else if (!ui.enemy.IsDead)
             {
                 m_animator.SetTrigger("Skill2");
@@ -281,6 +271,11 @@ public class Player : MonoBehaviour {
             Destroy(Spel.gameObject, Spel.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
             ui.enemy2.Set_Hurt(Skill3Damage);
             ui.enemy3.Set_Hurt(Skill3Damage);
+        }
+        else if (HeroName == "GirlKnight")
+        {
+            m_animator.SetTrigger("Skill2");
+            health += 50;
         }
         else if (!ui.enemy.IsDead && !IsDead)
         {
@@ -306,6 +301,11 @@ public class Player : MonoBehaviour {
                 ui.enemy3.Set_Hurt(Skill4Damage);
                 ui.enemy4.Set_Hurt(Skill4Damage);
             }
+        else if (HeroName == "Brother")
+        {
+            m_animator.SetTrigger("Skill2");
+            health = 100;
+        }
         else if (!ui.enemy.IsDead && !IsDead)
         {
             m_animator.SetTrigger("Skill4");

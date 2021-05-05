@@ -103,6 +103,8 @@ public class UI : MonoBehaviour
     void updating()
     {
         HPCheck();
+        CheckIfEHeroesDead();
+        CheckIfEnemiesDead();
     }
     IEnumerator StartingHUD()
     {
@@ -208,8 +210,6 @@ public class UI : MonoBehaviour
 
     IEnumerator Hero1()
     {
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
         turns = BattleState.Hero1;
         yield return new WaitForSeconds(3f);
         if (hero1.IsDead)
@@ -233,13 +233,9 @@ public class UI : MonoBehaviour
         }
         yield return new WaitForSeconds(3f);
         panel.SetActive(false);
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
     }
     IEnumerator Hero2()
     {
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
         turns = BattleState.Hero2;
         yield return new WaitForSeconds(3f);
         if (hero2.IsDead)
@@ -265,8 +261,6 @@ public class UI : MonoBehaviour
         }
         yield return new WaitForSeconds(3f);
         panel.SetActive(false);
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
     }
     public void FromHero()
     {
@@ -282,8 +276,6 @@ public class UI : MonoBehaviour
     IEnumerator Enemy1()
     {
         panel.SetActive(false);
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
         turns = BattleState.Enemy1;
         yield return new WaitForSeconds(2f);
         skill1.gameObject.SetActive(false);
@@ -292,7 +284,7 @@ public class UI : MonoBehaviour
         skill4.gameObject.SetActive(false);
         hero2Btn.enabled = false;
         Hero2Name.enabled = false;
-        if (!enemy1.IsDead)
+        if (!enemy1.IsDead && !CheckIfEHeroesDead())
         {
             enemy = enemy1;
             EnemyAttack();
@@ -300,21 +292,20 @@ public class UI : MonoBehaviour
             SkillScreenEnemy();
         }
         yield return new WaitForSeconds(2f);
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
-        if (!wavespawner.IsBoss)
-        StartCoroutine(Enemy2());
-        else
-            StartCoroutine(Hero1());
+        if (!CheckIfEHeroesDead())
+        {
+            if (!wavespawner.IsBoss)
+                StartCoroutine(Enemy2());
+            else
+                StartCoroutine(Hero1());
+        }
     }
     IEnumerator Enemy2()
     {
         panel.SetActive(false);
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
         turns = BattleState.Enemy2;
         yield return new WaitForSeconds(2f);
-        if (!enemy2.IsDead)
+        if (!enemy2.IsDead && !CheckIfEHeroesDead())
         {
             enemy = enemy2;
             EnemyAttack();
@@ -322,25 +313,24 @@ public class UI : MonoBehaviour
             SkillScreenEnemy();
         }
         yield return new WaitForSeconds(2f);
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
-        if (wavespawner.EnemiesAlive>=3)
+        if (!CheckIfEHeroesDead())
         {
-            StartCoroutine(Enemy3());
-        }
-        else
-        {
-            StartCoroutine(Hero1());
+            if (wavespawner.EnemiesAlive >= 3)
+            {
+                StartCoroutine(Enemy3());
+            }
+            else
+            {
+                StartCoroutine(Hero1());
+            }
         }
     }
     IEnumerator Enemy3()
     {
         panel.SetActive(false);
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
         turns = BattleState.Enemy3;
         yield return new WaitForSeconds(2f);
-        if (!enemy3.IsDead)
+        if (!enemy3.IsDead && !CheckIfEHeroesDead())
         {
             enemy = enemy3;
             EnemyAttack();
@@ -348,25 +338,24 @@ public class UI : MonoBehaviour
             SkillScreenEnemy();
         }
         yield return new WaitForSeconds(2f);
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
-        if (wavespawner.EnemiesAlive == 4)
+        if (!CheckIfEHeroesDead())
         {
-            StartCoroutine(Enemy4());
-        }
-        else
-        {
-            StartCoroutine(Hero1());
+            if (wavespawner.EnemiesAlive == 4)
+            {
+                StartCoroutine(Enemy4());
+            }
+            else
+            {
+                StartCoroutine(Hero1());
+            }
         }
     }
     IEnumerator Enemy4()
     {
         panel.SetActive(false);
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
         turns = BattleState.Enemy4;
         yield return new WaitForSeconds(2f);
-        if (!enemy4.IsDead)
+        if (!enemy4.IsDead && !CheckIfEHeroesDead())
         {
             enemy = enemy4;
             EnemyAttack();
@@ -374,10 +363,10 @@ public class UI : MonoBehaviour
             SkillScreenEnemy();
         }
         yield return new WaitForSeconds(2f);
-        CheckIfEnemiesDead();
-        CheckIfEHeroesDead();
-
-        StartCoroutine(Hero1());
+        if (!CheckIfEHeroesDead())
+        {
+            StartCoroutine(Hero1());
+        }
     }
     void CheckIfEnemiesDead()
     {
@@ -413,8 +402,8 @@ public class UI : MonoBehaviour
             {
                 CheckIsEnemiesDead[3] = true;
                 wavespawner.EnemiesAlive--;
-                    enemy4Slider.gameObject.SetActive(false);
-                    enemy4HPText.gameObject.SetActive(false);
+                enemy4Slider.gameObject.SetActive(false);
+                enemy4HPText.gameObject.SetActive(false);
             }
         }
 
@@ -425,7 +414,8 @@ public class UI : MonoBehaviour
         else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex < 3)
         {
             wavespawner.SpawnWave();
-                EnemiesAlive = wavespawner.EnemiesAlive;
+            EnemiesAlive = wavespawner.EnemiesAlive;
+            StartCoroutine(StartingHUD());
             for (int i = 0; i <= 3; i++)
             {
                 CheckIsEnemiesDead[i] = false;
@@ -442,13 +432,15 @@ public class UI : MonoBehaviour
             WinLevel();
         }
     }
-    void CheckIfEHeroesDead()
+    bool CheckIfEHeroesDead()
     {
         if(hero1.IsDead && hero2.IsDead)
         {
             panel.SetActive(false);
             LoseLevel();
+            return true;
         }
+        return false;
     }
 
     private void Skill1()
@@ -548,8 +540,8 @@ public class UI : MonoBehaviour
             skillchoose = btn.name;
             if (hero.HeroName == "Wizard" && !CheckIsEnemiesDead[0])
             {
-                Skill1();
                 panel.SetActive(false);
+                Skill1();
                 SkillScreenHero();
                 FromHero();
             }
@@ -557,10 +549,10 @@ public class UI : MonoBehaviour
         else if (btn.name == "Skill2" && !CheckIsEnemiesDead[0] && !CheckIsEnemiesDead[1])
         {
             skillchoose = btn.name;
-            if (hero.HeroName == "GirlKnight" || hero.HeroName == "Wizard")
+            if (hero.HeroName == "Wizard")
             {
-                Skill2();
                 panel.SetActive(false);
+                Skill2();
                 SkillScreenHero();
                 FromHero();
             }
@@ -568,10 +560,10 @@ public class UI : MonoBehaviour
         else if (btn.name == "Skill3" && !CheckIsEnemiesDead[2] && !CheckIsEnemiesDead[1])
         {
             skillchoose = btn.name;
-            if ( hero.HeroName == "Wizard" && EnemiesAlive>=3)
+            if ((hero.HeroName == "GirlKnight" || hero.HeroName == "Wizard") && EnemiesAlive>=3)
             {
-                Skill3();
                 panel.SetActive(false);
+                Skill3();
                 SkillScreenHero();
                 FromHero();
             }
@@ -579,10 +571,10 @@ public class UI : MonoBehaviour
         else if (btn.name == "Skill4" && !CheckIsEnemiesDead[3] && !CheckIsEnemiesDead[1] && !CheckIsEnemiesDead[2])
         {
             skillchoose = btn.name;
-            if (hero.HeroName == "Brother" || (hero.HeroName == "Wizard" && EnemiesAlive >= 4))
+            if ((hero.HeroName == "Brother" || hero.HeroName == "Wizard") && EnemiesAlive >= 4)
             {
-                Skill4();
                 panel.SetActive(false);
+                Skill4();
                 SkillScreenHero();
                 FromHero();
             }

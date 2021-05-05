@@ -345,10 +345,10 @@ MonoBehaviour:
     Skill2Damage: 15
     Skill3Damage: 20
     Skill4Damage: 30
-    Attack1: {fileID: 0}
-    Attack2: {fileID: 0}
-    Attack3: {fileID: 0}
-    Attack4: {fileID: 0}
+    Attack1: {fileID: 8300000, guid: 269419a1b5d12cd4ca82a3db0b0f1211, type: 3}
+    Attack2: {fileID: 8300000, guid: 83f22fe65ae5de64ba58fcfd709d71fc, type: 3}
+    Attack3: {fileID: 8300000, guid: b44fa352367b36b4f802d499f8bcacb3, type: 3}
+    Attack4: {fileID: 8300000, guid: 7d0dfda11346eb64082cce000f16e4c9, type: 3}
     Death: {fileID: 8300000, guid: 09d4a262ce8436641a755616651cf6eb, type: 3}
   - HeroObject: {fileID: 7535283850282367633, guid: 6ad88ed3bb44a91498d78fc3be301a43,
       type: 3}
@@ -356,8 +356,8 @@ MonoBehaviour:
     HeroImage: {fileID: 21300000, guid: bd630f2ffe543aa46af42c00c6bbb054, type: 3}
     Skill1Image: {fileID: 21300000, guid: 21118b555a61b4a409ec20ba884cbcda, type: 3}
     Skill2Image: {fileID: 21300000, guid: f0ab63148a67c7746aa6bbe5ec8b43e0, type: 3}
-    Skill3Image: {fileID: 21300000, guid: 411f88b287eb8504aa08edb04c1443c6, type: 3}
-    Skill4Image: {fileID: 21300000, guid: eced15bb959edc54c8457ab75f9a45b5, type: 3}
+    Skill3Image: {fileID: 21300000, guid: eced15bb959edc54c8457ab75f9a45b5, type: 3}
+    Skill4Image: {fileID: 21300000, guid: 411f88b287eb8504aa08edb04c1443c6, type: 3}
     Skill1Name: 
     Skill2Name: 
     Skill3Name: 
@@ -368,10 +368,10 @@ MonoBehaviour:
     Skill2Damage: 15
     Skill3Damage: 20
     Skill4Damage: 30
-    Attack1: {fileID: 0}
-    Attack2: {fileID: 0}
-    Attack3: {fileID: 0}
-    Attack4: {fileID: 0}
+    Attack1: {fileID: 8300000, guid: a57e361f6a37f2a48b46aec7538fbc7b, type: 3}
+    Attack2: {fileID: 8300000, guid: 7451c20c76431764bae3f0eff57b1e29, type: 3}
+    Attack3: {fileID: 8300000, guid: 6e4324dd886cdac4d8c61d6d771f09b1, type: 3}
+    Attack4: {fileID: 8300000, guid: 89116c2b372b3c64bb29985489e7b76c, type: 3}
     Death: {fileID: 8300000, guid: b8e037aebb69e5f418bc397c6f3fb6d3, type: 3}
   - HeroObject: {fileID: 4296361006943601561, guid: 2dcc0b5ea10e48c488de0fd60f68fed2,
       type: 3}
@@ -391,18 +391,18 @@ MonoBehaviour:
     Skill2Damage: 15
     Skill3Damage: 20
     Skill4Damage: 30
-    Attack1: {fileID: 0}
-    Attack2: {fileID: 0}
-    Attack3: {fileID: 0}
-    Attack4: {fileID: 0}
+    Attack1: {fileID: 8300000, guid: 760b9a163172aab45afa745d1b44f74a, type: 3}
+    Attack2: {fileID: 8300000, guid: 83d7407b3cb3f244b86cd5501b165961, type: 3}
+    Attack3: {fileID: 8300000, guid: 58654cc5f7958e242adf4986de684f4c, type: 3}
+    Attack4: {fileID: 8300000, guid: c1e25efad3c734947b40d134abcc163f, type: 3}
     Death: {fileID: 8300000, guid: 65a5d5e2780cd984e804379f519470e5, type: 3}
   - HeroObject: {fileID: 8355508651715472864, guid: ad52b6678d3874b43b46fa8acb286926,
       type: 3}
     HeroName: GirlKnight
     HeroImage: {fileID: 21300000, guid: 63b1d0eff85ff7c4299ab3220ac62006, type: 3}
     Skill1Image: {fileID: 21300000, guid: ac6ad492dd4743a47ab4da7cf07f6a95, type: 3}
-    Skill2Image: {fileID: 21300000, guid: 42f6c722ead369b4b934a116b4324a4d, type: 3}
-    Skill3Image: {fileID: 21300000, guid: 0d1dc8ade7e63d14da6ea8a209621906, type: 3}
+    Skill2Image: {fileID: 21300000, guid: 0d1dc8ade7e63d14da6ea8a209621906, type: 3}
+    Skill3Image: {fileID: 21300000, guid: 42f6c722ead369b4b934a116b4324a4d, type: 3}
     Skill4Image: {fileID: 21300000, guid: 4f9df37e2a573a64cbc944fe068893cb, type: 3}
     Skill1Name: 
     Skill2Name: 
@@ -414,10 +414,10 @@ MonoBehaviour:
     Skill2Damage: 15
     Skill3Damage: 20
     Skill4Damage: 30
-    Attack1: {fileID: 0}
-    Attack2: {fileID: 0}
-    Attack3: {fileID: 0}
-    Attack4: {fileID: 0}
+    Attack1: {fileID: 8300000, guid: e92d8b52d99588f47b1905221a2f4f1b, type: 3}
+    Attack2: {fileID: 8300000, guid: d1d1501b5032b8448af245201542d486, type: 3}
+    Attack3: {fileID: 8300000, guid: 29852e152f5694a4686603648af37fd0, type: 3}
+    Attack4: {fileID: 8300000, guid: 59601a84f0f97e044b9036c5356b418f, type: 3}
     Death: {fileID: 8300000, guid: aa240ff0a2397134798dd7be6c7fd913, type: 3}
   - HeroObject: {fileID: 8481325847892598963, guid: 5d1f0695da9820e4cbdb1f5b2f342e7e,
       type: 3}
@@ -437,10 +437,10 @@ MonoBehaviour:
     Skill2Damage: 15
     Skill3Damage: 20
     Skill4Damage: 30
-    Attack1: {fileID: 0}
-    Attack2: {fileID: 0}
-    Attack3: {fileID: 0}
-    Attack4: {fileID: 0}
+    Attack1: {fileID: 8300000, guid: 52c35a0e5f031b443ba4097725222eb5, type: 3}
+    Attack2: {fileID: 8300000, guid: 6bb08e837f0923f47bdae8cec29ad1c4, type: 3}
+    Attack3: {fileID: 8300000, guid: b8fa2c8d4779cd842ad652fa187f8942, type: 3}
+    Attack4: {fileID: 8300000, guid: 1504a5d3fd217854ebece758715b79ab, type: 3}
     Death: {fileID: 8300000, guid: ed179a492b751214688d2571f41547fe, type: 3}
   - HeroObject: {fileID: 7122412878878452651, guid: 47255da24e5ad8f4084fa47c5c63b993,
       type: 3}
@@ -460,10 +460,10 @@ MonoBehaviour:
     Skill2Damage: 15
     Skill3Damage: 20
     Skill4Damage: 30
-    Attack1: {fileID: 0}
-    Attack2: {fileID: 0}
-    Attack3: {fileID: 0}
-    Attack4: {fileID: 0}
+    Attack1: {fileID: 8300000, guid: 7d495cc24c7eb3e449b37bc6d4a0962f, type: 3}
+    Attack2: {fileID: 8300000, guid: 0bdb26fb6049be6498806e95e432c34c, type: 3}
+    Attack3: {fileID: 8300000, guid: c13d6ed96074d7b46a0d045875eb5478, type: 3}
+    Attack4: {fileID: 8300000, guid: 728a176cf829e4d4cbf4631c4f6ea44a, type: 3}
     Death: {fileID: 8300000, guid: e7cb8861a25a3934996ebce08a57d3f6, type: 3}
   - HeroObject: {fileID: 7152154017721613807, guid: 22255a5446ced584ca21eaf966f517af,
       type: 3}
@@ -483,10 +483,10 @@ MonoBehaviour:
     Skill2Damage: 15
     Skill3Damage: 20
     Skill4Damage: 30
-    Attack1: {fileID: 0}
-    Attack2: {fileID: 0}
-    Attack3: {fileID: 0}
-    Attack4: {fileID: 0}
+    Attack1: {fileID: 8300000, guid: c333aae5f02a5524f838ef3144ff4c43, type: 3}
+    Attack2: {fileID: 8300000, guid: 769378d70923f1e4d8fa76f414083a1d, type: 3}
+    Attack3: {fileID: 8300000, guid: 65ada582562ffb34eb160ad54f286700, type: 3}
+    Attack4: {fileID: 8300000, guid: 4cd821a2583fcba47bacdcdc0f8eeefb, type: 3}
     Death: {fileID: 8300000, guid: 6409a6538709fa344bca87f29fb79250, type: 3}
   - HeroObject: {fileID: 3221440567231578696, guid: c9817532254cca0498a0ffc232f871c8,
       type: 3}
@@ -506,10 +506,10 @@ MonoBehaviour:
     Skill2Damage: 15
     Skill3Damage: 20
     Skill4Damage: 15
-    Attack1: {fileID: 0}
-    Attack2: {fileID: 0}
-    Attack3: {fileID: 0}
-    Attack4: {fileID: 0}
+    Attack1: {fileID: 8300000, guid: 475fba949b2e18f47a5a260502271983, type: 3}
+    Attack2: {fileID: 8300000, guid: 892ce18dddc26884994cf021a4e94654, type: 3}
+    Attack3: {fileID: 8300000, guid: af0959f0408454b41b5a44eb35cdcfaf, type: 3}
+    Attack4: {fileID: 8300000, guid: d77c5e3ca97b63d49b00b0b572f64da4, type: 3}
     Death: {fileID: 8300000, guid: 6c6b6dd521cea7a4699a456c769fcf84, type: 3}
   hero1:
     HeroObject: {fileID: 0}
