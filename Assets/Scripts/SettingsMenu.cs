@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿//Script for setting menu
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -7,14 +8,14 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public AudioMixer musicMixer;
     public Dropdown resolutionDropdown;
-    //public Dropdown GrafhicDropdown;
-    // public Toggle setFullscreen;
+    public Dropdown GrafhicDropdown;
+    public Toggle setFullscreen;
     Resolution[] resolutions;
     void Start()
     {
         Time.timeScale = 1;
-        //setFullscreen.isOn = Screen.fullScreen;
-        //GrafhicDropdown.value = QualitySettings.GetQualityLevel();
+        setFullscreen.isOn = Screen.fullScreen;
+        GrafhicDropdown.value = QualitySettings.GetQualityLevel();
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         int currentresolution = 0;

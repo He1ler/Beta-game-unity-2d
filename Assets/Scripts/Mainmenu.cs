@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿// Script for main menu
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using static DataTransition;
 public class Mainmenu : MonoBehaviour
 {
-    public void Play()
+    public void Play()// Button play loades level
     {
         MapNameToFileMenu("Hub location");
         SceneManager.LoadScene("Loading");
@@ -12,7 +13,7 @@ public class Mainmenu : MonoBehaviour
     {
         Application.Quit();
     }
-    public void MainMenu()
+    public void MainMenu()// Button which load main menu
     {
         Time.timeScale = 1;
         Pausemenu.GameisPaused = false;

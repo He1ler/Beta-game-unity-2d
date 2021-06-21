@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// script for "oldman" krips 
+// start moving of units from start point to endpoint
+using UnityEngine;
 
 public class oldman_script : MonoBehaviour
 {
@@ -33,7 +35,7 @@ public class oldman_script : MonoBehaviour
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
         }
-
+        // start moving of units from start point to endpoint
         if (m_grounded && !Pausemenu.GameisPaused && !target)
         {
                 transform.position = Vector2.MoveTowards(transform.position, walkingChangeXY1, m_speed*Time.deltaTime);

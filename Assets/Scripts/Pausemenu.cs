@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿// Script for pause window
+using UnityEngine;
 
 public class Pausemenu : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Pausemenu : MonoBehaviour
     }
     void Update ()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))//pausing game if press ESC, and unpause if press it again
         {
             if (GameisPaused)
             {

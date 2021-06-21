@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿// Script of all UI and combat game
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Collections;
-using UnityEngine.Audio;
+
 public enum BattleState { Waiting, Hero1, Hero2, Enemy1, Enemy2, Enemy3, Enemy4 };
 public class UI : MonoBehaviour
 {
@@ -62,13 +63,13 @@ public class UI : MonoBehaviour
 
     private string skillchoose;
 
-    void Start()
+    void Start()//starting levels configuration
     {
         Time.timeScale = 1;
         StartCoroutine(StartingHUD());
         InvokeRepeating("updating", 3.0f, 1.0f);
         InvokeRepeating("Music", 2.0f, 1.0f);
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 8; i++)//setup random array of music for level
         {
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7 };
             musicnumbers[i] = UnityEngine.Random.Range(0, 8);
@@ -85,7 +86,7 @@ public class UI : MonoBehaviour
         gameObject.GetComponent<AudioSource>().PlayDelayed(1);
         musiclength = gameObject.GetComponent<AudioSource>().clip.length + 1.0f;
     }
-    void Music()
+    void Music()//continueing of musics tracks 
     {
         musiclength -= 1.0f;
         if (musiclength < 0)
@@ -100,13 +101,13 @@ public class UI : MonoBehaviour
             }
         }
     }
-    void updating()
+    void updating()//updating of info in UI for player
     {
         HPCheck();
         CheckIfEHeroesDead();
         CheckIfEnemiesDead();
     }
-    IEnumerator StartingHUD()
+    IEnumerator StartingHUD()//starting levels configuration, heroes pictures, skill pictures, etc in UI
     {
         yield return new WaitForSeconds(0.3f);
         panel.SetActive(false);
@@ -138,7 +139,7 @@ public class UI : MonoBehaviour
             enemy = enemy1;
         }
 
-        if (wavespawner.EnemiesAlive >= 2)
+        if (wavespawner.EnemiesAlive >= 2)//cheks for safety
         {
             enemy2 = GameObject.Find(wavespawner.enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>();
             enemy2Slider.gameObject.SetActive(true);
@@ -176,7 +177,7 @@ public class UI : MonoBehaviour
         completeLevelUI.SetActive(true);
         gameObject.GetComponent<AudioSource>().Stop();
     }
-    void HPCheck()
+    void HPCheck()//Updating of heroes and enemies HP in UI
     {
         hero1Slider.value = Convert.ToSingle(hero1.health) / Convert.ToSingle(hero1.MaxHealth);
         hero2Slider.value = Convert.ToSingle(hero2.health) / Convert.ToSingle(hero2.MaxHealth);
@@ -202,13 +203,13 @@ public class UI : MonoBehaviour
             enemy4HPText.text = Convert.ToString(enemy4.health) + " / " + Convert.ToString(enemy4.MaxHealth);
         }
     }
-    IEnumerator BattleStart()
+    IEnumerator BattleStart()//Start of first turn by 1 hero
     {
         yield return new WaitForSeconds(1f);
         StartCoroutine(Hero1());
     }
 
-    IEnumerator Hero1()
+    IEnumerator Hero1()//preparing for first hero turn, updating ui
     {
         turns = BattleState.Hero1;
         yield return new WaitForSeconds(3f);
@@ -234,7 +235,7 @@ public class UI : MonoBehaviour
         yield return new WaitForSeconds(3f);
         panel.SetActive(false);
     }
-    IEnumerator Hero2()
+    IEnumerator Hero2()//preparing for second hero turn, updating ui
     {
         turns = BattleState.Hero2;
         yield return new WaitForSeconds(3f);
@@ -273,11 +274,11 @@ public class UI : MonoBehaviour
             StartCoroutine(Enemy1());
         }
     }
-    IEnumerator Enemy1()
+    IEnumerator Enemy1()//preparing for first enemy turn, updating ui
     {
         panel.SetActive(false);
         turns = BattleState.Enemy1;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         skill1.gameObject.SetActive(false);
         skill2.gameObject.SetActive(false);
         skill3.gameObject.SetActive(false);
@@ -291,7 +292,7 @@ public class UI : MonoBehaviour
             enemy1.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         if (!CheckIfEHeroesDead())
         {
             if (!wavespawner.IsBoss)
@@ -300,11 +301,11 @@ public class UI : MonoBehaviour
                 StartCoroutine(Hero1());
         }
     }
-    IEnumerator Enemy2()
+    IEnumerator Enemy2()//preparing for second enemy turn, updating ui
     {
         panel.SetActive(false);
         turns = BattleState.Enemy2;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         if (!enemy2.IsDead && !CheckIfEHeroesDead())
         {
             enemy = enemy2;
@@ -312,10 +313,10 @@ public class UI : MonoBehaviour
             enemy2.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         if (!CheckIfEHeroesDead())
         {
-            if (wavespawner.EnemiesAlive >= 3)
+            if (EnemiesAlive >= 3)
             {
                 StartCoroutine(Enemy3());
             }
@@ -325,11 +326,11 @@ public class UI : MonoBehaviour
             }
         }
     }
-    IEnumerator Enemy3()
+    IEnumerator Enemy3()//preparing for third enemy if it is turn, updating ui
     {
         panel.SetActive(false);
         turns = BattleState.Enemy3;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         if (!enemy3.IsDead && !CheckIfEHeroesDead())
         {
             enemy = enemy3;
@@ -337,10 +338,10 @@ public class UI : MonoBehaviour
             enemy3.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         if (!CheckIfEHeroesDead())
         {
-            if (wavespawner.EnemiesAlive == 4)
+            if (EnemiesAlive == 4)
             {
                 StartCoroutine(Enemy4());
             }
@@ -350,11 +351,11 @@ public class UI : MonoBehaviour
             }
         }
     }
-    IEnumerator Enemy4()
+    IEnumerator Enemy4()//preparing for fourth enemy if it is turn, updating ui
     {
         panel.SetActive(false);
         turns = BattleState.Enemy4;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         if (!enemy4.IsDead && !CheckIfEHeroesDead())
         {
             enemy = enemy4;
@@ -362,16 +363,16 @@ public class UI : MonoBehaviour
             enemy4.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         if (!CheckIfEHeroesDead())
         {
             StartCoroutine(Hero1());
         }
     }
-    void CheckIfEnemiesDead()
+    void CheckIfEnemiesDead()//chek if enemies dead, spawn enemy or win level if it true
     {
-        if(!wavespawner.IsBoss)
-        {
+       if(!wavespawner.IsBoss)
+       {
         if (enemy1.IsDead && !CheckIsEnemiesDead[0])
         {
             CheckIsEnemiesDead[0] = true;
@@ -413,7 +414,7 @@ public class UI : MonoBehaviour
         }
         else if (wavespawner.EnemiesAlive <= 0 && wavespawner.waveIndex < 3)
         {
-            wavespawner.SpawnWave();
+            StartCoroutine(SpawnWave());
             EnemiesAlive = wavespawner.EnemiesAlive;
             StartCoroutine(StartingHUD());
             for (int i = 0; i <= 3; i++)
@@ -426,13 +427,18 @@ public class UI : MonoBehaviour
         {
             WinLevel();
         }
-    }
+       }
         else if (enemy1.IsDead && wavespawner.IsBoss)
         {
             WinLevel();
         }
     }
-    bool CheckIfEHeroesDead()
+    IEnumerator SpawnWave()
+    {
+        yield return new WaitForSeconds(3f);
+        wavespawner.SpawnWave();
+    }
+    bool CheckIfEHeroesDead()// chek if both heroes dead, if it true lose level
     {
         if(hero1.IsDead && hero2.IsDead)
         {
@@ -443,7 +449,7 @@ public class UI : MonoBehaviour
         return false;
     }
 
-    private void Skill1()
+    private void Skill1()//if player chossing 1 skill, activate panel for enemy choosing
     {
         if(turns == BattleState.Hero1)
         {
@@ -455,7 +461,7 @@ public class UI : MonoBehaviour
         }
         panel.SetActive(true);
     }
-    private void Skill2()
+    private void Skill2()//if player chossing 2 skill, activate panel for enemy choosing
     {
         if (turns == BattleState.Hero1)
         {
@@ -467,7 +473,7 @@ public class UI : MonoBehaviour
         }
         panel.SetActive(true);
     }
-    private void Skill3()
+    private void Skill3()//if player chossing 3 skill, activate panel for enemy choosing
     {
         if (turns == BattleState.Hero1)
         {
@@ -479,7 +485,7 @@ public class UI : MonoBehaviour
         }
         panel.SetActive(true);
     }
-    private void Skill4()
+    private void Skill4()//if player chossing 4 skill, activate panel for enemy choosing
     {
         if (turns == BattleState.Hero1)
         {
@@ -491,7 +497,7 @@ public class UI : MonoBehaviour
         }
         panel.SetActive(true);
     }
-    public void ChoosingEnemy(Button btn)
+    public void ChoosingEnemy(Button btn)//choosing enemy of a hero skill
     {
             if (btn.name == "1")
             {
@@ -533,7 +539,7 @@ public class UI : MonoBehaviour
                 }
             } 
     }
-    public void ChoosingSkill(Button btn)
+    public void ChoosingSkill(Button btn)//using choosed skill
     {
         if (btn.name == "Skill1")
         {
@@ -609,7 +615,7 @@ public class UI : MonoBehaviour
             }
         }
     }
-    private void EnemyAttack() // simple recursive function choosing the hero will be attacked by enemy 
+    private void EnemyAttack() // simple recursive function choosing which hero will be attacked by enemy 
     {
             if ((UnityEngine.Random.Range(1, 11) % 2) != 0)
             {
@@ -628,11 +634,11 @@ public class UI : MonoBehaviour
             }
             }
     }
-    private void SkillScreenHero ()
+    private void SkillScreenHero ()//Enabling screen of taking damage by hero
     {
         st.Blood(hero.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length * 0.65f);
     }
-    private void SkillScreenEnemy()
+    private void SkillScreenEnemy()//Enabling screen of taking damage by enemy
     {
         st.Blood(enemy.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length * 0.65f);
     }

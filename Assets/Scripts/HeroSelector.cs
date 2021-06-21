@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿// Script for Screen of choosing hero and level int hub location
+using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
@@ -19,7 +20,7 @@ public class HeroSelector : MonoBehaviour
     private Button savebtn2;
 
     private int index = 0;
-    void Update ()
+    void Update ()//activating button "Play" in the screen of choosing heroes when you pick 2 heroes
     {
     if (index==2)
         {
@@ -30,7 +31,7 @@ public class HeroSelector : MonoBehaviour
             startbutton.gameObject.SetActive(false);
         }
     }
-     public void Indexplus(Button btn)
+     public void Indexplus(Button btn)// If you pick hero rise counter and save hero you have choosen
      {
         index++;
         if (index == 1)
@@ -50,7 +51,7 @@ public class HeroSelector : MonoBehaviour
             savebtn2 = btn;
         }
     }
-    public void indexminus(Button btn)
+    public void indexminus(Button btn)// if you cancel picking of hero decrease counter and delete saved data of hero
     {
         if (index == 1)
         {
@@ -65,11 +66,11 @@ public class HeroSelector : MonoBehaviour
         btn.gameObject.SetActive(false);
         
     }
-    public void MapNameToFile()
+    public void MapNameToFile()// saving Level name in file for loading
     {
         DataTransition.MapNameToFile(this);
     }
-    public void SetMapname(Button btn)
+    public void SetMapname(Button btn)// Choosing Level
     {
         MapName = btn.name;
     }
@@ -77,7 +78,7 @@ public class HeroSelector : MonoBehaviour
     {
         SceneManager.LoadScene("Loading");
     }
-    public void SetBossTrue()
+    public void SetBossTrue()// If you choos boss location boolean will load settings for boss levels
     {
         Isboss = true;
     }

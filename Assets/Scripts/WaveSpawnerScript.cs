@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// Script for spawning waves and etc on level
+using UnityEngine;
+using System.Linq;
 public class WaveSpawnerScript : MonoBehaviour
 {
 	public Vector3 EnemyPosition1 = new Vector3(50, -140, 0);
@@ -26,7 +28,9 @@ public class WaveSpawnerScript : MonoBehaviour
 	public Enemy enemy4;
 
 	public bool IsBoss = false;
-	void Start()
+
+	private int [] RandomEnemies = Enumerable.Range(0, 28).ToArray();
+	void Start()//load from files data for heroes and level
     {
 		Time.timeScale = 1;
 		hero1 = heroes[DataTransition.MapNameFromFile().heroIndex1 - 1];
@@ -48,7 +52,7 @@ public class WaveSpawnerScript : MonoBehaviour
 		GameObject.Find(hero2.HeroName + "(Clone)").GetComponent<Player>().Attack4 = hero2.Attack4;
 		GameObject.Find(hero2.HeroName + "(Clone)").GetComponent<Player>().Death = hero2.Death;
 		IsBoss = DataTransition.MapNameFromFile().Isboss;
-		if (IsBoss)
+		if (IsBoss)//if boss level, spawn boss,else spawn wave
         {
 		EnemiesAlive = 1;
 		SpawnBoss();
@@ -58,15 +62,20 @@ public class WaveSpawnerScript : MonoBehaviour
 			SpawnWave();
 		}
 	}
-	public void SpawnWave()
+	public void SpawnWave()//spawning waves
 	{
-		EnemiesAlive = Random.Range(2,5);
-		for (int i = 1; i <= EnemiesAlive; i++)
+		EnemiesAlive = Random.Range(2,5);//choosing random size of enemy party from 2 to 4
+		for (int i = 1; i <= EnemiesAlive; i++)// radnomly choosing enemies from pool
 		{
 			EnemyNumber = Random.Range(0, enemies.Length);
+			while(RandomEnemies[EnemyNumber] == -1)
+            {
+				EnemyNumber = Random.Range(0, enemies.Length);
+			}//spawning enemies on positions from 1 to 4, saving enemies in file for next loading if it will be
 			if(i==1)
             {
-				enemy1 = enemies[EnemyNumber];
+				enemy1 = enemies[RandomEnemies[EnemyNumber]];
+				RandomEnemies[EnemyNumber] = -1;
 				enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
 				DataTransition.EnemyToFile(EnemyNumber, enemies);
 				SpawnEnemy(enemy1.EnemyObject, i);
@@ -75,7 +84,8 @@ public class WaveSpawnerScript : MonoBehaviour
 			}
 			else if (i == 2)
 			{
-				enemy2 = enemies[EnemyNumber];
+				enemy2 = enemies[RandomEnemies[EnemyNumber]];
+				RandomEnemies[EnemyNumber] = -1;
 				enemy2.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy2.EnemyName;
 				DataTransition.EnemyToFile(EnemyNumber, enemies);
 				SpawnEnemy(enemy2.EnemyObject, i);
@@ -84,7 +94,8 @@ public class WaveSpawnerScript : MonoBehaviour
 			}
 			else if (i == 3)
 			{
-				enemy3 = enemies[EnemyNumber];
+				enemy3 = enemies[RandomEnemies[EnemyNumber]];
+				RandomEnemies[EnemyNumber] = -1;
 				enemy3.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy3.EnemyName;
 				DataTransition.EnemyToFile(EnemyNumber, enemies);
 				SpawnEnemy(enemy3.EnemyObject, i);
@@ -93,7 +104,8 @@ public class WaveSpawnerScript : MonoBehaviour
 			}
 			else if (i == 4)
 			{
-				enemy4 = enemies[EnemyNumber];
+				enemy4 = enemies[RandomEnemies[EnemyNumber]];
+				RandomEnemies[EnemyNumber] = -1;
 				enemy4.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy4.EnemyName;
 				DataTransition.EnemyToFile(EnemyNumber, enemies);
 				SpawnEnemy(enemy4.EnemyObject, i);
@@ -101,9 +113,9 @@ public class WaveSpawnerScript : MonoBehaviour
 				GameObject.Find(enemy4.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy4.Death;
 			}
 		}
-		waveIndex++;
+		waveIndex++;//rise index of waves (max 3 waves)
 	}
-	void SpawnBoss()
+	void SpawnBoss()//spawning boss only on boss locations
     {
 		if(DataTransition.MapNameFromFile().mapName == "Castle3")
         {
@@ -148,7 +160,7 @@ public class WaveSpawnerScript : MonoBehaviour
 			Instantiate(Bosses[5].EnemyObject, BossPosition, Quaternion.identity);
 		}
 	}
-	void SpawnEnemy(GameObject enemy,int n)
+	void SpawnEnemy(GameObject enemy,int n)//spawn choosed enemy
 	{
 		if(n==1)
         {
@@ -167,7 +179,7 @@ public class WaveSpawnerScript : MonoBehaviour
 			Instantiate(enemy, EnemyPosition4, Quaternion.identity);
 		}
 	}
-	void SpawnHero(GameObject hero, int n)
+	void SpawnHero(GameObject hero, int n)//spawn hero
     {
 		if (n == 1)
 		{

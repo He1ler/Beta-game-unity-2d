@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Script for some bosses
+//Moving unit to the point including animationes
+using UnityEngine;
 
 public class CrabScript : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class CrabScript : MonoBehaviour
     }
     void Update ()
     {
+        //Start moving
         if (!Pausemenu.GameisPaused && !target)
         {
             lenght -= Time.deltaTime*size;

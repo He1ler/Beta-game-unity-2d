@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//Script for Hero unit
+using UnityEngine;
 using System.Collections;
 public class Player : MonoBehaviour {
 
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour {
     public AudioClip Attack4;
     public AudioClip Death;
     public AudioSource AS;
-    void Start()
+    void Start()//loading characteristics of hero from data files
     {
         Time.timeScale = 1;
         hd = DataTransition.HeroFromFile(HeroName);
@@ -190,7 +191,7 @@ public class Player : MonoBehaviour {
                 m_animator.SetInteger("AnimState", 0);
         }
     }
-    public void Set_Recovery()
+    public void Set_Recovery()//recoverieng from death (heroes dont die but fall down and should recover their hurts few rounds) 
     {
             health += 2*(MaxHealth / 10);
             if (health >= MaxHealth)
@@ -206,8 +207,8 @@ public class Player : MonoBehaviour {
     }
     public void Set_Skill1()
     {
-            if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[0])
-            {
+            if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[0])//as wizard's first skill have constant enemies it will be done automatically
+        {
                 Vector3 SpelPos;
                 Vector3 EnemyPos;
                 SpelPos  = GameObject.Find(ui.hero.HeroName + "(Clone)").transform.position;
@@ -221,7 +222,7 @@ public class Player : MonoBehaviour {
                 Spel.GetComponent<Projectile>().Starting(EnemyPos);
                 ui.enemy1.Set_Hurt(Skill1Damage);          
             }
-        else if (!ui.enemy.IsDead && !IsDead)
+        else if (!ui.enemy.IsDead && !IsDead)//skill script for other heroes
         {
             m_animator.SetTrigger("Skill1");
             ui.enemy.Set_Hurt(Skill1Damage);
@@ -233,7 +234,7 @@ public class Player : MonoBehaviour {
     {
         if (!IsDead)
         {
-            if (HeroName == "Wizard" && !ui.CheckIsEnemiesDead[0] && !ui.CheckIsEnemiesDead[1])
+            if (HeroName == "Wizard" && !ui.CheckIsEnemiesDead[0] && !ui.CheckIsEnemiesDead[1])//as wizard's first skill have constant enemies it will be done automatically
             {
                 Vector3 SpelPos;
                 Vector3 EnemyPos;
@@ -249,7 +250,7 @@ public class Player : MonoBehaviour {
                 ui.enemy1.Set_Hurt(Skill2Damage);
                 ui.enemy2.Set_Hurt(Skill2Damage);
             }
-            else if (!ui.enemy.IsDead)
+            else if (!ui.enemy.IsDead)//skill script for other heroes
             {
                 m_animator.SetTrigger("Skill2");
                 ui.enemy.Set_Hurt(Skill2Damage);
@@ -260,7 +261,7 @@ public class Player : MonoBehaviour {
     }
     public void Set_Skill3()
     {
-        if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[2] && !ui.CheckIsEnemiesDead[1])
+        if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[2] && !ui.CheckIsEnemiesDead[1])//as wizard's first skill have constant enemies it will be done automatically
         {
             Vector3 EnemyPos;
             EnemyPos = GameObject.Find(ui.enemy2.EnemyName + "(Clone)").transform.position;
@@ -272,12 +273,12 @@ public class Player : MonoBehaviour {
             ui.enemy2.Set_Hurt(Skill3Damage);
             ui.enemy3.Set_Hurt(Skill3Damage);
         }
-        else if (HeroName == "GirlKnight")
+        else if (HeroName == "GirlKnight")//as Girls's first skill have not it will be done automatically
         {
-            m_animator.SetTrigger("Skill2");
+            m_animator.SetTrigger("Skill3");
             health += 50;
         }
-        else if (!ui.enemy.IsDead && !IsDead)
+        else if (!ui.enemy.IsDead && !IsDead)//skill script for other heroes
         {
             m_animator.SetTrigger("Skill3");
                 ui.enemy.Set_Hurt(Skill3Damage);
@@ -287,8 +288,8 @@ public class Player : MonoBehaviour {
     }
     public void Set_Skill4()
     {
-            if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[2] && !ui.CheckIsEnemiesDead[3] && !ui.CheckIsEnemiesDead[1])
-            {
+            if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[2] && !ui.CheckIsEnemiesDead[3] && !ui.CheckIsEnemiesDead[1])//as wizard's first skill have constant enemies it will be done automatically
+        {
                 Vector3 EnemyPos;
                 EnemyPos = GameObject.Find(ui.enemy3.EnemyName + "(Clone)").transform.position;
                 EnemyPos.y += 44;
@@ -301,12 +302,12 @@ public class Player : MonoBehaviour {
                 ui.enemy3.Set_Hurt(Skill4Damage);
                 ui.enemy4.Set_Hurt(Skill4Damage);
             }
-        else if (HeroName == "Brother")
+        else if (HeroName == "Brother")//as brother's first skill have not it will be done automatically
         {
-            m_animator.SetTrigger("Skill2");
+            m_animator.SetTrigger("Skill4");
             health = 100;
         }
-        else if (!ui.enemy.IsDead && !IsDead)
+        else if (!ui.enemy.IsDead && !IsDead)//skill script for other heroes
         {
             m_animator.SetTrigger("Skill4");
             ui.enemy.Set_Hurt(Skill4Damage);
@@ -314,79 +315,4 @@ public class Player : MonoBehaviour {
         AS.clip = Attack4;
         AS.Play();
     }
-    /*
-        private Animator m_animator;
-    [SerializeField] GameObject Explosion;
-    [SerializeField] GameObject FireExplosion;
-    [SerializeField] GameObject Fireball;
-    [SerializeField] GameObject Fireblast;
-    public bool Explosioni = false;
-    public bool Fireballi = false;
-    [SerializeField] Sensor SpellsensorEXP;
-    [SerializeField] Sensor Spellsensor;
-    void Start()
-    {
-        m_animator = GetComponent<Animator>();
-        SpellsensorEXP = transform.Find("SpellsensorEXP").GetComponent<Sensor>();
-        Spellsensor = transform.Find("Spellsensor").GetComponent<Sensor>();
-    }
-    void Update ()
-    {
-        Vector3 spawnPosition3;
-        Vector2 spawnPosition2;
-        if (Input.GetKeyDown("1"))
-        {
-            Fireballi = true;
-            spawnPosition3 = Spellsensor.transform.position;
-            if (Fireball != null)
-            {
-                // Set correct arrow spawn position
-                GameObject dust = Instantiate(Fireball, spawnPosition3, gameObject.transform.localRotation) as GameObject;
-                // Turn arrow in correct direction
-                dust.transform.localScale = new Vector3(1, 1, 1);
-            }
-            m_animator.SetBool("Fireballi", Fireballi);
-        }
-        else if (Input.GetKeyDown("2"))
-        {
-            Fireballi = true;
-            spawnPosition3 = Spellsensor.transform.position;
-            if (Fireblast != null)
-            {
-                // Set correct arrow spawn position
-                GameObject dust = Instantiate(Fireblast, spawnPosition3, gameObject.transform.localRotation) as GameObject;
-                // Turn arrow in correct direction
-                dust.transform.localScale = new Vector3(1, 1, 1);
-            }
-            m_animator.SetBool("Fireballi", Fireballi);
-        }
-        else if (Input.GetKeyDown("3"))
-        {
-            Explosioni = true;
-            spawnPosition2 = SpellsensorEXP.transform.position;
-            if (Explosion != null)
-            {
-                // Set correct arrow spawn position
-                GameObject dust = Instantiate(Explosion, spawnPosition2, gameObject.transform.localRotation) as GameObject;
-                // Turn arrow in correct direction
-                dust.transform.localScale = new Vector2(1, 1);
-                m_animator.SetBool("Explosioni", Explosioni);
-            }
-        }
-        else if (Input.GetKeyDown("4"))
-        {
-            Explosioni = true;
-            spawnPosition2 = SpellsensorEXP.transform.position;
-            if (FireExplosion != null)
-            {
-                // Set correct arrow spawn position
-                GameObject dust = Instantiate(FireExplosion, spawnPosition2, gameObject.transform.localRotation) as GameObject;
-                // Turn arrow in correct direction
-                dust.transform.localScale = new Vector2(1, 1);
-            }
-            m_animator.SetBool("Explosioni", Explosioni);
-            m_animator.SetBool("Explosioni", Explosioni);
-        }
-    }
-     */
 }

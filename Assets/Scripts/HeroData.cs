@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-
+﻿//Hero data which save health and damage of Hero unit into data variable "HeroData"
 [System.Serializable]
 public class HeroData
 {
@@ -8,7 +7,7 @@ public class HeroData
     public int Skill2Damage;
     public int Skill3Damage;
     public int Skill4Damage;
-    public HeroData(Hero ws)
+    public HeroData(Hero ws)//save health and damage of Hero unit into data
     {
         health = ws.health;
         Skill1Damage = ws.Skill1Damage;

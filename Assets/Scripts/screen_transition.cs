@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//Script for screen transitions (before and after loading,taking hit)
+using UnityEngine;
 using System.Collections;
 public class screen_transition : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class screen_transition : MonoBehaviour
         animator.SetTrigger("End");
     }
 
-    public void Blood (float f)
+    public void Blood (float f)//while unit takes hit screen paints red
     {
         StartCoroutine(BloodI(f));
     }

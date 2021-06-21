@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿// Script for Loading mechanic in game
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ public class Loading : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider slider;
-    public IEnumerator Start()
+    public IEnumerator Start()//forcing Coroutining of fuction which load level
     {
         yield return new WaitForSecondsRealtime(3.0f);
         LoadLevel();
@@ -16,7 +17,7 @@ public class Loading : MonoBehaviour
     {
         StartCoroutine(LoadingAsync(DataTransition.MapNameFromFile().mapName));
     }
-    IEnumerator LoadingAsync (string scene)
+    IEnumerator LoadingAsync (string scene)//copying Level name to function and load propper level and copuing progress of loading to Load Screen slider
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
         while(!operation.isDone)

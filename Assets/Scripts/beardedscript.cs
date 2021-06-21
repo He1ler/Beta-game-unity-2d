@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// Script for "bearded" krip and "hatman" krip on the "hub location"
+//unit comming from start point to endpoint and conversely
+using UnityEngine;
 
 public class beardedscript : MonoBehaviour
 {
@@ -37,9 +39,9 @@ public class beardedscript : MonoBehaviour
         }
 
         m_time -= 1;
-
+        //start moving from start point to endpoint and conversely
         if (m_time <= 0 && m_grounded && !Pausemenu.GameisPaused)
-        {
+        {//from start point to endpoint
             if (leftright == false)
             {
                 transform.position = Vector2.MoveTowards(transform.position, walkingChangeXY2, m_speed * Time.deltaTime);
@@ -50,8 +52,8 @@ public class beardedscript : MonoBehaviour
                     leftright = !leftright;
                     m_time = 5001;
                 }
-            }
-            else
+            }//from endpoint to start point
+            else 
             {
                 transform.position = Vector2.MoveTowards(transform.position, walkingChangeXY1, m_speed*Time.deltaTime);
                 m_animator.SetInteger("AnimState", 1);

@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿// Script for enemies units
+using UnityEngine;
 using System.Collections;
-using UnityEngine.Audio;
 public class Monsterscript : MonoBehaviour
 {
     private Animator m_animator;
@@ -15,7 +15,7 @@ public class Monsterscript : MonoBehaviour
     public AudioClip Death;
     private EnemyData ed;
     public AudioSource AS;
-    void Start()
+    void Start()// loading data from files in the objects
     {
         Time.timeScale = 1;
         ed = DataTransition.EnemyFromFile(EnemyName);
@@ -26,7 +26,7 @@ public class Monsterscript : MonoBehaviour
         m_animator = GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>();
         AS = GameObject.Find(EnemyName + "(Clone)").GetComponent<AudioSource>();
     }
-    public void Set_Death()
+    public void Set_Death()// Script for death of enemy unit
     {
         if (!Pausemenu.GameisPaused)
         {
@@ -34,7 +34,7 @@ public class Monsterscript : MonoBehaviour
             AS.clip = Death;
             AS.Play();
             IsDead = true;
-            if (EnemyName == "burning-ghoul")
+            if (EnemyName == "burning-ghoul")//special unit for which death using function
             {
                 burningghoul();
                 Destroy(this.gameObject, (GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length));
@@ -45,7 +45,7 @@ public class Monsterscript : MonoBehaviour
             }         
         }
     }
-    public void Set_Hurt(int hp)
+    public void Set_Hurt(int hp)// taking damage by enemies
     {
         StartCoroutine(Set_HurtI(hp, GameObject.Find(ui.hero.HeroName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length * 0.7f));
     }
@@ -74,14 +74,14 @@ public class Monsterscript : MonoBehaviour
             { }
         }
     }
-    public void Set_Attack()
+    public void Set_Attack()// Enemy Attack
     {
         if (!Pausemenu.GameisPaused &&(!ui.hero.IsDead)&& (!IsDead))
         {
             m_animator.SetTrigger("Attack");
             AS.clip = Attack;
             AS.Play();
-            if (EnemyName == "burning-ghoul")
+            if (EnemyName == "burning-ghoul") //special unit for which attack using function
             {
                 burningghoul();
             }
@@ -91,7 +91,7 @@ public class Monsterscript : MonoBehaviour
             }
         }
     }
-    void burningghoul ()
+    void burningghoul ()//special unit that in death can damage heroes
     {
         if(IsDead)
         {
