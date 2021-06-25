@@ -4,9 +4,13 @@ using UnityEngine.SceneManagement;
 using static DataTransition;
 public class Mainmenu : MonoBehaviour
 {
-    public void Play()// Button play loades level
+    public void Play()// For button "New game" starting new game
     {
         MapNameToFileMenu("Hub location");
+        SceneManager.LoadScene("Loading");
+    }
+    public void Continue()
+    {
         SceneManager.LoadScene("Loading");
     }
     public void Exit()

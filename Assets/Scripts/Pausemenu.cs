@@ -8,11 +8,11 @@ public class Pausemenu : MonoBehaviour
     public GameObject SettingsUI;
     public GameObject PausepanelUI;
     public GameObject Sound;
-    private AudioSource audio;
+    private AudioSource Audio;
     void Start()
     {
         Time.timeScale = 1;
-        audio = Sound.GetComponent<AudioSource>();
+        Audio = Sound.GetComponent<AudioSource>();
     }
     void Update ()
     {
@@ -34,7 +34,7 @@ public class Pausemenu : MonoBehaviour
         PausemenuUI.SetActive(true);
         PausepanelUI.SetActive(true);
         Time.timeScale = 0f;
-        audio.Pause();
+        Audio.Pause();
     }
     public void Resume()
     {
@@ -42,7 +42,7 @@ public class Pausemenu : MonoBehaviour
         SettingsUI.SetActive(false);
         PausemenuUI.SetActive(false);
         Time.timeScale = 1f;
-        audio.UnPause();
+        Audio.UnPause();
     }
     public void Exit()
     {

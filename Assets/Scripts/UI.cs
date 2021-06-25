@@ -548,6 +548,7 @@ public class UI : MonoBehaviour
             {
                 panel.SetActive(false);
                 Skill1();
+                panel.SetActive(false);
                 SkillScreenHero();
                 FromHero();
             }
@@ -559,6 +560,7 @@ public class UI : MonoBehaviour
             {
                 panel.SetActive(false);
                 Skill2();
+                panel.SetActive(false);
                 SkillScreenHero();
                 FromHero();
             }
@@ -570,6 +572,7 @@ public class UI : MonoBehaviour
             {
                 panel.SetActive(false);
                 Skill3();
+                panel.SetActive(false);
                 SkillScreenHero();
                 FromHero();
             }
@@ -581,6 +584,7 @@ public class UI : MonoBehaviour
             {
                 panel.SetActive(false);
                 Skill4();
+                panel.SetActive(false);
                 SkillScreenHero();
                 FromHero();
             }
@@ -594,21 +598,25 @@ public class UI : MonoBehaviour
                 if (skillchoose == "Skill1")
                 {
                     Skill1();
+                    panel.SetActive(false);
                     SkillScreenHero();
                 }
                 else if (skillchoose == "Skill2")
                 {
                     Skill2();
+                    panel.SetActive(false);
                     SkillScreenHero();
                 }
                 else if (skillchoose == "Skill3")
                 {
                     Skill3();
+                    panel.SetActive(false);
                     SkillScreenHero();
                 }
                 else if (skillchoose == "Skill4")
                 {
                     Skill4();
+                    panel.SetActive(false);
                     SkillScreenHero();
                 }
                 FromHero();
