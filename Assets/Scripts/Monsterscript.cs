@@ -19,7 +19,7 @@ public class Monsterscript : MonoBehaviour
     {
         Time.timeScale = 1;
         ed = DataTransition.EnemyFromFile(EnemyName);
-        health = ed.health;
+        health = ed.Currenthp;
         MaxHealth = ed.health;
         AttackDamage = ed.AttackDamage;
         ui = GameObject.Find("UI").GetComponent<UI>();
@@ -57,6 +57,7 @@ public class Monsterscript : MonoBehaviour
         {
             m_animator.SetTrigger("Hurt");
             health -= hp;
+            DataTransition.EnemyHPToFile(name, hp);
             if(health<=0)
             {
                 health = 0;

@@ -85,6 +85,10 @@ public class UI : MonoBehaviour
         gameObject.GetComponent<AudioSource>().clip = music[musicnumbers[0]];
         gameObject.GetComponent<AudioSource>().PlayDelayed(1);
         musiclength = gameObject.GetComponent<AudioSource>().clip.length + 1.0f;
+        if (DataTransition.MapNameFromFile().IsLoading)
+        {
+            turns = DataTransition.MapNameFromFile().turns;
+        }
     }
     void Music()//continueing of musics tracks 
     {
@@ -106,6 +110,7 @@ public class UI : MonoBehaviour
         HPCheck();
         CheckIfEHeroesDead();
         CheckIfEnemiesDead();
+
     }
     IEnumerator StartingHUD()//starting levels configuration, heroes pictures, skill pictures, etc in UI
     {

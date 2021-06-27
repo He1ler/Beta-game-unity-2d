@@ -76,6 +76,7 @@ public class HeroSelector : MonoBehaviour
     }
     public void StartLevel()
     {
+        DataTransition.IsLoadToFileMenu(false,false);
         SceneManager.LoadScene("Loading");
     }
     public void SetBossTrue()// If you choos boss location boolean will load settings for boss levels

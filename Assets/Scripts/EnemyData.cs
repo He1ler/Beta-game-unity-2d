@@ -5,9 +5,14 @@ public class EnemyData
 {
     public int health;
     public int AttackDamage;
-    public EnemyData(Enemy ws)//save health and damage of enemy unit into data
+    public int Currenthp;
+    public EnemyData(Enemy ws)//save max health and damage of enemy unit into data
     {
         health = ws.health;
         AttackDamage = ws.AttackDamage;
+    }
+    public EnemyData(int ws)//save current health of enemy unit into data
+    {
+        Currenthp = ws;
     }
 }

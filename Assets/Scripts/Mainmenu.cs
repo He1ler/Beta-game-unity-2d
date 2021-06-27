@@ -1,16 +1,17 @@
 ﻿// Script for main menu
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static DataTransition;
 public class Mainmenu : MonoBehaviour
 {
     public void Play()// For button "New game" starting new game
     {
-        MapNameToFileMenu("Hub location");
+        DataTransition.MapNameToFileMenu("Hub location");
+        DataTransition.IsLoadToFileMenu(false,true);
         SceneManager.LoadScene("Loading");
     }
     public void Continue()
     {
+        DataTransition.IsLoadToFileMenu(true,false);
         SceneManager.LoadScene("Loading");
     }
     public void Exit()
