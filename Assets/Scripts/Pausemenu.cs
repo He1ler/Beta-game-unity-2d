@@ -44,7 +44,7 @@ public class Pausemenu : MonoBehaviour
         Time.timeScale = 1f;
         Audio.UnPause();
     }
-    public void Exit()
+    public static void Exit()
     {
         Application.Quit();
     }

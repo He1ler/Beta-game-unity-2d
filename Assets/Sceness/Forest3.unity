@@ -9665,7 +9665,7 @@ MonoBehaviour:
   m_Color: {r: 0.7735849, g: 0.76797456, b: 0.63857245, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0.05
-  m_ApplyToSortingLayers: 0000000065fb296bc1c91ba473ff4168bf7d1741b7e84f128b064776
+  m_ApplyToSortingLayers: 0000000065fb296bc1c91ba473ff4168bf7d1741
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -10309,7 +10309,7 @@ MonoBehaviour:
   m_Color: {r: 0.21563174, g: 0.3679245, b: 0.1995817, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0.1
-  m_ApplyToSortingLayers: 0000000065fb296bc1c91ba473ff4168bf7d1741b7e84f128b064776
+  m_ApplyToSortingLayers: 0000000065fb296bc1c91ba473ff4168bf7d1741
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -11540,7 +11540,7 @@ MonoBehaviour:
   m_Color: {r: 0.21563174, g: 0.3679245, b: 0.1995817, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0.1
-  m_ApplyToSortingLayers: 0000000065fb296bc1c91ba473ff4168bf7d1741b7e84f128b064776
+  m_ApplyToSortingLayers: 0000000065fb296bc1c91ba473ff4168bf7d1741
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0

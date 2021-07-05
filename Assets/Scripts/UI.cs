@@ -69,6 +69,7 @@ public class UI : MonoBehaviour
         StartCoroutine(StartingHUD());
         InvokeRepeating("updating", 3.0f, 1.0f);
         InvokeRepeating("Music", 2.0f, 1.0f);
+        InvokeRepeating("SaveGame", 10.0f, 30.0f);
         for (int i = 0; i < 8; i++)//setup random array of music for level
         {
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7 };
@@ -85,10 +86,6 @@ public class UI : MonoBehaviour
         gameObject.GetComponent<AudioSource>().clip = music[musicnumbers[0]];
         gameObject.GetComponent<AudioSource>().PlayDelayed(1);
         musiclength = gameObject.GetComponent<AudioSource>().clip.length + 1.0f;
-        if (DataTransition.MapNameFromFile().IsLoading)
-        {
-            turns = DataTransition.MapNameFromFile().turns;
-        }
     }
     void Music()//continueing of musics tracks 
     {
@@ -133,12 +130,10 @@ public class UI : MonoBehaviour
         enemy4Slider.gameObject.SetActive(false);
         enemy4HPText.gameObject.SetActive(false);
 
-        hero1 = GameObject.Find(wavespawner.hero1.HeroName + "(Clone)").GetComponent<Player>();
-        hero2 = GameObject.Find(wavespawner.hero2.HeroName + "(Clone)").GetComponent<Player>();
+        hero1 = GameObject.Find(wavespawner.hero1.HeroObject.name + "(Clone)").GetComponent<Player>();
+        hero2 = GameObject.Find(wavespawner.hero2.HeroObject.name + "(Clone)").GetComponent<Player>();
         enemy1 = GameObject.Find(wavespawner.enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>();
 
-        hero1.health = hero1.MaxHealth;
-        hero2.health = hero2.MaxHealth;
         if (wavespawner.IsBoss)
         {
             enemy = enemy1;
@@ -218,6 +213,7 @@ public class UI : MonoBehaviour
     {
         turns = BattleState.Hero1;
         yield return new WaitForSeconds(3f);
+        SaveHP();
         if (hero1.IsDead)
         {
             hero1.Set_Recovery();
@@ -655,6 +651,18 @@ public class UI : MonoBehaviour
     {
         st.Blood(enemy.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length * 0.65f);
     }
+    private void SaveHP()
+    {
+        if (wavespawner.IsBoss || EnemiesAlive == 1)
+        { GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().SaveHp(enemy1.health, 0, 0, 0, hero1.health, hero2.health); }
+        else if (EnemiesAlive == 2)
+        { GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().SaveHp(enemy1.health, enemy2.health, 0, 0, hero1.health, hero2.health); }
+        else if (EnemiesAlive == 3)
+        { GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().SaveHp(enemy1.health, enemy2.health, enemy3.health, 0, hero1.health, hero2.health); }
+        else
+        { GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().SaveHp(enemy1.health, enemy2.health, enemy3.health, enemy4.health, hero1.health, hero2.health); }
+    }
+
 }
 
 

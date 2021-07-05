@@ -19,8 +19,8 @@ public class Monsterscript : MonoBehaviour
     {
         Time.timeScale = 1;
         ed = DataTransition.EnemyFromFile(EnemyName);
-        health = ed.Currenthp;
         MaxHealth = ed.health;
+        health = MaxHealth;
         AttackDamage = ed.AttackDamage;
         ui = GameObject.Find("UI").GetComponent<UI>();
         m_animator = GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>();
@@ -57,7 +57,7 @@ public class Monsterscript : MonoBehaviour
         {
             m_animator.SetTrigger("Hurt");
             health -= hp;
-            DataTransition.EnemyHPToFile(name, hp);
+            //DataTransition.EnemyToFile(name, hp);
             if(health<=0)
             {
                 health = 0;

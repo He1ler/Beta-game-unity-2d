@@ -9,8 +9,8 @@ public class Enemy {
     public string EnemyName;
 	const int size = 1;
 
-	public static int MaxHealth = 100;
-	public int health = 100;
+	public int MaxHealth = 100;
+	//public int health = 100;
     public int AttackDamage = 10;
 	// sound of attacking or death of enemy unit
 	public AudioClip Attack;

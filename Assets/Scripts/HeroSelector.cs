@@ -68,7 +68,7 @@ public class HeroSelector : MonoBehaviour
     }
     public void MapNameToFile()// saving Level name in file for loading
     {
-        DataTransition.MapNameToFile(this);
+        GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().SaveDataForLoadLevel(this);
     }
     public void SetMapname(Button btn)// Choosing Level
     {
@@ -76,7 +76,10 @@ public class HeroSelector : MonoBehaviour
     }
     public void StartLevel()
     {
-        DataTransition.IsLoadToFileMenu(false,false);
+        if (GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().TransitDataToCurrent().IsNewGame == false)
+        { GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().LoadOrNewGame(false, false);
+        }
+
         SceneManager.LoadScene("Loading");
     }
     public void SetBossTrue()// If you choos boss location boolean will load settings for boss levels

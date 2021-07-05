@@ -38,7 +38,7 @@ public class Player : MonoBehaviour {
     {
         Time.timeScale = 1;
         hd = DataTransition.HeroFromFile(HeroName);
-        health = hd.Currenthp;
+        health = hd.health;
         Skill1Damage = hd.Skill1Damage;
         Skill2Damage = hd.Skill2Damage;
         Skill3Damage = hd.Skill3Damage;
@@ -175,7 +175,7 @@ public class Player : MonoBehaviour {
         {
             m_animator.SetTrigger("Hurt");
             health -= hp;
-            DataTransition.HeroHPToFile(HeroName, hp);
+           // DataTransition.HeroHPToFile(HeroName, hp);
             if (health <= 0)
             {
                 health = 0;

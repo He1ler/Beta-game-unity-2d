@@ -31,64 +31,64 @@ public class WaveSpawnerScript : MonoBehaviour
 
 	private int [] RandomEnemies = Enumerable.Range(0, 28).ToArray();
 	void Start()//load from files data for heroes and level
-    {
+	{
 		Time.timeScale = 1;
-		if(DataTransition.MapNameFromFile().IsNewGame)
-        {
+		if (DataTransition.MapNameFromFile().IsNewGame)
+		{
 			NewGame();
-        }
+		}
 		hero1 = heroes[DataTransition.MapNameFromFile().heroIndex1 - 1];
 		hero2 = heroes[DataTransition.MapNameFromFile().heroIndex2 - 1];
-		hero1.HeroObject.GetComponent<Player>().HeroName = hero1.HeroName;
-		hero2.HeroObject.GetComponent<Player>().HeroName = hero2.HeroName;
+		hero1.HeroObject.GetComponent<Player>().HeroName = hero1.HeroObject.name;
+		hero2.HeroObject.GetComponent<Player>().HeroName = hero2.HeroObject.name;
 		SpawnHero(hero1.HeroObject, 1);
-		GameObject.Find(hero1.HeroName + "(Clone)").GetComponent<Player>().Attack1 = hero1.Attack1;
-		GameObject.Find(hero1.HeroName + "(Clone)").GetComponent<Player>().Attack2 = hero1.Attack2;
-		GameObject.Find(hero1.HeroName + "(Clone)").GetComponent<Player>().Attack3 = hero1.Attack3;
-		GameObject.Find(hero1.HeroName + "(Clone)").GetComponent<Player>().Attack4 = hero1.Attack4;
-		GameObject.Find(hero1.HeroName + "(Clone)").GetComponent<Player>().Death = hero1.Death;
+		GameObject.Find(hero1.HeroObject.name + "(Clone)").GetComponent<Player>().Attack1 = hero1.Attack1;
+		GameObject.Find(hero1.HeroObject.name + "(Clone)").GetComponent<Player>().Attack2 = hero1.Attack2;
+		GameObject.Find(hero1.HeroObject.name + "(Clone)").GetComponent<Player>().Attack3 = hero1.Attack3;
+		GameObject.Find(hero1.HeroObject.name + "(Clone)").GetComponent<Player>().Attack4 = hero1.Attack4;
+		GameObject.Find(hero1.HeroObject.name + "(Clone)").GetComponent<Player>().Death = hero1.Death;
 		SpawnHero(hero2.HeroObject, 2);
-		GameObject.Find(hero2.HeroName + "(Clone)").GetComponent<Player>().Attack1 = hero2.Attack1;
-		GameObject.Find(hero2.HeroName + "(Clone)").GetComponent<Player>().Attack2 = hero2.Attack2;
-		GameObject.Find(hero2.HeroName + "(Clone)").GetComponent<Player>().Attack3 = hero2.Attack3;
-		GameObject.Find(hero2.HeroName + "(Clone)").GetComponent<Player>().Attack4 = hero2.Attack4;
-		GameObject.Find(hero2.HeroName + "(Clone)").GetComponent<Player>().Death = hero2.Death;
+		GameObject.Find(hero2.HeroObject.name + "(Clone)").GetComponent<Player>().Attack1 = hero2.Attack1;
+		GameObject.Find(hero2.HeroObject.name + "(Clone)").GetComponent<Player>().Attack2 = hero2.Attack2;
+		GameObject.Find(hero2.HeroObject.name + "(Clone)").GetComponent<Player>().Attack3 = hero2.Attack3;
+		GameObject.Find(hero2.HeroObject.name + "(Clone)").GetComponent<Player>().Attack4 = hero2.Attack4;
+		GameObject.Find(hero2.HeroObject.name + "(Clone)").GetComponent<Player>().Death = hero2.Death;
 		IsBoss = DataTransition.MapNameFromFile().Isboss;
-		if (IsBoss)//if boss level, spawn boss,else spawn wave
-        {
-		EnemiesAlive = 1;
-		SpawnBoss();
-        }
-		else if (DataTransition.MapNameFromFile().IsLoading)
-        {
+		if (DataTransition.MapNameFromFile().IsLoading)
+		{
 			LoadLevel();
-        }
-        else
-        {
-			DataTransition.HeroHPToFile(hero1.HeroName, DataTransition.HeroFromFile(hero1.HeroName).health);
-			DataTransition.HeroHPToFile(hero2.HeroName, DataTransition.HeroFromFile(hero2.HeroName).health);
+		}
+		else if (IsBoss)//if boss level, spawn boss,else spawn wave
+		{
+			EnemiesAlive = 1;
+			waveIndex = 1;
+			SpawnBoss();
+		}
+		else
+		{
 			SpawnWave();
 		}
+
 	}
 	public void SpawnWave()//spawning waves
 	{
-		EnemiesAlive = Random.Range(2,5);//choosing random size of enemy party from 2 to 4
+		RandomEnemies = Enumerable.Range(0, 28).ToArray();
+		EnemiesAlive = Random.Range(2, 5);//choosing random size of enemy party from 2 to 4
 		for (int i = 1; i <= EnemiesAlive; i++)// radnomly choosing enemies from pool
 		{
 			EnemyNumber = Random.Range(0, enemies.Length);
-			while(RandomEnemies[EnemyNumber] == -1)
-            {
+			while (RandomEnemies[EnemyNumber] == -1)
+			{
 				EnemyNumber = Random.Range(0, enemies.Length);
 			}//spawning enemies on positions from 1 to 4, saving enemies in file for next loading if it will be
-			if(i==1)
-            {
+			if (i == 1)
+			{
 				enemy1 = enemies[RandomEnemies[EnemyNumber]];
 				RandomEnemies[EnemyNumber] = -1;
 				enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
 				SpawnEnemy(enemy1.EnemyObject, i);
 				GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy1.Attack;
 				GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy1.Death;
-				DataTransition.EnemyHPToFile(enemy1.EnemyName,DataTransition.EnemyFromFile(enemy1.EnemyName).health);
 			}
 			else if (i == 2)
 			{
@@ -98,7 +98,6 @@ public class WaveSpawnerScript : MonoBehaviour
 				SpawnEnemy(enemy2.EnemyObject, i);
 				GameObject.Find(enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy2.Attack;
 				GameObject.Find(enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy2.Death;
-				DataTransition.EnemyHPToFile(enemy2.EnemyName, DataTransition.EnemyFromFile(enemy2.EnemyName).health);
 			}
 			else if (i == 3)
 			{
@@ -108,7 +107,6 @@ public class WaveSpawnerScript : MonoBehaviour
 				SpawnEnemy(enemy3.EnemyObject, i);
 				GameObject.Find(enemy3.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy3.Attack;
 				GameObject.Find(enemy3.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy3.Death;
-				DataTransition.EnemyHPToFile(enemy3.EnemyName, DataTransition.EnemyFromFile(enemy3.EnemyName).health);
 			}
 			else if (i == 4)
 			{
@@ -118,10 +116,10 @@ public class WaveSpawnerScript : MonoBehaviour
 				SpawnEnemy(enemy4.EnemyObject, i);
 				GameObject.Find(enemy4.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy4.Attack;
 				GameObject.Find(enemy4.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy4.Death;
-				DataTransition.EnemyHPToFile(enemy4.EnemyName, DataTransition.EnemyFromFile(enemy4.EnemyName).health);
 			}
 		}
 		waveIndex++;//rise index of waves (max 3 waves)
+		SaveGame();
 	}
 
 	public void LoadLevel()//load level
@@ -131,45 +129,57 @@ public class WaveSpawnerScript : MonoBehaviour
 		for (int i = 1; i <= EnemiesAlive; i++)
 		{
 			//spawning enemies on positions from 1 to 4
-			if (i == 1&&DataTransition.EnemyFromFile(enemies[DataTransition.MapNameFromFile().enemyIndex1].EnemyName).Currenthp<=0)
+			if (i == 1 && DataTransition.MapNameFromFile().enemyIndex1 != -1)
 			{
-				enemy1 = enemies[DataTransition.MapNameFromFile().enemyIndex1];
-				enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
-				SpawnEnemy(enemy1.EnemyObject, DataTransition.MapNameFromFile().enemyPosition1);
-				GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy1.Attack;
-				GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy1.Death;
+				if (i == 1 && GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().TransitDataToCurrent().enemyhp1 > 0)
+				{
+					enemy1 = enemies[DataTransition.MapNameFromFile().enemyIndex1];
+					enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
+					SpawnEnemy(enemy1.EnemyObject,1);
+					GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy1.Attack;
+					GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy1.Death;
+				}
 			}
-			else if (i == 2 && DataTransition.EnemyFromFile(enemies[DataTransition.MapNameFromFile().enemyIndex2].EnemyName).Currenthp <= 0)
+			else if (i == 2 && DataTransition.MapNameFromFile().enemyIndex2 != -1)
 			{
-				enemy2 = enemies[DataTransition.MapNameFromFile().enemyIndex2];
-				enemy2.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy2.EnemyName;
-				SpawnEnemy(enemy2.EnemyObject, DataTransition.MapNameFromFile().enemyPosition2);
-				GameObject.Find(enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy2.Attack;
-				GameObject.Find(enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy2.Death;
+				if (i == 2 && GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().TransitDataToCurrent().enemyhp2 > 0)
+				{
+					enemy2 = enemies[DataTransition.MapNameFromFile().enemyIndex2];
+					enemy2.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy2.EnemyName;
+					SpawnEnemy(enemy2.EnemyObject,2);
+					GameObject.Find(enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy2.Attack;
+					GameObject.Find(enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy2.Death;
+				}
 			}
-			else if (i == 3 && DataTransition.EnemyFromFile(enemies[DataTransition.MapNameFromFile().enemyIndex3].EnemyName).Currenthp <= 0)
+			else if (i == 3 && DataTransition.MapNameFromFile().enemyIndex3 != -1)
 			{
-				enemy3= enemies[DataTransition.MapNameFromFile().enemyIndex3];
-				enemy3.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy3.EnemyName;
-				SpawnEnemy(enemy3.EnemyObject, DataTransition.MapNameFromFile().enemyPosition3);
-				GameObject.Find(enemy3.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy3.Attack;
-				GameObject.Find(enemy3.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy3.Death;
+				if (i == 3 && GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().TransitDataToCurrent().enemyhp3 > 0)
+				{
+					enemy3 = enemies[DataTransition.MapNameFromFile().enemyIndex3];
+					enemy3.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy3.EnemyName;
+					SpawnEnemy(enemy3.EnemyObject,3);
+					GameObject.Find(enemy3.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy3.Attack;
+					GameObject.Find(enemy3.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy3.Death;
+				}
 			}
-			else if (i == 4 && DataTransition.EnemyFromFile(enemies[DataTransition.MapNameFromFile().enemyIndex4].EnemyName).Currenthp <= 0)
+			else if (i == 4 && DataTransition.MapNameFromFile().enemyIndex4 != -1)
 			{
-				enemy4 = enemies[DataTransition.MapNameFromFile().enemyIndex4];
-				enemy4.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy4.EnemyName;
-				SpawnEnemy(enemy4.EnemyObject, DataTransition.MapNameFromFile().enemyPosition4);
-				GameObject.Find(enemy4.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy4.Attack;
-				GameObject.Find(enemy4.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy4.Death;
+				if (i == 4 && GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().TransitDataToCurrent().enemyhp4 > 0)
+				{
+					enemy4 = enemies[DataTransition.MapNameFromFile().enemyIndex4];
+					enemy4.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy4.EnemyName;
+					SpawnEnemy(enemy4.EnemyObject,4);
+					GameObject.Find(enemy4.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy4.Attack;
+					GameObject.Find(enemy4.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy4.Death;
+				}
 			}
 		}
 	}
 
-	public void NewGame ()
-    {
-		for (int i=0;i<8;i++)
-        {
+	public void NewGame()
+	{
+		for (int i = 0; i < 8; i++)
+		{
 			DataTransition.HeroToFile(i, heroes);
 		}
 		for (int i = 0; i < 28; i++)
@@ -180,6 +190,7 @@ public class WaveSpawnerScript : MonoBehaviour
 		{
 			DataTransition.EnemyToFile(i, Bosses);
 		}
+		GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().LoadOrNewGame(false, false);
 	}
 	void SpawnBoss()//spawning boss only on boss locations
     {
@@ -250,5 +261,28 @@ public class WaveSpawnerScript : MonoBehaviour
 			Instantiate(hero, HeroPosition2, Quaternion.identity);
 		}
 	}
+	void SaveGame()
+    {
+		int[] IndexsArrays = {-1,-1,-1,-1};
+		int j = 0;
+		for (int i=0; i<28;i++)
+        {
+			if(RandomEnemies[i]==-1)
+            {
+				IndexsArrays[j] = i;
+				j++;
+            }
+        }
+		GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().SaveEnemiesdata(IndexsArrays[0], IndexsArrays[1], IndexsArrays[2], IndexsArrays[3], waveIndex, EnemiesAlive);
+		if (IsBoss || EnemiesAlive == 1)
+		{ GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().SaveHp(GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().health, 0, 0, 0, GameObject.Find(hero1.HeroObject.name + "(Clone)").GetComponent<Player>().health, GameObject.Find(hero2.HeroObject.name + "(Clone)").GetComponent<Player>().health); }
+		else if (EnemiesAlive == 2)
+		{ GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().SaveHp(GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().health, GameObject.Find(enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>().health, 0, 0, GameObject.Find(hero1.HeroObject.name + "(Clone)").GetComponent<Player>().health, GameObject.Find(hero2.HeroObject.name + "(Clone)").GetComponent<Player>().health); }
+		else if (EnemiesAlive == 3)
+		{ GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().SaveHp(GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().health, GameObject.Find(enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>().health, GameObject.Find(enemy3.EnemyName + "(Clone)").GetComponent<Monsterscript>().health,0, GameObject.Find(hero1.HeroObject.name + "(Clone)").GetComponent<Player>().health, GameObject.Find(hero2.HeroObject.name + "(Clone)").GetComponent<Player>().health); }
+		else
+		{ GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().SaveHp(GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().health, GameObject.Find(enemy2.EnemyName + "(Clone)").GetComponent<Monsterscript>().health, GameObject.Find(enemy3.EnemyName + "(Clone)").GetComponent<Monsterscript>().health, GameObject.Find(enemy4.EnemyName + "(Clone)").GetComponent<Monsterscript>().health, GameObject.Find(hero1.HeroObject.name + "(Clone)").GetComponent<Player>().health, GameObject.Find(hero2.HeroObject.name + "(Clone)").GetComponent<Player>().health); }
+		
 
+	}
 }

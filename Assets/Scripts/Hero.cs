@@ -20,8 +20,8 @@ public class Hero
     public string Skill4Name;
 
     // characteristics of hero unit
-    public static int MaxHealth = 100;
-    public int health = 100;
+    public int MaxHealth = 100;
+   // public int health = 100;
 
     public int Skill1Damage=10;
     public int Skill2Damage=15;
