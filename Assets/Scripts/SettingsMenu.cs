@@ -11,11 +11,13 @@ public class SettingsMenu : MonoBehaviour
     public Dropdown GrafhicDropdown;
     public Toggle setFullscreen;
     Resolution[] resolutions;
-    void Start()
+    int valuelevel=0;
+    void Awake()
     {
         Time.timeScale = 1;
         setFullscreen.isOn = Screen.fullScreen;
-        GrafhicDropdown.value = QualitySettings.GetQualityLevel();
+        valuelevel = QualitySettings.GetQualityLevel();
+        GrafhicDropdown.value = valuelevel;
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         int currentresolution = 0;
