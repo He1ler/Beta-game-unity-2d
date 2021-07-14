@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 6578068541911413508}
   - component: {fileID: 7912379575988978552}
   - component: {fileID: 1607705104946815896}
-  - component: {fileID: 3447633778663233298}
   m_Layer: 5
   m_Name: LoadingCanvas
   m_TagString: Untagged
@@ -221,20 +220,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3447633778663233298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3817359634435351956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c20d79944c81b24fb1057e209483196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadingScreen: {fileID: 3817359634435351956}
-  slider: {fileID: 566346897232603175}
 --- !u!1 &4014054626110761796
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +378,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.01
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

@@ -13,6 +13,7 @@ public class UI : MonoBehaviour
     public BattleState turns;
     public bool[] CheckIsEnemiesDead = {false,false,false,false};
     static int EnemiesAlive;
+    bool GameOver = false;
 
     public GameObject gameOverUI;
     public GameObject completeLevelUI;
@@ -22,7 +23,6 @@ public class UI : MonoBehaviour
 
     int[] musicnumbers = new int[8];
     int musicnumber = 1;
-    float musiclength = 0.0f;
 
     public GameObject panel;
 
@@ -85,16 +85,13 @@ public class UI : MonoBehaviour
         }
         gameObject.GetComponent<AudioSource>().clip = music[musicnumbers[0]];
         gameObject.GetComponent<AudioSource>().PlayDelayed(1);
-        musiclength = gameObject.GetComponent<AudioSource>().clip.length + 1.0f;
     }
     void Music()//continueing of musics tracks 
     {
-        musiclength -= 1.0f;
-        if (musiclength < 0)
+        if (!gameObject.GetComponent<AudioSource>().isPlaying&&!GameOver)
         {
             gameObject.GetComponent<AudioSource>().clip = music[musicnumbers[musicnumber]];
             gameObject.GetComponent<AudioSource>().Play();
-            musiclength = gameObject.GetComponent<AudioSource>().clip.length;
             musicnumber++;
             if (musicnumber == 7)
             {
@@ -169,11 +166,17 @@ public class UI : MonoBehaviour
     }
     void LoseLevel()
     {
+        GameOver = true;
+        enemy1Slider.gameObject.SetActive(false);
+        enemy1HPText.gameObject.SetActive(false);
         gameOverUI.SetActive(true);
         gameObject.GetComponent<AudioSource>().Stop();
     }
     void WinLevel()
     {
+        GameOver = true;
+        enemy1Slider.gameObject.SetActive(false);
+        enemy1HPText.gameObject.SetActive(false);
         completeLevelUI.SetActive(true);
         gameObject.GetComponent<AudioSource>().Stop();
     }
@@ -212,7 +215,7 @@ public class UI : MonoBehaviour
     IEnumerator Hero1()//preparing for first hero turn, updating ui
     {
         turns = BattleState.Hero1;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         SaveHP();
         if (hero1.IsDead)
         {
@@ -233,13 +236,13 @@ public class UI : MonoBehaviour
             skill3.image.sprite = wavespawner.hero1.Skill3Image;
             skill4.image.sprite = wavespawner.hero1.Skill4Image;
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         panel.SetActive(false);
     }
     IEnumerator Hero2()//preparing for second hero turn, updating ui
     {
         turns = BattleState.Hero2;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         if (hero2.IsDead)
         {
             hero2.Set_Recovery();
@@ -261,7 +264,7 @@ public class UI : MonoBehaviour
             skill3.image.sprite = wavespawner.hero2.Skill3Image;
             skill4.image.sprite = wavespawner.hero2.Skill4Image;
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         panel.SetActive(false);
     }
     public void FromHero()
@@ -293,7 +296,7 @@ public class UI : MonoBehaviour
             enemy1.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         if (!CheckIfEHeroesDead())
         {
             if (!wavespawner.IsBoss)
@@ -314,7 +317,7 @@ public class UI : MonoBehaviour
             enemy2.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         if (!CheckIfEHeroesDead())
         {
             if (EnemiesAlive >= 3)
@@ -339,7 +342,7 @@ public class UI : MonoBehaviour
             enemy3.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         if (!CheckIfEHeroesDead())
         {
             if (EnemiesAlive == 4)
@@ -364,7 +367,7 @@ public class UI : MonoBehaviour
             enemy4.Set_Attack();
             SkillScreenEnemy();
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         if (!CheckIfEHeroesDead())
         {
             StartCoroutine(Hero1());
@@ -581,14 +584,18 @@ public class UI : MonoBehaviour
         else if (btn.name == "Skill4" && !CheckIsEnemiesDead[3] && !CheckIsEnemiesDead[1] && !CheckIsEnemiesDead[2])
         {
             skillchoose = btn.name;
-            if ((hero.HeroName == "Brother" || hero.HeroName == "Wizard") && EnemiesAlive >= 4)
+            if (hero.HeroName == "Brother" && hero.health == 100)
             {
-                panel.SetActive(false);
-                Skill4();
-                panel.SetActive(false);
-                SkillScreenHero();
-                FromHero();
             }
+            else if ((hero.HeroName == "Brother" || hero.HeroName == "Wizard") && EnemiesAlive >= 4)
+            {
+              panel.SetActive(false);
+              Skill4();
+              panel.SetActive(false);
+              SkillScreenHero();
+              FromHero();
+            }
+
         }
 
         if(wavespawner.IsBoss)
@@ -651,7 +658,7 @@ public class UI : MonoBehaviour
     {
         st.Blood(enemy.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length * 0.65f);
     }
-    private void SaveHP()
+    private void SaveHP()// Saving hp of enemies and heroes for next posible load
     {
         if (wavespawner.IsBoss || EnemiesAlive == 1)
         { GameObject.Find("SaveLoadSystem").GetComponent<SaveLoadSystem>().SaveHp(enemy1.health, 0, 0, 0, hero1.health, hero2.health); }

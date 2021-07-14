@@ -4,7 +4,6 @@ using System.Collections;
 public class screen_transition : MonoBehaviour
 {
     public Animator animator;
-    public GameObject LoadCan;
     void Start ()
     {
         Time.timeScale = 1;
@@ -35,6 +34,5 @@ public class screen_transition : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         StartDarkSreen();
-        LoadCan.SetActive(false);
     }
 }

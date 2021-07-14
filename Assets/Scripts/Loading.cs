@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Loading : MonoBehaviour
 {
-    public GameObject loadingScreen;
     public Slider slider;
     public IEnumerator Start()//forcing Coroutining of fuction which load level
     {
@@ -23,7 +22,8 @@ public class Loading : MonoBehaviour
         while(!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / .9f);
-            slider.value = progress;
+            if (progress >= 0.1f)
+            { slider.value = progress; }
                 yield return null;
         }
     }

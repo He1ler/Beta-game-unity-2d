@@ -230,6 +230,8 @@ public class WaveSpawnerScript : MonoBehaviour
 			enemy1.EnemyObject.GetComponent<Monsterscript>().EnemyName = enemy1.EnemyName;
 			Instantiate(Bosses[5].EnemyObject, BossPosition, Quaternion.identity);
 		}
+		GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().Attack = enemy1.Attack;
+		GameObject.Find(enemy1.EnemyName + "(Clone)").GetComponent<Monsterscript>().Death = enemy1.Death;
 	}
 	void SpawnEnemy(GameObject enemy,int n)//spawn choosed enemy
 	{
