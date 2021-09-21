@@ -73,6 +73,7 @@ public class HeroSelector : MonoBehaviour
     public void SetMapname(Button btn)// Choosing Level
     {
         MapName = btn.name;
+        Isboss = false;
     }
     public void StartLevel()
     {

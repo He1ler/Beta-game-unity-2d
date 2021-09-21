@@ -208,21 +208,21 @@ public class Player : MonoBehaviour {
     }
     public void Set_Skill1()
     {
-            if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[0])//as wizard's first skill have constant enemies it will be done automatically
+        if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[0])//as wizard's first skill have constant enemies it will be done automatically
         {
-                Vector3 SpelPos;
-                Vector3 EnemyPos;
-                SpelPos  = GameObject.Find(ui.hero.HeroName + "(Clone)").transform.position;
-                EnemyPos = GameObject.Find(ui.enemy1.EnemyName + "(Clone)").transform.position;
-                SpelPos.x += 85;
-                SpelPos.y += 44;
-                EnemyPos.y += 44;
-                EnemyPos.x -= 44;
-                m_animator.SetTrigger("Skill1");
-                GameObject Spel = Instantiate(FireBlast, SpelPos, Quaternion.identity) as GameObject;
-                Spel.GetComponent<Projectile>().Starting(EnemyPos);
-                ui.enemy1.Set_Hurt(Skill1Damage);          
-            }
+            Vector3 SpelPos;
+            Vector3 EnemyPos;
+            SpelPos  = GameObject.Find(ui.hero.HeroName + "(Clone)").transform.position;
+            EnemyPos = GameObject.Find(ui.enemy1.EnemyName + "(Clone)").transform.position;
+            SpelPos.x += 85;
+            SpelPos.y += 44;
+            EnemyPos.y += 44;
+            EnemyPos.x -= 44;
+            m_animator.SetTrigger("Skill1");
+            GameObject Spel = Instantiate(FireBlast, SpelPos, Quaternion.identity) as GameObject;
+            Spel.GetComponent<Projectile>().Starting(EnemyPos);
+            ui.enemy1.Set_Hurt(Skill1Damage);          
+        }
         else if (!ui.enemy.IsDead && !IsDead)//skill script for other heroes
         {
             m_animator.SetTrigger("Skill1");
@@ -262,7 +262,7 @@ public class Player : MonoBehaviour {
     }
     public void Set_Skill3()
     {
-        if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[2] && !ui.CheckIsEnemiesDead[1])//as wizard's first skill have constant enemies it will be done automatically
+        if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[2] && !ui.CheckIsEnemiesDead[1])//as wizard's 3 skill have constant enemies it will be done automatically
         {
             Vector3 EnemyPos;
             EnemyPos = GameObject.Find(ui.enemy2.EnemyName + "(Clone)").transform.position;
@@ -274,7 +274,7 @@ public class Player : MonoBehaviour {
             ui.enemy2.Set_Hurt(Skill3Damage);
             ui.enemy3.Set_Hurt(Skill3Damage);
         }
-        else if (HeroName == "GirlKnight")//as Girls's first skill have not it will be done automatically
+        else if (HeroName == "GirlKnight" && !IsDead)//as Girls's first skill have not attack it will be done automatically
         {
             m_animator.SetTrigger("Skill3");
             health += 50;
@@ -289,21 +289,21 @@ public class Player : MonoBehaviour {
     }
     public void Set_Skill4()
     {
-            if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[2] && !ui.CheckIsEnemiesDead[3] && !ui.CheckIsEnemiesDead[1])//as wizard's first skill have constant enemies it will be done automatically
+        if (HeroName == "Wizard" && !IsDead && !ui.CheckIsEnemiesDead[2] && !ui.CheckIsEnemiesDead[3] && !ui.CheckIsEnemiesDead[1])//as wizard's 4 skill have constant enemies it will be done automatically
         {
-                Vector3 EnemyPos;
-                EnemyPos = GameObject.Find(ui.enemy3.EnemyName + "(Clone)").transform.position;
-                EnemyPos.y += 44;
-                EnemyPos.x += 164;
-                m_animator.SetTrigger("Skill4");
-                GameObject Spel = Instantiate(BlackExplosion, EnemyPos, Quaternion.identity) as GameObject;
-                Spel.transform.Rotate(0f, 0f, -92f);
-                Destroy(Spel.gameObject, Spel.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-                ui.enemy2.Set_Hurt(Skill4Damage);
-                ui.enemy3.Set_Hurt(Skill4Damage);
-                ui.enemy4.Set_Hurt(Skill4Damage);
-            }
-        else if (HeroName == "Brother")//as brother's first skill have not it will be done automatically
+        Vector3 EnemyPos;
+        EnemyPos = GameObject.Find(ui.enemy3.EnemyName + "(Clone)").transform.position;
+        EnemyPos.y += 44;
+        EnemyPos.x += 164;
+        m_animator.SetTrigger("Skill4");
+        GameObject Spel = Instantiate(BlackExplosion, EnemyPos, Quaternion.identity) as GameObject;
+        Spel.transform.Rotate(0f, 0f, -92f);
+        Destroy(Spel.gameObject, Spel.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        ui.enemy2.Set_Hurt(Skill4Damage);
+        ui.enemy3.Set_Hurt(Skill4Damage);
+        ui.enemy4.Set_Hurt(Skill4Damage);
+        }
+        else if (HeroName == "Brother" && !IsDead)//as brother's first skill have not attack it will be done automatically
         {
             m_animator.SetTrigger("Skill4");
             health = 100;

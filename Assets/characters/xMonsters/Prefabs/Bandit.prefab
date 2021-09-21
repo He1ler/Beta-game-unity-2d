@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 1540285432489843247}
   - component: {fileID: -8160006831974149873}
   m_Layer: 0
-  m_Name: Bandit sniper
+  m_Name: Bandit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee698867992c1a4d9a99b9895cc452e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyName: Bandit sniper
+  EnemyName: Bandit
   health: 0
   AttackDamage: 0
   MaxHealth: 0

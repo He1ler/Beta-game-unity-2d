@@ -55,7 +55,7 @@ MonoBehaviour:
   enemies:
   - EnemyObject: {fileID: 9196232834713474243, guid: 949d48fb9f131f64d910d18d81710a94,
       type: 3}
-    EnemyName: Bandit sniper
+    EnemyName: Bandit
     MaxHealth: 100
     AttackDamage: 10
     Attack: {fileID: 8300000, guid: 502e913959660f545b2fedf9628f20cf, type: 3}

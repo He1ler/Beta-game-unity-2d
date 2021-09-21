@@ -37,7 +37,7 @@ public class Monsterscript : MonoBehaviour
             if (EnemyName == "burning-ghoul")//special unit for which death using function
             {
                 burningghoul();
-                Destroy(this.gameObject, (GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length));
+                Destroy(this.gameObject, (GameObject.Find(EnemyName + "(Clone)").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 0.5f));
             }
             else
             {
@@ -53,9 +53,14 @@ public class Monsterscript : MonoBehaviour
     public IEnumerator Set_HurtI(int hp, float f)
     {
         yield return new WaitForSeconds(f);
-        if (!Pausemenu.GameisPaused && (!IsDead))
+        if (!Pausemenu.GameisPaused && !IsDead)
         {
             m_animator.SetTrigger("Hurt");
+            if (EnemyName == "burning-ghoul")//special unit for which death using function
+            {
+                health = 0;
+                Set_Death();
+            }
             health -= hp;
             //DataTransition.EnemyToFile(name, hp);
             if(health<=0)
@@ -67,7 +72,7 @@ public class Monsterscript : MonoBehaviour
     }
     public void Set_Idle()
     {
-        if (!Pausemenu.GameisPaused && (!IsDead))
+        if (!Pausemenu.GameisPaused && !IsDead)
         {
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
@@ -77,14 +82,14 @@ public class Monsterscript : MonoBehaviour
     }
     public void Set_Attack()// Enemy Attack
     {
-        if (!Pausemenu.GameisPaused &&(!ui.hero.IsDead)&& (!IsDead))
+        if (!Pausemenu.GameisPaused && !ui.hero.IsDead && !IsDead)
         {
             m_animator.SetTrigger("Attack");
             AS.clip = Attack;
             AS.Play();
             if (EnemyName == "burning-ghoul") //special unit for which attack using function
             {
-                burningghoul();
+                Set_Death();
             }
             else
             {
@@ -94,45 +99,25 @@ public class Monsterscript : MonoBehaviour
     }
     void burningghoul ()//special unit that in death can damage heroes
     {
-        if(IsDead)
-        {
             if (!ui.hero.IsDead)
             {
                 ui.hero.Set_Hurt(AttackDamage);
             }
-            if (!ui.enemy1.IsDead && ui.enemy1.EnemyName != "burning-ghoul")
+            if (!ui.CheckIsEnemiesDead[0] && ui.enemy1.EnemyName != "burning-ghoul")
             {
                 ui.enemy1.Set_Hurt(AttackDamage);
             }
-            if (!ui.enemy2.IsDead && ui.enemy2.EnemyName != "burning-ghoul")
+            if (!ui.CheckIsEnemiesDead[1] && ui.enemy2.EnemyName != "burning-ghoul")
             {
                 ui.enemy2.Set_Hurt(AttackDamage);
             }
-            if(ui.wavespawner.EnemiesAlive>=3)
+            if(!ui.CheckIsEnemiesDead[2] && ui.enemy1.EnemyName != "burning-ghoul")
             {
-                if (!ui.enemy3.IsDead && ui.enemy3.EnemyName != "burning-ghoul")
-                {
                     ui.enemy3.Set_Hurt(AttackDamage);
-                }
             }
-            if (ui.wavespawner.EnemiesAlive >= 4)
+            if (!ui.CheckIsEnemiesDead[3] && ui.enemy1.EnemyName != "burning-ghoul")
             {
-                if (!ui.enemy4.IsDead && ui.enemy4.EnemyName != "burning-ghoul")
-                {
                     ui.enemy4.Set_Hurt(AttackDamage);
-                }
             }
-        }
-        else
-        {
-            if (!ui.hero1.IsDead)
-            {
-                ui.hero1.Set_Hurt(AttackDamage);
-            }
-            if (!ui.hero2.IsDead)
-            {
-                ui.hero2.Set_Hurt(AttackDamage);
-            }
-        }
     }
 }
